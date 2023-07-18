@@ -1,0 +1,84 @@
+custom_formepa.formafpn:
+  path: '/aprovechamiento_forestal_pnaturales'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormAF'
+    _title: 'Viabilidad de Tala Y Poda Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formafpj:
+  path: '/aprovechamiento_forestal_pjuridicas'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormAFj'
+    _title: 'Viabilidad de Tala Y Poda Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formapmn:
+  path: '/pmovil_pnaturales'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormPMn'
+    _title: 'Viabilidad de Publicidad Móvil Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formapmj:
+  path: '/pmovil_pjuridicas'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormPMj'
+    _title: 'Viabilidad de Publicidad Móvil Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formapfn:
+  path: '/pfija_pnaturales'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormPFn'
+    _title: 'Viabilidad de Publicidad Fija Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formapfj:
+  path: '/pfija_pjuridicas'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormPFj'
+    _title: 'Viabilidad de Publicidad Fija Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formaen:
+  path: '/eventos_pnaturales'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormEn'
+    _title: 'Viabilidad de Eventos Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formaej:
+  path: '/eventos_pjuridicas'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormEj'
+    _title: 'Viabilidad de Eventos Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formarsn:
+  path: '/rumbasegura_pnaturales'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormRSN'
+    _title: 'Rumba Segura Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_formepa.formarsj:
+  path: '/rumbasegura_pjuridicas'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\Liquidadorepa_FormRSJ'
+    _title: 'Rumba Segura Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_formepa.test_form:
+  path: '/test_form9'
+  defaults:
+    _form: '\Drupal\Liquidadorepa\Form\test'
+    _title: 'test'
+  requirements:
+    _permission: 'access content'
+Liquidadorepa.controller:
+  path: '/estadisticas'
+  defaults:
+    _controller: '\Drupal\Liquidadorepa\Controller\EController::content'
+    _title: 'Estadisticas'
+  requirements:
+    _permission: 'access content'

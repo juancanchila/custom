@@ -1,0 +1,66 @@
+custom_form.form:
+  path: '/Tala'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form'
+    _title: 'Tala Y Poda Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_form.form2:
+  path: '/Eventos'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_eventos'
+    _title: 'Viabilidad Eventos Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_form.form3:
+  path: '/publicidad_fija'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_publicidad'
+    _title: 'Viabilidad Publicidad Fija Persona Natural'
+  requirements:
+    _permission: 'access content'
+custom_form.form4:
+  path: '/publicidad_movil'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_publicidad_movil'
+    _title: 'Viabilidad Publicidad Móvil Persona Natural'
+  requirements:
+    _permission: 'access content'
+
+custom_form.form5:
+  path: '/Tala2'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form2'
+    _title: 'Tala Y Poda Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_form.form6:
+  path: '/Eventos2'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_eventos2'
+    _title: 'Viabilidad Eventos Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+custom_form.form7:
+  path: '/publicidad_fija2'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_publicidad2'
+    _title: 'Viabilidad Publicidad Fija Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+
+custom_form.form8:
+  path: '/publicidad_movil2'
+  defaults:
+    _form: '\Drupal\Liquidador1\Form\Liquidador1_Form_publicidad_movil2'
+    _title: 'Viabilidad Publicidad Móvil Persona Jurídica'
+  requirements:
+    _permission: 'access content'
+
+Liquidador1.controller:
+  path: '/factura'
+  defaults:
+    _controller: '\Drupal\Liquidador1\Controller\LController::content'
+    _title: 'Factura'
+  requirements:
+    _permission: 'access content'

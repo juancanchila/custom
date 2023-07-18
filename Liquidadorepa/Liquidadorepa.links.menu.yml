@@ -1,0 +1,6 @@
+Liquidadorepa.admin:
+  title: 'Form VITAC'
+  description: 'Vitac Liquidaciones'
+  parent: system.admin_config_development
+  route_name: Liquidadorepa.controller
+  weight: 100

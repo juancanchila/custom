@@ -1,0 +1,6 @@
+Liquidadorq1.admin:
+  title: 'Cruzar tablas'
+  description: 'Modulo Cruzar Tablas'
+  parent: system.admin_config_development
+  route_name: Liquidador2.controller
+  weight: 100

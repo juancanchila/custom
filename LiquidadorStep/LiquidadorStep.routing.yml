@@ -1,0 +1,16 @@
+custom_formStep.form:
+  path: '/TalaStep'
+  defaults:
+    _form: '\Drupal\LiquidadorStep\Form\LiquidadorStep_Form'
+    _title: 'Tala Y Poda Persona Natural'
+  requirements:
+    _permission: 'access content'
+
+
+LiquidadorStep.controller:
+  path: '/facturaStep'
+  defaults:
+    _controller: '\Drupal\LiquidadorStep\Controller\LController::content'
+    _title: 'Factura'
+  requirements:
+    _permission: 'access content'

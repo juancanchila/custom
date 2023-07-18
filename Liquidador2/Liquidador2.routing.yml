@@ -1,0 +1,15 @@
+custom_form2.form:
+  path: '/Cruzar_Tablas'
+  defaults:
+    _form: '\Drupal\Liquidador2\Form\Liquidador2_Form'
+    _title: 'Cruzar Asobancaria Vrs Registros Existentes'
+  requirements:
+    _permission: 'access content'
+
+Liquidador2.controller:
+  path: '/factura2'
+  defaults:
+    _controller: '\Drupal\Liquidador2\Controller\LController::content'
+    _title: 'Factura2'
+  requirements:
+    _permission: 'access content'
