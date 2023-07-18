@@ -1,14 +1,10 @@
-  name: 'Webform Handler: Validar Fechas'
+name: 'Webform Handler: Validar Fechas'
 type: module
 core_version_requirement: ^8 || ^9 || ^10
 package: 'Webform'
 dependencies:
   - webform:webform (>=8.x-5.x)
-description: |
+description: 
   Configurable handler for comparing two fields on a webform.
 
 
-# Information added by Drupal.org packaging script on 2023-07-01
-version: '2.0.1+2-dev'
-project: 'validar_fechas'
-datestamp: 1661270410
