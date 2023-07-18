@@ -50,7 +50,7 @@ class test extends FormBase {
       '#markup' => $this->t('This basic example shows a single text input element and a submit button'),
     ];
 
-    $form['title'] = [
+    $form['title.'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Title'),
       '#description' => $this->t('Title must be at least 5 characters in length.'),
