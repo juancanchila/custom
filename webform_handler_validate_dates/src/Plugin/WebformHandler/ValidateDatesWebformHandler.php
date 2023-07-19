@@ -34,12 +34,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
         parent::validateForm($form, $form_state, $webform_submission);
 	
-		
-	 $form_state->setValue('resumen_info','This value is .......');
-		
-      $data = $webform_submission->getData();
-  $data['resumen_info'] = 'New value';
-  $webform_submission->setData($data);
+	
 		
 		
         if (!$form_state->hasAnyErrors()) {
