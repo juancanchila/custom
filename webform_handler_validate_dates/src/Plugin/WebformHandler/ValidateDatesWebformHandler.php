@@ -89,7 +89,7 @@ $comparison ="<=";
 			  if ($diff_dias < 10) {
 				  //no alertar - > solo imprimir
               // $form_state->setErrorByName($this->form['fecha_final'], "Su solicitud es menos a 10 dias / ". date('Y-m-d', $hoy));
-			$this->messenger()->addStatus($this->t('Su solicitud es menos a 10 dias'));
+			//$this->messenger()->addStatus($this->t('Su solicitud es menos a 10 dias'));
             }
 				
 			 if (!is_numeric($id_legal)) {
