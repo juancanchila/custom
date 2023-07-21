@@ -31,10 +31,10 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
-     $this->submitMyFieldData($webform_submission);
+
         parent::validateForm($form, $form_state, $webform_submission);
 
-
+        $this->submitMyFieldData($webform_submission);
 
 
         if (!$form_state->hasAnyErrors()) {
