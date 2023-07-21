@@ -48,10 +48,17 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 			$diff = $date1->diff($date2);
 
+
+
+
+
 			$id_legal = $form_state->getValue('ndeg_de_documento_de_representante_legal_');
 
             $hoy  = new DrupalDateTime('now');
+            $diff_dias_now = $date1->diff($hoy);
 			$diff_dias = $date1->diff($hoy->modify('+12 day'));
+
+            this->messenger()->addStatus($this->t($diff.":/:".$diff_dias_now));
 $comparison ="<=";
 
         if ($date1 && $date2) {
