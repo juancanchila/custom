@@ -32,11 +32,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-
-
         parent::validateForm($form, $form_state, $webform_submission);
 
-       $this->submitMyFieldData($webform_submission);
+
 
 
         if (!$form_state->hasAnyErrors()) {
@@ -114,7 +112,7 @@ $comparison ="<=";
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-
+         $this->submitMyFieldData($webform_submission);
         if (!$form_state->hasAnyErrors()) {
             //Tu logica despues del submit
         }
@@ -130,13 +128,13 @@ $comparison ="<=";
     $data = $webform_submission->getData();
 
     // to get a value from a form field
-    $form_value = $data['duracion_del_evento_den_dias'];
+    $form_value = $data['my_field_machinename'];
 
     // to set the value of a form field
-    $data['duracion_del_evento_den_dias'] =  8;
+    $data['my_field_machinename'] = $form_value + 1;
 
     $webform_submission->setData($data);
-    $webform_submission->save();
+
   }
 
 }
