@@ -131,7 +131,7 @@ $comparison ="<=";
     $form_value = intval($data['duracion_del_evento_den_dias']);
 
     // to set the value of a form field
-    $data['duracion_del_evento_den_dias'] =  8;
+    $data['duracion_del_evento_den_dias'] =  "8";
 
     $webform_submission->setData($data);
     $webform_submission->save();
