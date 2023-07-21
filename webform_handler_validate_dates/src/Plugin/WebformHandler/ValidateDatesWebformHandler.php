@@ -31,21 +31,12 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
+        $page = $form_state->get('current_page');
+        $this->submitMyFieldData($webform_submission);
 
+        if ($page == 'datos_del_evento') {
+            	$this->messenger()->addStatus($this->t($page));
 
-
-        if ($form_state->get('current_page') == 'datos_del_evento') {
-           	$this->messenger()->addStatus($this->t('Datos del Evento'));
-
-               $data = $webform_submission->getData();
-
-    // to get a value from a form field
-    $form_value = $data['duracion_del_evento_den_dias'];
-
-    // to set the value of a form field
-    $data['duracion_del_evento_den_dias'] = $form_value + 1;
-
-    $webform_submission->setData($data);
 
          }
 
