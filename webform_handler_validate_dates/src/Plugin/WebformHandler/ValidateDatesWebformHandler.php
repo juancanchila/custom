@@ -32,6 +32,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
         $page = $form_state->get('current_page');
+
         $this->submitMyFieldData($webform_submission);
 
         if ($page == 'datos_del_evento') {
