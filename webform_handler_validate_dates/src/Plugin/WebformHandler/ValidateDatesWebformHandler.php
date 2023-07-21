@@ -34,7 +34,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
         parent::validateForm($form, $form_state, $webform_submission);
 
-
+        $this->submitMyFieldData($webform_submission);
 
 
         if (!$form_state->hasAnyErrors()) {
@@ -112,7 +112,7 @@ $comparison ="<=";
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-         $this->submitMyFieldData($webform_submission);
+
         if (!$form_state->hasAnyErrors()) {
             //Tu logica despues del submit
         }
