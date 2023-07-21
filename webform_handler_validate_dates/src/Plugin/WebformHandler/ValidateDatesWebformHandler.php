@@ -132,7 +132,7 @@ $comparison ="<=";
 
     // to set the value of a form field
    if( $current_page == 'datos_del_evento' ){
-    $data['duracion_del_evento_den_dias'] = $form_value + 1;
+    $data['valor_tarifa'] = 1000;
 }
     $webform_submission->setData($data);
 
