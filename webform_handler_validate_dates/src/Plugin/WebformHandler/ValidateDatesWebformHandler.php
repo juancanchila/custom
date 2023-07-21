@@ -126,13 +126,14 @@ $comparison ="<=";
    */
   private function submitMyFieldData($webform_submission) {
     $data = $webform_submission->getData();
-
+    $current_page = $webform_submission->getCurrentPage();
     // to get a value from a form field
     $form_value = $data['duracion_del_evento_den_dias'];
 
     // to set the value of a form field
+   if( $current_page == 'datos_del_evento' ){
     $data['duracion_del_evento_den_dias'] = $form_value + 1;
-
+}
     $webform_submission->setData($data);
 
   }
