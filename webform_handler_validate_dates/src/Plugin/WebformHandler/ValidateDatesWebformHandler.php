@@ -58,8 +58,10 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $diff_dias_now = $date1->diff($hoy);
 			$diff_dias = $date1->diff($hoy->modify('+12 day'));
 
-            this->messenger()->addStatus($this->t($diff.":/:".$diff_dias_now));
-$comparison ="<=";
+            $this->messenger()->addStatus($this->t($diff.":/:".$diff_dias_now));
+
+
+           $comparison ="<=";
 
         if ($date1 && $date2) {
 
