@@ -50,6 +50,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
+            $this->messenger()->addStatus($this->t("Print:".$diff ));
 
 			$id_legal = $form_state->getValue('ndeg_de_documento_de_representante_legal_');
 
