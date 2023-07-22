@@ -46,7 +46,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
 
-			$diff = $date1->diff($date2);
+			$diff =  $date1->diff($date2);
+
 
 
 
