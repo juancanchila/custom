@@ -10,7 +10,7 @@ use Drupal\Tests\BrowserTestBase;
  *
  * @group msul_staff_db_connector
  */
-class LoadTest2 extends BrowserTestBase {
+class LoadTest extends BrowserTestBase {
 
   //
   /**
