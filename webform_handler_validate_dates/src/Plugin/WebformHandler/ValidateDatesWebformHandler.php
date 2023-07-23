@@ -43,6 +43,12 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 			$result = TRUE;
 			$result2 = FALSE;
 
+            $origin = date_create('2009-10-11');
+            $target = date_create('2009-10-13');
+            $interval = date_diff($origin, $target);
+            $this->messenger()->addStatus($this->t("Print:". $interval ));
+
+          /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
 
@@ -57,7 +63,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 			$diff_dias = $date1->diff($hoy->modify('+12 day'));
 
             $this->messenger()->addStatus($this->t("Print:".$date1));
-
+*/
 
            $comparison ="<=";
 
