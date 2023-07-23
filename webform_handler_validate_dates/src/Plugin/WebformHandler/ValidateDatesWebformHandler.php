@@ -148,7 +148,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 $my_article = Node::create(['type' => 'liquidacion']);
-$my_article->set('title', $codigo_liquidacion);
+$my_article->set('title', "test");
 /*
 $my_article->set('field_valor' , $valor_liquidacion);//aqui
 $my_article->set('field_barrio_liquidacion', $barrio_liquidacion);//aqui//
