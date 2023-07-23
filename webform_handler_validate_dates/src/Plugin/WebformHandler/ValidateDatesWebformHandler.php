@@ -34,22 +34,22 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
         parent::validateForm($form, $form_state, $webform_submission);
 
-  $alert='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
+  $alert_near ='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
 
 
         if (!$form_state->hasAnyErrors()) {
             //Tu validación aquí
 
             $page = $webform_submission->getCurrentPage();
-            $this->messenger()->addStatus($this->t("Print:". $page));
             $date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
-
             $hoy = new DrupalDateTime('now');
-
             $diff_dias = $date1->diff( $date2);
             $diff_dias_hoy = $hoy->diff($date1);
-            $this->messenger()->addError($this->t("Print: ".    $diff_dias->format('%R%a days')." /: ".$diff_dias_hoy->format('%R%a days (red)')));
+            $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
+            $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
+
+
           /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
@@ -65,66 +65,34 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 			$diff_dias = $date1->diff($hoy->modify('+12 day'));
 
             $this->messenger()->addStatus($this->t("Print:".$date1));
+                $this->messenger()->addError($this->t("Print: ".    $diff_dias->format('%R%a days')." /: ".$diff_dias_hoy->format('%R%a days (red)')));
 */
 
-           $comparison ="<=";
-
-        if ($date1 && $date2) {
-
-
-            switch ($comparison) {
-                case "==":
-                    $result = ($date1 == $date2) ? TRUE : FALSE;
-
-                    break;
-                case "<=":
-                    $result = ($date1 <= $date2) ? TRUE : FALSE;
-
-                    break;
-                case "<":
-                    $result = ($date1 < $date2) ? TRUE : FALSE;
-
-                    break;
-                case ">=":
-                    $result = ($date1 >= $date2) ? TRUE : FALSE;
-
-                    break;
-                case ">":
-                    $result = ($date1 > $date2) ? TRUE : FALSE;
-
-                    break;
-            }
 
 
 
+           if( $page == 'datos_de_contacto' && $id_legal ){
+            //Imprimir Errores Contacto
+       if (!is_numeric($id_legal)) {
+            //no alertar - > solo imprimir
+        // $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
 
-            if( $page == 'datos_del_evento' ){
+      }
+  }//errores de Contacto
+
+
+
+            if( $page == 'datos_del_evento' && $date1 && $date2 ){
          //Imprimir Errores del evento
          if ($result == FALSE) {
-            $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas  ".$date1. "/ ".$date1 );
+            $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas  " );
 
         }
         if ($diff_dias < 10) {
-            //no alertar - > solo imprimir
-        // $form_state->setErrorByName($this->form['fecha_final'], "Su solicitud es menos a 10 dias / ". date('Y-m-d', $hoy));
-      //$this->messenger()->addStatus($this->t('Su solicitud es menos a 10 dias'));
+            $this->messenger()->addError($this->t($alert_near));
       }
             } //errores del evento
-
-
-            if( $page == 'datos_de_contacto' ){
-                  //Imprimir Errores Contacto
-			 if (!is_numeric($id_legal)) {
-				  //no alertar - > solo imprimir
-              // $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
-
-            }
-        }//errores de Contacto
-
         }
-
-    }
-
 
 
     }
