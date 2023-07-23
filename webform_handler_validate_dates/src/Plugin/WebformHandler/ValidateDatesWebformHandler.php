@@ -62,9 +62,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             }
 			  if ($diff_dias->format("%r%a")< 10) {
 
-                $this->messenger()->addError(           $this->t($alert_near)
-
-                );
+                $this->messenger()->addError($this->t($alert_near));
             }
 
 			 if (!is_numeric($id_legal)) {
