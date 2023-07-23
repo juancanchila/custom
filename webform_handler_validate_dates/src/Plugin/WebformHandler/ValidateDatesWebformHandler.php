@@ -43,8 +43,6 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             $date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
-            $id_legal = $form_state->getValue('ndeg_de_documento_de_representante_legal_');
-            $id_natural = 	$form_state->getValue('documento_de_identidad_');
 
             $hoy = new DrupalDateTime('now');
 
@@ -62,12 +60,14 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             }
 			  if ($diff_dias->format("%r%a")< 10) {
 
-                $this->messenger()->addError($this->t($alert_near));
+                $this->messenger()->addError(           $this->t($alert_near)
+
+                );
             }
 
 			 if (!is_numeric($id_legal)) {
-
-               $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
+				  //no alertar - > solo imprimir
+              // $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
 
             }
 
