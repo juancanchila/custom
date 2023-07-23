@@ -85,7 +85,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             if( $page == 'datos_del_evento' && $date1 && $date2 ){
          //Imprimir Errores del evento
-         if ($date2 > $date1) {
+         if ($date1 > $date2  ) {
             $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas " );
 
         }
