@@ -69,9 +69,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             $diff_dias = $date1->diff( $date2);
 
-            $formatted = $date_formatter->format($timestamp, $type, $format, $timezone, $langcode);
+            $formatted = $date_formatter->format($diff_dias, $type, $format, $timezone, $langcode);
 
-            $this->messenger()->addStatus($this->t("Print:".    $diff_dias));
+            $this->messenger()->addStatus($this->t("Print:".    $diff_dias->format('%d days')));
           /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
