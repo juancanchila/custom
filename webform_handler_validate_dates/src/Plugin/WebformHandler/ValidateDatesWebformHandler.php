@@ -60,9 +60,18 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $timezone = NULL;
             $langcode = NULL;
 
-            $formatted = $date_formatter->format($timestamp, $type, $format, $timezone, $langcode);
+
 
             $this->messenger()->addStatus($this->t("Print:". $formatted));
+
+            $date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'), new \DateTimeZone('UTC'));
+            $date2 = new DrupalDateTime($form_state->getValue('fecha_final'), new \DateTimeZone('UTC'));
+
+            $diff_dias = $date1->diff( $date2);
+
+            $formatted = $date_formatter->format($timestamp, $type, $format, $timezone, $langcode);
+
+            $this->messenger()->addStatus($this->t("Print:".    $diff_dias));
           /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
