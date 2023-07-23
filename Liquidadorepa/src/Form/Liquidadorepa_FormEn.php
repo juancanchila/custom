@@ -7,20 +7,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
-
-
+use Drupal\Component\Utility\EmailValidator;
+use Drupal\Core\Url;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Mail\MailManagerInterface;
+
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
-use Drupal\Component\Utility\EmailValidator;
-use Drupal\Core\Url;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+
 use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
+
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -274,9 +276,11 @@ class Liquidadorepa_FormEn extends FormBase
       // If the value is an empty string, remove the key from the session.
       $this->session->remove($key);
     }
+
     else {
       $this->session->set($key, $value);
     }
+
   }
 
   /**
