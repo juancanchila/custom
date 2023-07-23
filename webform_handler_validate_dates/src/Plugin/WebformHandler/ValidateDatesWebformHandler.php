@@ -49,7 +49,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
 
-
+            $this->messenger()->addStatus($this->t("Print:".$diff ));
           /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
@@ -84,11 +84,11 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             if( $page == 'datos_del_evento' && $date1 && $date2 ){
          //Imprimir Errores del evento
-         if ($result == FALSE) {
-            $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas  " );
+         if ($date2 > $date1) {
+            $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas " );
 
         }
-        if ($diff_dias < 10) {
+        if ( $diff_dias_hoy->format("%r%a") < 10) {
             $this->messenger()->addError($this->t($alert_near));
       }
             } //errores del evento
