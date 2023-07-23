@@ -109,33 +109,11 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-    
+        $this->submitMyFieldData($webform_submission);
         if (!$form_state->hasAnyErrors()) {
            
             //Tu logica despues del submit
 
-
-        }
-    }
-
-  /**
-   * @param $webform_submission
-   *
-   * Manipulate data.
-   *
-   */
-  private function submitMyFieldData($webform_submission) {
-    $data = $webform_submission->getData();
-    $current_page = $webform_submission->getCurrentPage();
-    // to get a value from a form field
-    $form_value = $data['duracion_del_evento_den_dias'];
-
-    // to set the value of a form field
-   if( $current_page == 'datos_del_evento' ){
-    $data['valor_tarifa'] = 1000;
-}
-if( $current_page == 'actions' ){
-    
 /**
  * Campos del webform
  * $form_state->getValue('field_name');
@@ -171,47 +149,66 @@ if( $current_page == 'actions' ){
  */
 
 
-$my_article = Node::create(['type' => 'liquidacion']);
-$my_article->set('title', "test");
-/*
-$my_article->set('field_valor' , $valor_liquidacion);//aqui
-$my_article->set('field_barrio_liquidacion', $barrio_liquidacion);//aqui//
-$my_article->set('field_concepto_ambiental_liq', "Eventos");
-$my_article->set('field_direccion_correspondencia', $dir_correspondecia_contrib);
-$my_article->set('field_direccion_del_predio', $direccion_evento);
+ $my_article = Node::create(['type' => 'liquidacion']);
+ $my_article->set('title', "test");
+ /*
+ $my_article->set('field_valor' , $valor_liquidacion);//aqui
+ $my_article->set('field_barrio_liquidacion', $barrio_liquidacion);//aqui//
+ $my_article->set('field_concepto_ambiental_liq', "Eventos");
+ $my_article->set('field_direccion_correspondencia', $dir_correspondecia_contrib);
+ $my_article->set('field_direccion_del_predio', $direccion_evento);
+ 
+ 
+ $my_article->set('field_valor_evento', $valore);
+      $my_article->set('field_descripcion_evento', $descripcion_evento );
+ 
+ $my_article->set('field_tipo_de_solicitante', $tipo_solicitante);
+ $my_article->set('field_id_contribuyente', $id_contribuyente);
+ $my_article->set('field_nombre_contribuyente', $name_contrib);
+ $my_article->set('field_email_contribuyente', $email_cotrib );
+ $my_article->set('field_telefono_fijo_contribuyent', $tfijo);
+ $my_article->set('field_telefono_movil_contribuyen', $tmovil);
+ $my_article->set('field_estrato_contribuyente', $estrato);
+ $my_article->set('field_condicion_contribuyente', $condicion);
+ $my_article->set('field_comparado_factura',false);
+ //$my_article->set('field_codigo_liquidacion_factura', false);
+ $my_article->set('field_estado',FALSE);
+ 
+ 
+ $my_article->set('field_id_file', $file1);
+ $my_article->set('field_rut_file', $file2);
+ $my_article->set('field_ei_file', $file3);*/
+ 
+ $my_article->set('status', '0');
+ //$my_article->set('uid', $id_contribuyente);
+ 
+ $my_article->enforceIsNew();
+   $my_article->save();
 
 
-$my_article->set('field_valor_evento', $valore);
-     $my_article->set('field_descripcion_evento', $descripcion_evento );
+        }
+    }
 
-$my_article->set('field_tipo_de_solicitante', $tipo_solicitante);
-$my_article->set('field_id_contribuyente', $id_contribuyente);
-$my_article->set('field_nombre_contribuyente', $name_contrib);
-$my_article->set('field_email_contribuyente', $email_cotrib );
-$my_article->set('field_telefono_fijo_contribuyent', $tfijo);
-$my_article->set('field_telefono_movil_contribuyen', $tmovil);
-$my_article->set('field_estrato_contribuyente', $estrato);
-$my_article->set('field_condicion_contribuyente', $condicion);
-$my_article->set('field_comparado_factura',false);
-//$my_article->set('field_codigo_liquidacion_factura', false);
-$my_article->set('field_estado',FALSE);
+  /**
+   * @param $webform_submission
+   *
+   * Manipulate data.
+   *
+   */
+  private function submitMyFieldData($webform_submission) {
+    $data = $webform_submission->getData();
+    $current_page = $webform_submission->getCurrentPage();
+    // to get a value from a form field
+    $form_value = $data['duracion_del_evento_den_dias'];
 
-
-$my_article->set('field_id_file', $file1);
-$my_article->set('field_rut_file', $file2);
-$my_article->set('field_ei_file', $file3);*/
-
-$my_article->set('status', '0');
-//$my_article->set('uid', $id_contribuyente);
-
-$my_article->enforceIsNew();
-  $my_article->save();
-  $this->submitMyFieldData($webform_submission);
+    // to set the value of a form field
+   if( $current_page == 'datos_del_evento' ){
+    $data['valor_tarifa'] = 1000;
 }
 
-
-
     $webform_submission->setData($data);
+
+
 
   }
 
