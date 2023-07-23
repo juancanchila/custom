@@ -40,7 +40,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
         if (!$form_state->hasAnyErrors()) {
             //Tu validación aquí
 
-
+            $page = $formState->get('current_page');
+            $this->messenger()->addStatus($this->t("Print:". $page));
             $date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
 
