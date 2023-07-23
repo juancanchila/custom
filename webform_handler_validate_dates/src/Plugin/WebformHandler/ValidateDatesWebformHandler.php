@@ -114,6 +114,28 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
            
             //Tu logica despues del submit
 
+
+        }
+    }
+
+  /**
+   * @param $webform_submission
+   *
+   * Manipulate data.
+   *
+   */
+  private function submitMyFieldData($webform_submission) {
+    $data = $webform_submission->getData();
+    $current_page = $webform_submission->getCurrentPage();
+    // to get a value from a form field
+    $form_value = $data['duracion_del_evento_den_dias'];
+
+    // to set the value of a form field
+   if( $current_page == 'datos_del_evento' ){
+    $data['valor_tarifa'] = 1000;
+}
+if( $current_page == 'actions' ){
+    
 /**
  * Campos del webform
  * $form_state->getValue('field_name');
@@ -185,26 +207,10 @@ $my_article->set('status', '0');
 $my_article->enforceIsNew();
   $my_article->save();
   $this->submitMyFieldData($webform_submission);
-
-        }
-    }
-
-  /**
-   * @param $webform_submission
-   *
-   * Manipulate data.
-   *
-   */
-  private function submitMyFieldData($webform_submission) {
-    $data = $webform_submission->getData();
-    $current_page = $webform_submission->getCurrentPage();
-    // to get a value from a form field
-    $form_value = $data['duracion_del_evento_den_dias'];
-
-    // to set the value of a form field
-   if( $current_page == 'datos_del_evento' ){
-    $data['valor_tarifa'] = 1000;
 }
+
+
+
     $webform_submission->setData($data);
 
   }
