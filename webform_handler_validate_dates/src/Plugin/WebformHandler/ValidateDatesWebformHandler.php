@@ -60,7 +60,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $timezone = NULL;
             $langcode = NULL;
 
-
+            $formatted = $date_formatter->format( $timestamp, $type, $format, $timezone, $langcode);
 
             $this->messenger()->addStatus($this->t("Print:". $formatted));
 
@@ -69,7 +69,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             $diff_dias = $date1->diff( $date2);
 
-            $formatted = $date_formatter->format($diff_dias, $type, $format, $timezone, $langcode);
+
 
             $this->messenger()->addStatus($this->t("Print:".    $diff_dias->format('%d days')));
           /*
