@@ -17,10 +17,10 @@ use Drupal\file\Entity\File;
  * Webform validate handler.
  *
  * @WebformHandler(
- *   id = "validate_dates_validator",
- *   label = @Translation("Validate Dates"),
- *   category = @Translation("Validation"),
- *   description = @Translation("validate epa forms"),
+ *   id = "creates_nodes",
+ *   label = @Translation("Create Liq Eventos"),
+ *   category = @Translation("Creation"),
+ *   description = @Translation("Create epa forms"),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
