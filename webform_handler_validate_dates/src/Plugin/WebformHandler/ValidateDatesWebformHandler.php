@@ -95,24 +95,31 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
                     break;
             }
 
-			//Imprimir Errores
 
-            if ($result == FALSE) {
-                $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas  ".$date1. "/ ".$date1 );
 
-            }
-			  if ($diff_dias < 10) {
-				  //no alertar - > solo imprimir
-              // $form_state->setErrorByName($this->form['fecha_final'], "Su solicitud es menos a 10 dias / ". date('Y-m-d', $hoy));
-			//$this->messenger()->addStatus($this->t('Su solicitud es menos a 10 dias'));
-            }
 
+            if( $page == 'datos_del_evento' ){
+         //Imprimir Errores del evento
+         if ($result == FALSE) {
+            $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas  ".$date1. "/ ".$date1 );
+
+        }
+        if ($diff_dias < 10) {
+            //no alertar - > solo imprimir
+        // $form_state->setErrorByName($this->form['fecha_final'], "Su solicitud es menos a 10 dias / ". date('Y-m-d', $hoy));
+      //$this->messenger()->addStatus($this->t('Su solicitud es menos a 10 dias'));
+      }
+            } //errores del evento
+
+
+            if( $page == 'datos_de_contacto' ){
+                  //Imprimir Errores Contacto
 			 if (!is_numeric($id_legal)) {
 				  //no alertar - > solo imprimir
               // $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
 
             }
-
+        }//errores de Contacto
 
         }
 
