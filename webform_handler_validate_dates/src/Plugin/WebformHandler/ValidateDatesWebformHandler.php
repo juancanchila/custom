@@ -43,11 +43,26 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 			$result = TRUE;
 			$result2 = FALSE;
 
-            $origin = date_create('2009-10-11');
-            $target = date_create('2009-10-13');
-            $interval = date_diff($origin, $target);
-            $this->messenger()->addStatus($this->t("Print:". $interval ));
+            $date_formatter = \Drupal::service('date.formatter');
 
+            // Get saved timestamp from a DateTimeFieldItemList field.
+            $date_value = $node->field_date->value;
+            $date_time = new DrupalDateTime($date_value, new \DateTimeZone('UTC'));
+            $timestamp = $date_time->getTimestamp();
+
+            // All other arguments are optional:
+            // See DateFormatterInterface for built-in options, or use machine name of a date format in config.
+            $type = 'medium';
+            // Custom PHP date format if $type="custom".
+            $format = '';
+            // > Drupal 8.8
+            // See https://www.drupal.org/node/3009387
+            $timezone = NULL;
+            $langcode = NULL;
+
+            $formatted = $date_formatter->format($timestamp, $type, $format, $timezone, $langcode);
+
+            $this->messenger()->addStatus($this->t("Print:". $formatted));
           /*
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
