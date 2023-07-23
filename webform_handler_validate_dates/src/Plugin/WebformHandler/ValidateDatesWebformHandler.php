@@ -37,6 +37,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
+        $this->submitMyFieldData($webform_submission);
         parent::validateForm($form, $form_state, $webform_submission);
 
   $alert_near ='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
@@ -108,7 +109,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-        $this->submitMyFieldData($webform_submission);
+    
         if (!$form_state->hasAnyErrors()) {
             //Tu logica despues del submit
 
