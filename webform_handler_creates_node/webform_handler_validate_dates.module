@@ -5,10 +5,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function webform_handler_validate_dates_help($route_name, RouteMatchInterface $route_match) {
+function webform_handler_creates_node_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help 
-    case 'help.page.webform_handler_validate_dates':
+    case 'help.page.webform_handler_cretes_ndoe':
       return t(<<<'OUTPUT'
       <h2>About</h2>
       <p>Configurable handler for comparing two dates on a webform.</p>
