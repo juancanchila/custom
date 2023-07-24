@@ -53,6 +53,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
            if($cantidad_dias == 0) {
             $cantidad_dias = $cantidad_dias;
            }
+           $this->messenger()->addStatus($this->t("Print n días:". $cantidad_dias ));
             $hoy = new DrupalDateTime('now');
             $diff_dias = $date1->diff( $date2);
             $diff_dias_hoy = $hoy->diff($date1);
