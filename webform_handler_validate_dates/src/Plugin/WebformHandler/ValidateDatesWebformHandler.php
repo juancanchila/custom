@@ -56,6 +56,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $diff_dias = $date1->diff( $date2);
             if($diff_dias->format("%r%a") == 0){
                 $diff_dias = $diff_dias->format("%r%a")+ 1;
+            }else{
+
+                $diff_dias = $diff_dias->format("%r%a");
             }
             $diff_dias_hoy = $hoy->diff($date1);
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
@@ -107,7 +110,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
       }
 
      
-      if (  $diff_dias->format("%r%a") != $cantidad_dias ) {
+      if (  $diff_dias != $cantidad_dias ) {
         $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días " );
   }
 
