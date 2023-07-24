@@ -54,6 +54,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
           
             $hoy = new DrupalDateTime('now');
             $diff_dias = $date1->diff( $date2);
+            if($diff_dias->format("%r%a") == 0){
+                $diff_dias = $diff_dias->format("%r%a")+ 1;
+            }
             $diff_dias_hoy = $hoy->diff($date1);
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
