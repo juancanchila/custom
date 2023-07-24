@@ -98,6 +98,12 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
         if ( $diff_dias_hoy->format("%r%a") < 10) {
             $this->messenger()->addError($this->t($alert_near));
       }
+
+     
+      if (  $diff_dias->format("%r%a") != $form_state->getValue('duracion_del_evento_den_dias')) {
+        $form_state->setErrorByName($this->form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días " );
+  }
+
             } //errores del evento
         }
 
