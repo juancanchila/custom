@@ -41,7 +41,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
         parent::validateForm($form, $form_state, $webform_submission);
 
   $alert_near ='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
-
+ 
 
         if (!$form_state->hasAnyErrors()) {
             //Tu validación aquí
@@ -49,6 +49,10 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $page = $webform_submission->getCurrentPage();
             $date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
             $date2 = new DrupalDateTime($form_state->getValue('fecha_final'));
+           $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
+           if($cantidad_dias == 0) {
+            $cantidad_dias = $cantidad_dias;
+           }
             $hoy = new DrupalDateTime('now');
             $diff_dias = $date1->diff( $date2);
             $diff_dias_hoy = $hoy->diff($date1);
@@ -100,8 +104,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
       }
 
      
-      if (  $diff_dias->format("%r%a") != $form_state->getValue('duracion_del_evento_den_dias')) {
-        $form_state->setErrorByName($this->form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días " );
+      if (  $diff_dias->format("%r%a") != $cantidad_dias ) {
+        $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días " );
   }
 
             } //errores del evento
