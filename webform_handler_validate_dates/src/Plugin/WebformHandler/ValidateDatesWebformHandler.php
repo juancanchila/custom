@@ -125,7 +125,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
         $this->submitMyFieldData($webform_submission);
-        $this->valor_a_pagar();
+        $this->valor_a_pagar($form_state);
 
         if (!$form_state->hasAnyErrors()) {
 
@@ -176,7 +176,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
- public function valor_a_pagar( ) {
+ public function valor_a_pagar( $form_state) {
 
 
 
