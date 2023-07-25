@@ -321,7 +321,7 @@ class Liquidadorepa_FormPFn extends FormBase
     $descripcion_evento = $this->session->get('session_liquidacion.descripcion_evento_pfn', '');
     $direccion_evento = $this->session->get('session_liquidacion.direccion_evento_pfn', '');
     $numero_dias =  $this->session->get('session_liquidacion.numero_dias_pfn', '');
-    $numero_vallas = $this->session->get('session_liquidacion.field_select_NV_pfn', '')+1;
+    $numero_vallas =intval( $this->session->get('session_liquidacion.field_select_NV_pfn', '')) +1;
 
 
 
@@ -717,7 +717,7 @@ $params['attachments'][] = [
     $file2 = $this->session->get('session_liquidacion.soportes2_pfn');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfn');
 
-
+    $cantidad_v = 0;
 
       if (!empty($dir_vallas1)) {
             $dir_vallas = $dir_vallas."/".$dir_vallas1 ;
@@ -760,9 +760,12 @@ $params['attachments'][] = [
 			   $cantidad_v=  $cantidad_v + 1;
         }
 
-        $cantidad_v = 0;
+
+        $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
         $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
 	    $vocabulary_name = 'smlv';
+
+
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('vid', $vocabulary_name);
     $tids = $query->execute();
