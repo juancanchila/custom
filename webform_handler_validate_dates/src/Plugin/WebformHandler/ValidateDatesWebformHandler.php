@@ -201,8 +201,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
  $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
 
 
- $this->messenger()->addStatus($this->t("SMLV:". $valor ));
- $this->messenger()->addStatus($this->t("Valor Evento:".  $valor_liquidacion ));
+ $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
+ $this->messenger()->addStatus($this->t("Valor Evento: $" . number_format( $valor_liquidacion , 2, ',', '.')));
  $this->messenger()->addStatus($this->t("Días:".   $numero_dias));
 
  $valor_tarifa_evento_25 = $valor * 25 ;
@@ -289,7 +289,7 @@ $valor_tarifa =208879615;
 $valor_liquidacion_r =37374939 *  $numero_dias;*/
 }
 $valor = $valor_liquidacion;
-   $this->messenger()->addStatus($this->t("Valor Liquidacion:". $valor_liquidacion ));
-   $this->messenger()->addStatus($this->t("Valor Tarifa:". number_format($valor_tarifa , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
  }
 }
