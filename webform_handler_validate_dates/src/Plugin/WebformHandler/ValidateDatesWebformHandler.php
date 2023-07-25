@@ -159,9 +159,17 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
   }
 
- public function money_format_fild($money_format_convert) {
+ public function money_format_fild($money) {
 
-    $this->messenger()->addStatus($this->t("Print:". $money_format_convert));
+    $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
+    $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
+
+    $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
+
+    $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
+    $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+
+    $this->messenger()->addStatus($this->t("Print:". $money));
   }
 
 
