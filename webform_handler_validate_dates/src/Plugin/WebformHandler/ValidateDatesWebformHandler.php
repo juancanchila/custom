@@ -54,12 +54,17 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
             $hoy = new DrupalDateTime('now');
             $diff_dias = $date1->diff( $date2);
+
             if($diff_dias->format("%r%a") == 0){
                 $diff_dias = $diff_dias->format("%r%a")+ 1;
             }else{
 
                 $diff_dias = $diff_dias->format("%r%a");
             }
+
+
+
+
             $diff_dias_hoy = $hoy->diff($date1);
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
@@ -86,15 +91,6 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
-           if( $page == 'datos_de_contacto' && $id_legal ){
-            //Imprimir Errores Contacto
-       if (!is_numeric($id_legal)) {
-            //no alertar - > solo imprimir
-        // $form_state->setErrorByName($this->form['ndeg_de_documento_de_representante_legal_'], "Validar doc Rep Legal");
-
-      }
-  }//errores de Contacto
-
 
 
             if( $page == 'datos_del_evento' ){
@@ -111,6 +107,11 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
       if (  $diff_dias != $cantidad_dias && $date1 != $date2   ) {
         $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días, Se calculan : ".$diff_dias );
   }
+
+  if (  $diff_dias != 1 && $date1 == $date2   ) {
+    $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días, Se calcula : ".1."Dia" );
+}
+
 
             } //errores del evento
         }
