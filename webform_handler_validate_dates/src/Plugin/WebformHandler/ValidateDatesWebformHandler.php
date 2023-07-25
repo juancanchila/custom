@@ -104,11 +104,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
       }
 
 
-      if (  $diff_dias != $cantidad_dias && $date1 != $date2   ) {
+      if (  $diff_dias != $cantidad_dias  ) {
         $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días, Se calculan : ".$diff_dias );
   }
-
-
 
 
             } //errores del evento
