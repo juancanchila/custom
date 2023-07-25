@@ -37,9 +37,9 @@ class CreatesNodeWebformHandler extends WebformHandlerBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-     
+
         if (!$form_state->hasAnyErrors()) {
-           
+
             //Tu logica despues del submit
 
 /**
@@ -62,8 +62,10 @@ class CreatesNodeWebformHandler extends WebformHandlerBase {
  * direccion_del_evento
  * duracion_del_evento_den_dias
  * breve_descripcion_del_evento
- * valor_del_la_inversion
+ *
 
+ * valor_del_la_inversion
+ *
  * Documentos
  * 	identificacion
  * 	rut_form1
@@ -73,7 +75,7 @@ class CreatesNodeWebformHandler extends WebformHandlerBase {
  * // oculto
  * 	valor_tarifa
  * 	valor_a_pagar
- * 
+ *
  */
 
 
@@ -85,11 +87,11 @@ class CreatesNodeWebformHandler extends WebformHandlerBase {
  $my_article->set('field_concepto_ambiental_liq', "Eventos");
  $my_article->set('field_direccion_correspondencia', $dir_correspondecia_contrib);
  $my_article->set('field_direccion_del_predio', $direccion_evento);
- 
- 
+
+
  $my_article->set('field_valor_evento', $valore);
       $my_article->set('field_descripcion_evento', $descripcion_evento );
- 
+
  $my_article->set('field_tipo_de_solicitante', $tipo_solicitante);
  $my_article->set('field_id_contribuyente', $id_contribuyente);
  $my_article->set('field_nombre_contribuyente', $name_contrib);
@@ -101,15 +103,15 @@ class CreatesNodeWebformHandler extends WebformHandlerBase {
  $my_article->set('field_comparado_factura',false);
  //$my_article->set('field_codigo_liquidacion_factura', false);
  $my_article->set('field_estado',FALSE);
- 
- 
+
+
  $my_article->set('field_id_file', $file1);
  $my_article->set('field_rut_file', $file2);
  $my_article->set('field_ei_file', $file3);*/
- 
+
  $my_article->set('status', '0');
  //$my_article->set('uid', $id_contribuyente);
- 
+
  $my_article->enforceIsNew();
    $my_article->save();
 
