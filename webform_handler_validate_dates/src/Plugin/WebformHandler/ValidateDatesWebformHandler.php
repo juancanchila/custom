@@ -195,6 +195,15 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
  }
  $valor =$value[0]["value"];
 
+
+ $valor_liquidacion = $form_state->getValue('valor_del_la_inversion');
+ $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
+
+
+ $this->messenger()->addStatus($this->t("SMLV:". $valor ));
+ $this->messenger()->addStatus($this->t("Valor Evento:".  $valor_liquidacion ));
+ $this->messenger()->addStatus($this->t("Días:".   $numero_dias));
+
  $valor_tarifa_evento_25 = $valor * 25 ;
  $valor_tarifa_evento_35 = $valor * 35 ;
  $valor_tarifa_evento_50 = $valor * 50 ;
@@ -211,8 +220,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
  $valor_tarifa_evento_8458 = $valor * 8458 ;
 
 
- $valor_liquidacion = $form_state->getValue('valor_del_la_inversion');
- $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
+
 
 if ($valor_liquidacion < $valor_tarifa_evento_25) {
 $valor_tarifa = 118561;//ok
