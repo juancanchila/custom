@@ -69,7 +69,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
 
-
+            $this->money_format_fild($valor_del_la_inversion);
 
 
 
@@ -125,7 +125,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
         $this->submitMyFieldData($webform_submission);
-        $this->money_format_fild($valor_del_la_inversion);
+
 
         if (!$form_state->hasAnyErrors()) {
 
@@ -159,7 +159,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
   }
 
-  private function money_format_fild($money_format_convert) {
+ public function money_format_fild($money_format_convert) {
     $money_format_convert =   substr($money_format_convert, 2, 0);
     $this->messenger()->addStatus($this->t("Print:". $money_format_convert));
   }
