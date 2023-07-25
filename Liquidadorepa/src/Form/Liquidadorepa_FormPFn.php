@@ -717,8 +717,8 @@ $params['attachments'][] = [
     $file2 = $this->session->get('session_liquidacion.soportes2_pfn');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfn');
 
-  $cantidad_v = 0;
-  $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
+
+
       if (!empty($dir_vallas1)) {
             $dir_vallas = $dir_vallas."/".$dir_vallas1 ;
 		   $cantidad_v =  $cantidad_v + 1;
@@ -760,6 +760,8 @@ $params['attachments'][] = [
 			   $cantidad_v=  $cantidad_v + 1;
         }
 
+        $cantidad_v = 0;
+        $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
 	    $vocabulary_name = 'smlv';
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('vid', $vocabulary_name);
