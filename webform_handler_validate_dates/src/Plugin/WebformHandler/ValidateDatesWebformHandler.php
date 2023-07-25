@@ -160,7 +160,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
   }
 
  public function money_format_fild($money_format_convert) {
-    $money_format_convert =   substr($money_format_convert, 2, 0);
+
     $this->messenger()->addStatus($this->t("Print:". $money_format_convert));
   }
 
