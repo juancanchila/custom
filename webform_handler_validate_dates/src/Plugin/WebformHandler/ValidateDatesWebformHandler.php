@@ -169,7 +169,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
     $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
     $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
 
-    $this->messenger()->addStatus($this->t("Print:". $money));
+    $money_clean = (float) str_replace(',', '.', $removedThousandSeparator);
+
+    $this->messenger()->addStatus($this->t("Print:". $money_clean));
   }
 
 
