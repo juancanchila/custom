@@ -635,7 +635,7 @@ EPA
 	<tr>
 		<td>Contenido de la clave de pago</td>
     <td>'.$code_content.'</td>
-	
+
 	</tr>
 </thead>
 <tbody>
@@ -649,7 +649,7 @@ EPA
 
 ');
 
-	  
+
 $mpdf->WriteHTML($html);
 $file = $mpdf->Output($sec.'.pdf', 'D');
 
@@ -716,7 +716,9 @@ $params['attachments'][] = [
     $file1 = $this->session->get('session_liquidacion.soportes1_pfn');
     $file2 = $this->session->get('session_liquidacion.soportes2_pfn');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfn');
+
   $cantidad_v = 0;
+  $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
       if (!empty($dir_vallas1)) {
             $dir_vallas = $dir_vallas."/".$dir_vallas1 ;
 		   $cantidad_v =  $cantidad_v + 1;
