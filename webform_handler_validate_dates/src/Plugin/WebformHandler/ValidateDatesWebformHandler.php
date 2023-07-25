@@ -289,6 +289,7 @@ $valor_tarifa =208879615;
 $valor_liquidacion_r =37374939 *  $numero_dias;*/
 }
 $valor = $valor_liquidacion;
-   $this->messenger()->addStatus($this->t("Print:". $valor ));
+   $this->messenger()->addStatus($this->t("Valor Liquidacion:". $valor_liquidacion ));
+   $this->messenger()->addStatus($this->t("Valor Tarifa:". $valor_tarifa ));
  }
 }
