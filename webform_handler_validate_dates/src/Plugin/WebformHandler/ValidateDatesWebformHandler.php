@@ -72,7 +72,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
-            $this->messenger()->addStatus($this->t("Print:". $valor_del_la_inversion ));
+
           /*
            $this->messenger()->addStatus($this->t("Print:".$diff ));
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
@@ -125,6 +125,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
         $this->submitMyFieldData($webform_submission);
+        $this->money_format_fild($valor_del_la_inversion);
+
         if (!$form_state->hasAnyErrors()) {
 
             //Tu logica despues del submit
@@ -156,5 +158,11 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
   }
+
+  private function money_format_fild($money_format_convert) {
+    $money_format_convert =   substr($money_format_convert, 2, 0);
+    $this->messenger()->addStatus($this->t("Print:". $money_format_convert));
+  }
+
 
 }
