@@ -69,7 +69,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
 
-            $this->money_format_fild($valor_del_la_inversion);
+
 
 
 
@@ -171,6 +171,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
     $money_clean = (float) str_replace(',', '.', $removedThousandSeparator);
 
+    return $money_clean;
    // $this->messenger()->addStatus($this->t("Print:". $money_clean));
   }
 
@@ -196,7 +197,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
  $valor =$value[0]["value"];
 
 
- $valor_liquidacion = $form_state->getValue('valor_del_la_inversion');
+ $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
  $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
 
 
