@@ -69,6 +69,10 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
 
+
+
+
+            $this->messenger()->addStatus($this->t("Print:". $valor_del_la_inversion ));
           /*
            $this->messenger()->addStatus($this->t("Print:".$diff ));
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
