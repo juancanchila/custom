@@ -38,7 +38,7 @@ class NodeIDIs extends RulesActionBase
 
     $message = "test";
     $hoy =new DrupalDateTime( 'now');
-    $title = "Creando titulo con rules en la fecha : ".$hoy->format('U') ;
+    $title = "Creando titulo con rules en la fecha : " ;
     $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
