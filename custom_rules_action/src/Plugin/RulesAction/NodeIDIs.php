@@ -15,8 +15,12 @@ use Drupal\Core\Entity\EntityInterface;
  * context_definitions = {
  *     "node" = @ContextDefinition("entity:node",
  *       label = @Translation("Node"),
- *       description = @Translation("Specifies the content item to publish."),
+ *       description = @Translation("Specifies the content item to change."),
  *       assignment_restriction = "selector"
+ *     ),
+ *     "title" = @ContextDefinition("string",
+ *       label = @Translation("Title"),
+ *       description = @Translation("The new title.")
  *     ),
  *   }
  * )
@@ -24,15 +28,18 @@ use Drupal\Core\Entity\EntityInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
-  /*
-   * Publishes the content.
+ /**
+   * Executes the action with the given context.
    *
-   * @param \Drupal\Core\Entity\NodeInterface $node
+   * @param \Drupal\node\NodeInterface $node
    *   The node to modify.
+   * @param string $title
+   *   The new title.
    */
-  protected function doExecute(NodeInterface $node) {
+  protected function doExecute(NodeInterface $node, $title) {
 
     $message = $node->body->value;
+    $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
