@@ -6,7 +6,7 @@ use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Entity\EntityInterface;
 use \Drupal\node\Entity\Node;
-
+use Drupal\Core\Datetime\DrupalDateTime;
 /**
  * Provides a 'Node ID is' condition.
  *
@@ -19,10 +19,6 @@ use \Drupal\node\Entity\Node;
  *       label = @Translation("Node"),
  *       description = @Translation("Specifies the content item to change."),
  *       assignment_restriction = "selector"
- *     ),
- *     "title" = @ContextDefinition("string",
- *       label = @Translation("Title"),
- *       description = @Translation("The new title.")
  *     ),
  *   }
  * )
@@ -38,9 +34,11 @@ class NodeIDIs extends RulesActionBase
    * @param string $title
    *   The new title.
    */
-  protected function doExecute(NodeInterface $node,$title) {
+  protected function doExecute(NodeInterface $node) {
 
     $message = "test";
+    $hoy =new DrupalDateTime( 'now');
+    $title = "Creando titulo con rules en la fecha : ".$hoy->format('U') ;
     $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
