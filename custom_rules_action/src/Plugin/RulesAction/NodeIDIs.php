@@ -31,8 +31,7 @@ class NodeIDIs extends RulesActionBase
    *
    * @param \Drupal\node\NodeInterface $node
    *   The node to modify.
-   * @param string $title
-   *   The new title.
+   *
    */
   protected function doExecute(NodeInterface $node) {
 
