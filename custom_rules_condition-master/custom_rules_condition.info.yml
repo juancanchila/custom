@@ -1,7 +1,10 @@
 name: Custom Rules Condition
-description: Create a custom rules condition
-package: Custom
 type: module
-core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+package: 'Custom'
 dependencies:
   - rules
+description: | 
+Create a custom rules condition
+
+
