@@ -40,7 +40,7 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node,$title) {
 
-    $message = $node->body->value;
+    $message = "test";
     $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
