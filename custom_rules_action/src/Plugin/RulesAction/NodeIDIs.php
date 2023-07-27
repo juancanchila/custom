@@ -68,7 +68,7 @@ class NodeIDIs extends RulesActionBase
     /** Obteniendo el field_consecutivo_factura del nodo creado */
   $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
-    $node->setTitle($title);
+    $node->setTitle($sec);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
