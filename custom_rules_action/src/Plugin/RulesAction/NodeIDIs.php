@@ -12,11 +12,12 @@ use Drupal\Core\Entity\EntityInterface;
  *   id = "custom_rules_action",
  *   label = @Translation("Node ID is"),
  *   category = @Translation("Node"),
- *   context = {
-*    "entity" = @ContextDefinition("entity",
- *       label = @Translation("Entity"),
- *       description = @Translation("Specifies the entity.")
- *     )
+ * context_definitions = {
+ *     "node" = @ContextDefinition("entity:node",
+ *       label = @Translation("Node"),
+ *       description = @Translation("Specifies the content item to publish."),
+ *       assignment_restriction = "selector"
+ *     ),
  *   }
  * )
  *
@@ -28,18 +29,25 @@ class NodeIDIs extends RulesActionBase
      */
 
      
-    protected function doExecute(EntityInterface $entity)
-    {
+   /**
+   * Publishes the content.
+   *
+   * @param \Drupal\Core\Entity\NodeInterface $node
+   *   The node to modify.
+   */
+  protected function doExecute(NodeInterface $node) {
 
-        $entity->get('field_pattern_type')->getValue();
-        \Drupal::logger('pattern_rules')->notice("Logging Rules Action");
-        \Drupal::logger('pattern_rules')->notice($entity);
-        
-        $message = "Creado";
+              $message = $node->body->value;
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
 
-
+ /**
+   * {@inheritdoc}
+   */
+  public function autoSaveContext() {
+    // The node should be auto-saved after the execution.
+    return ['node'];
+  }
 
 }
