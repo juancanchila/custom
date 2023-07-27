@@ -13,6 +13,7 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
+
 /**
  * Webform validate handler.
  *
@@ -69,10 +70,6 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
             $duracion_del_evento_den_dias =$form_state->getValue('duracion_del_evento_den_dias');
             $valor_del_la_inversion = $form_state->getValue('valor_del_la_inversion');
 
-
-
-
-
           /*
            $this->messenger()->addStatus($this->t("Print:".$diff ));
 			$date1 =new DrupalDateTime( $form_state->getValue('fecha_inicio'));
@@ -124,8 +121,8 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-        $this->submitMyFieldData($webform_submission);
-        $this->valor_a_pagar($form_state);
+  
+        $this->valor_a_pagar($form_state,$webform_submission);
 
         if (!$form_state->hasAnyErrors()) {
 
@@ -142,22 +139,6 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
    * Manipulate data.
    *
    */
-  private function submitMyFieldData($webform_submission) {
-    $data = $webform_submission->getData();
-    $current_page = $webform_submission->getCurrentPage();
-    // to get a value from a form field
-    $form_value = $data['duracion_del_evento_den_dias'];
-
-    // to set the value of a form field
-   if( $current_page == 'datos_del_evento' ){
-    $data['valor_tarifa'] = 1000;
-}
-
-    $webform_submission->setData($data);
-
-
-
-  }
 
  public function money_format_fild($money) {
 
@@ -175,9 +156,14 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
    // $this->messenger()->addStatus($this->t("Print:". $money_clean));
   }
 
+ /**
+   * @param $webform_submission
+   *
+   * Manipulate data.
+   *
+   */
 
-
- public function valor_a_pagar( $form_state) {
+ public function valor_a_pagar( $form_state , $webform_submission) {
 
 
 
@@ -291,5 +277,22 @@ $valor_liquidacion_r =37374939 *  $numero_dias;*/
 $valor = $valor_liquidacion;
    $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
    $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
- }
+ 
+//previsualizar valores
+$data = $webform_submission->getData();
+$current_page = $webform_submission->getCurrentPage();
+// to get a value from a form field
+$form_value = $data['duracion_del_evento_den_dias'];
+
+// to set the value of a form field
+if( $current_page == 'datos_del_evento' ){
+$data['valor_tarifa'] = $valor_tarifa;
+$data['valor_a_pagar'] =$valor_liquidacion;
+
+}
+
+$webform_submission->setData($data);
+
+
+}
 }
