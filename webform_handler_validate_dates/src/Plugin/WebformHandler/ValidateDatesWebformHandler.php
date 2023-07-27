@@ -280,6 +280,7 @@ $valor = $valor_liquidacion;
  
 //previsualizar valores
 $data = $webform_submission->getData();
+$sub_id = $webform_submission->id();
 $current_page = $webform_submission->getCurrentPage();
 // to get a value from a form field
 $form_value = $data['duracion_del_evento_den_dias'];
