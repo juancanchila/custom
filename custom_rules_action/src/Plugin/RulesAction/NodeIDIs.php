@@ -24,12 +24,7 @@ use Drupal\Core\Entity\EntityInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
-    /**
-     * @param $name
-     */
-
-     
-   /**
+  /*
    * Publishes the content.
    *
    * @param \Drupal\Core\Entity\NodeInterface $node
@@ -37,7 +32,7 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-              $message = $node->body->value;
+    $message = $node->body->value;
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
