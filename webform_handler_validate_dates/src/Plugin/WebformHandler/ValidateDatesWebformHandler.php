@@ -186,11 +186,11 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
  $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
  $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
 
-
+/*
  $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
  $this->messenger()->addStatus($this->t("Valor Evento: $" . number_format( $valor_liquidacion , 2, ',', '.')));
  $this->messenger()->addStatus($this->t("Días:".   $numero_dias));
-
+*/
  $valor_tarifa_evento_25 = $valor * 25 ;
  $valor_tarifa_evento_35 = $valor * 35 ;
  $valor_tarifa_evento_50 = $valor * 50 ;
@@ -275,8 +275,8 @@ $valor_tarifa =208879615;
 $valor_liquidacion_r =37374939 *  $numero_dias;*/
 }
 $valor = $valor_liquidacion;
-   $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
+  // $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
+   //$this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
  
 //previsualizar valores
 $data = $webform_submission->getData();
