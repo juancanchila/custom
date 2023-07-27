@@ -4,7 +4,7 @@ namespace Drupal\custom_rules_action\Plugin\RulesAction;
 
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
-
+use Drupal\Core\Entity\EntityInterface;
 /**
  * Provides a 'Node ID is' condition.
  *
@@ -13,14 +13,10 @@ use Drupal\rules\Core\RulesActionBase;
  *   label = @Translation("Node ID is"),
  *   category = @Translation("Node"),
  *   context = {
- *        "message" = @ContextDefinition("string",
- *       label = @Translation("Message"),
- *       description = @Translation("write your message"),
- *     ),
- *     "type" = @ContextDefinition("string",
- *       label = @Translation("Message type"),
- *       description = @Translation("Message type: status, warning or error "),
- *     ),
+*    "entity" = @ContextDefinition("entity",
+ *       label = @Translation("Entity"),
+ *       description = @Translation("Specifies the entity.")
+ *     )
  *   }
  * )
  *
@@ -32,8 +28,13 @@ class NodeIDIs extends RulesActionBase
      */
 
      
-    protected function doExecute()
+    protected function doExecute(EntityInterface $entity)
     {
+
+        $entity->get('field_pattern_type')->getValue();
+        \Drupal::logger('pattern_rules')->notice("Logging Rules Action");
+        \Drupal::logger('pattern_rules')->notice($entity);
+        
         $message = "Creado";
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
