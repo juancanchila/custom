@@ -1,10 +1,9 @@
-name: 'Custom Rules EPA'
+name: customeparule
+description: Custom Rule EPA.
+package: Custom
 type: module
-core_version_requirement: ^8 || ^9 || ^10
-package: 'Custom'
+core_version_requirement: ^8.8.0 || ^9.0
 dependencies:
   - rules
-description: | 
-Create a custom rules condition
 
 
