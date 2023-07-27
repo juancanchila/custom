@@ -5,6 +5,8 @@ namespace Drupal\custom_rules_action\Plugin\RulesAction;
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Entity\EntityInterface;
+use \Drupal\node\Entity\Node;
+
 /**
  * Provides a 'Node ID is' condition.
  *
@@ -17,10 +19,6 @@ use Drupal\Core\Entity\EntityInterface;
  *       label = @Translation("Node"),
  *       description = @Translation("Specifies the content item to change."),
  *       assignment_restriction = "selector"
- *     ),
- *     "title" = @ContextDefinition("string",
- *       label = @Translation("Title"),
- *       description = @Translation("The new title.")
  *     ),
  *   }
  * )
@@ -36,10 +34,9 @@ class NodeIDIs extends RulesActionBase
    * @param string $title
    *   The new title.
    */
-  protected function doExecute(NodeInterface $node, $title) {
+  protected function doExecute(NodeInterface $node) {
 
     $message = $node->body->value;
-    $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
