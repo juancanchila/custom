@@ -293,7 +293,7 @@ $data['valor_a_pagar'] =number_format($valor_liquidacion);
 }
 
 $webform_submission->setData($data);
-$this->messenger()->addStatus($this->t($sub_id));
+$this->messenger()->addStatus($sub_id);
 
 }
 }
