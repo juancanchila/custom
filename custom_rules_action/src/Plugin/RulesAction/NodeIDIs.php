@@ -38,7 +38,7 @@ class NodeIDIs extends RulesActionBase
    * @param string $title
    *   The new title.
    */
-  protected function doExecute(NodeInterface $node) {
+  protected function doExecute(NodeInterface $node,$title) {
 
     $message = $node->body->value;
     $node->setTitle($title);
