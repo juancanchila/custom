@@ -30,6 +30,9 @@ class NodeIDIs extends RulesActionBase
     /**
      * @param $name
      */
+
+     $message = "Creado";
+     $type = "Alert";
     protected function doExecute($message, $type)
     {
         \Drupal::messenger()->addMessage(t($message), $type);
