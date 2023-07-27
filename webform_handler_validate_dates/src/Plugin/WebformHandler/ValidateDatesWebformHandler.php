@@ -286,8 +286,8 @@ $form_value = $data['duracion_del_evento_den_dias'];
 
 // to set the value of a form field
 if( $current_page == 'datos_del_evento' ){
-$data['valor_tarifa'] = $valor_tarifa;
-$data['valor_a_pagar'] =$valor_liquidacion;
+$data['valor_tarifa'] =number_format( $valor_tarifa);
+$data['valor_a_pagar'] =number_format($valor_liquidacion);
 
 }
 
