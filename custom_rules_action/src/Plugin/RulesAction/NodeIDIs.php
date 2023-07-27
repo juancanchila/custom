@@ -20,6 +20,10 @@ use \Drupal\node\Entity\Node;
  *       description = @Translation("Specifies the content item to change."),
  *       assignment_restriction = "selector"
  *     ),
+ *     "title" = @ContextDefinition("string",
+ *       label = @Translation("Title"),
+ *       description = @Translation("The new title.")
+ *     ),
  *   }
  * )
  *
@@ -37,6 +41,7 @@ class NodeIDIs extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 
     $message = $node->body->value;
+    $node->setTitle($title);
      $type = "Alert";
         \Drupal::messenger()->addMessage(t($message), $type);
     }
