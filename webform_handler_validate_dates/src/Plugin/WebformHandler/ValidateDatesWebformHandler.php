@@ -125,7 +125,14 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
         $this->submitMyFieldData($webform_submission);
-        $this->valor_a_pagar($form_state);
+
+        $page = $webform_submission->getCurrentPage();
+
+        if( $current_page == 'datos_del_evento' ){
+            $data['valor_tarifa'] = 1000;
+            $this->valor_a_pagar($form_state);
+        }
+
 
         if (!$form_state->hasAnyErrors()) {
 
@@ -198,6 +205,9 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
  $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
+
+
+
  $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
 
 
