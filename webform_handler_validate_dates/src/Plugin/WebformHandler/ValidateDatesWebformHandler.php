@@ -128,7 +128,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
         $page = $webform_submission->getCurrentPage();
 
-    if( $current_page == 'datos_del_evento' ){
+    if(  $page == 'datos_del_evento' ){
 
             $this->valor_a_pagar($form_state);
         }
