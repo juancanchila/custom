@@ -208,7 +208,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
- $numero_dias = $form_state->getValue('duracion_del_evento_den_dias');
+ $numero_dias = intval($form_state->getValue('duracion_del_evento_den_dias'));
 
 
  $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
