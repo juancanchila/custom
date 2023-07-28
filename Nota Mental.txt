@@ -1,0 +1,21 @@
+1. custom hanlder
+2. custom rule
+3. editable webform
+
+duplicar y replciar
+
+que hace?
+
+el webform. crea un nodo, el custom hanlder valida la infromacion y la regla cmabia el nombre y genera el pdf
+
+que falta
+
+hacer un rule que descargue pdf, lo asigne al nodo y notifique a los interesados
+__________________________________
+
+Mejoras
+
+4. exportar a app movil
+5. vinvular con firebase
+6. activar notificaciones a uusario pricipals
+7. visaulizar los clientes en la aplciacion movil
