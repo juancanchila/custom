@@ -124,12 +124,12 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
-        $this->submitMyFieldData($webform_submission);
+
 
         $page = $webform_submission->getCurrentPage();
 
     if(  $page == 'datos_del_evento' ){
-
+        $this->submitMyFieldData($webform_submission);
             $this->valor_a_pagar($form_state);
         }
 
