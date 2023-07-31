@@ -184,7 +184,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
 
 
- public function valor_a_pagar( $form_state) {
+ public function valor_a_pagar( $form_state,$webform_submission) {
 
 
 
