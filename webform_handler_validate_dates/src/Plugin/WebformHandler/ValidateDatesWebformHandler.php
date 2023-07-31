@@ -128,7 +128,7 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 
         $page = $webform_submission->getCurrentPage();
 
-    if(  $page == 'datos_del_evento' ){
+    if(  $page == 'confirmacion' ){
      //   $this->submitMyFieldData($webform_submission);
             $this->valor_a_pagar($form_state,$webform_submission);
         }
@@ -305,22 +305,24 @@ $valor = $valor_liquidacion;
    $form_value = $data['duracion_del_evento_den_dias'];
 
    // to set the value of a form field
-  if( $current_page == 'datos_del_evento' ){
+  if( $current_page == 'confirmacion' ){
 
 
 
- $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
+   $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
-
+   $webform_submission->setData($data);
    //imprimir en pantalla
+   /*
    $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
    $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
    $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
    $this->messenger()->addStatus($this->t("Valor Evento: $" . number_format( $valor_liquidacion , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("Días:".   $numero_dias));
+   $this->messenger()->addStatus($this->t("Días:".   $numero_dias));*/
+
 }
 
-   $webform_submission->setData($data);
+
 
 
 
