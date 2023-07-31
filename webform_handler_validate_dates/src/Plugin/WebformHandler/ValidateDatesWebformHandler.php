@@ -306,8 +306,11 @@ $valor = $valor_liquidacion;
 
    // to set the value of a form field
   if( $current_page == 'datos_del_evento' ){
- $data['valor_a_pagar'] =$valor_liquidacion;
-   $data['valor_tarifa'] =$valor_tarifa ;
+
+
+
+ $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
+   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
 
    //imprimir en pantalla
    $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
