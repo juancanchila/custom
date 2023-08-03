@@ -85,7 +85,7 @@ $valor_tarifa = $node->get('field_valor_tarifa')->value;
 $valor_evento = $node->get('field_valor_evento')->value;
 $valor_liquidacion = $node->get('field_valor')->value;
 $descripcion_evento = $node->get('field_descripcion_evento')->value;
-$valor = money_format_fild($valor_liquidacion);
+$valor = $this->money_format_fild($valor_liquidacion);
 $html= ' <style>
 
 .page-title {
