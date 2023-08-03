@@ -80,7 +80,7 @@ $id_contribuyente = "Teste";
 $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->value;
 
 $email_cotrib = $node->get('field_email_contribuyente')->value;
-
+$tmovil = $node->get('field_telefono_movil_contribuyen')->value;
 $valor_tarifa = $node->get('field_valor_tarifa')->value;
 $valor_evento = $node->get('field_valor_evento')->value;
 $valor_liquidacion = $node->get('field_valor')->value;
