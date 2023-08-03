@@ -77,7 +77,7 @@ class NodeIDIs extends RulesActionBase
 
 $name_contrib =  "Teste";
 $id_contribuyente = "Teste";
-$dir_correspondecia_contrib = $node->->get('field_direccion_correspondencia')->value;
+$dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->value;
 
 $email_cotrib = $node->get('field_email_contribuyente')->value;
 
