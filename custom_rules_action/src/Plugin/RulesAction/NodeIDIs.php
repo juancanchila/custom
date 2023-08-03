@@ -77,14 +77,16 @@ class NodeIDIs extends RulesActionBase
 
 $name_contrib =  "Teste";
 $id_contribuyente = "Teste";
-$dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
+$dir_correspondecia_contrib = $node->->get('field_direccion_correspondencia')->value;
 
-$email_cotrib = $node->get('field_email_contribuyente')->getValue();
+$email_cotrib = $node->get('field_email_contribuyente')->value;
 
-$valor_tarifa = $node->get('field_valor_tarifa')->getValue();
-$valor_evento = $node->get('field_valor_evento')->getValue();
-$valor_liquidacion = $node->get('field_valor')->getValue();
-$descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+$valor_tarifa = $node->get('field_valor_tarifa')->value;
+$valor_evento = $node->get('field_valor_evento')->value;
+$valor_liquidacion = $node->get('field_valor')->value;
+$descripcion_evento = $node->get('field_descripcion_evento')->value;
+
+
 
 $html= ' <style>
 
@@ -265,6 +267,46 @@ $node->set("body", $html);
 $node->body->format = 'full_html';
 
 
+
+$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/sites/tmp']);
+ $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
+ $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+
+ $mpdf->SetHTMLHeader('
+ <div style="text-align: right; font-weight: bold;">
+    EPA
+ </div>','O');
+ $mpdf->SetHTMLFooter('
+<table width="100%">
+    <tr>
+        <td width="33%">{DATE j-m-Y}</td>
+        <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+        <td width="33%" style="text-align: right;">EPA</td>
+    </tr>
+</table>
+<table class="items" width="100%" cellpadding="8" border="1">
+<thead>
+	<tr>
+		<td>Contenido de la clave de pago</td>
+    <td>'.$code_content.'</td>
+
+	</tr>
+</thead>
+<tbody>
+<tr>
+
+<td>Clave de Pago</td>
+<td class="barcodecell"><barcode code="'.$code.'" type="EAN128B" class="barcode" /></td>
+</tr>
+</tbody>
+</table>
+
+');
+
+$mpdf->WriteHTML($html);
+
+
+$file = $mpdf->Output($sec.'.pdf', 'D');
 
     }
 
