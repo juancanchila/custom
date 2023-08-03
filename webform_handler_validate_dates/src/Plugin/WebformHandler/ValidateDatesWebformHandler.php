@@ -307,7 +307,7 @@ $valor = $valor_liquidacion;
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
 
-
+//hola kt
 
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
