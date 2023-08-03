@@ -307,6 +307,13 @@ $valor = $valor_liquidacion;
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
 
+
+//Set geo info
+
+   $localidad = $data['localidad'];
+   $this->messenger()->addStatus($this->t("Valor Liquidacion: $".  $localidad ));
+
+
 //hola kt
 
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
