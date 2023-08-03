@@ -317,15 +317,18 @@ $valor = $valor_liquidacion;
 
    switch ( $localidad) {
     case 233:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".  $data[' barrio_localidad_1'] ));
+        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
+        $data['barrio_localidad_1'] ));
 
         break;
     case 234:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".  $data[' barrio_localidad_2'] ));
+        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
+        $data['barrio_localidad_2'] ));
 
         break;
     case 235:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".  $data[' barrio_localidad_3'] ));
+        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
+         $data['barrio_localidad_3'] ));
         break;
 }
 
