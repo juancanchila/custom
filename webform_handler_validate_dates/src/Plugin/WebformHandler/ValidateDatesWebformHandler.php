@@ -349,6 +349,9 @@ $name = $term->getName();
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
    $webform_submission->setData($data);
+
+
+   
    //imprimir en pantalla
    /*
    $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
