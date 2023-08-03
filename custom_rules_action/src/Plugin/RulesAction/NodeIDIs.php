@@ -85,9 +85,7 @@ $valor_tarifa = $node->get('field_valor_tarifa')->value;
 $valor_evento = $node->get('field_valor_evento')->value;
 $valor_liquidacion = $node->get('field_valor')->value;
 $descripcion_evento = $node->get('field_descripcion_evento')->value;
-
-
-
+$valor = money_format_fild($valor_liquidacion);
 $html= ' <style>
 
 .page-title {
@@ -262,6 +260,9 @@ Detalle del evento: <p>'.$descripcion_evento.'<p>
 
 ';
 
+$code="4157709998461239"."8020".$sec."3900".$valor."96".date('Y')."1231";
+$code_content="(415)7709998461239"."(8020)".$sec."(3900)".$valor."(96)".date('Y')."1231";
+
 
 $node->set("body", $html);
 $node->body->format = 'full_html';
@@ -316,6 +317,22 @@ $file = $mpdf->Output($sec.'.pdf', 'D');
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
     return ['node'];
+  }
+
+  public function money_format_fild($money) {
+
+    $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
+    $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
+
+    $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
+
+    $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
+    $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+
+    $money_clean = (float) str_replace(',', '.', $removedThousandSeparator);
+
+    return $money_clean;
+   // $this->messenger()->addStatus($this->t("Print:". $money_clean));
   }
 
 }
