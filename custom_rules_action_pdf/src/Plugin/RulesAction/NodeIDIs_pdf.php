@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\custom_rules_action\Plugin\RulesAction;
+namespace Drupal\custom_rules_action_pdf\Plugin\RulesAction;
 
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
@@ -38,8 +38,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  * Provides a 'Node ID is' condition.
  *
  * @RulesAction(
- *   id = "custom_rules_action",
- *   label = @Translation("Node ID is"),
+ *   id = "custom_rules_action_pdf",
+ *   label = @Translation("get pdf"),
  *   category = @Translation("Node"),
  * context_definitions = {
  *     "node" = @ContextDefinition("entity:node",
@@ -51,7 +51,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  * )
  *
  */
-class NodeIDIs extends RulesActionBase
+class NodeIDIs_pdf extends RulesActionBase
 {
  /**
    * Executes the action with the given context.
