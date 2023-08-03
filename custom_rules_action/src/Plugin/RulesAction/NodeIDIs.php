@@ -262,7 +262,7 @@ Detalle del evento: <p>'.$descripcion_evento.'<p>
 
 
 $node->set("body", $html);
-
+$node->body->format = 'full_html';
 
 
 
