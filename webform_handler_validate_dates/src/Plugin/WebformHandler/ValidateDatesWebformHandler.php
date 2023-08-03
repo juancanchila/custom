@@ -317,18 +317,29 @@ $valor = $valor_liquidacion;
 
    switch ( $localidad) {
     case 233:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
-        $data['barrio_localidad_1'] ));
+
+        $term = Term::load(intval($data['barrio_localidad_1']));
+$name = $term->getName();
+
+        $this->messenger()->addStatus($this->t("Barrios".
+        $name  ));
 
         break;
     case 234:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
-        $data['barrio_localidad_2'] ));
+        $term = Term::load(intval($data['barrio_localidad_2']));
+$name = $term->getName();
+
+        $this->messenger()->addStatus($this->t("Barrio".
+        $name  ));
 
         break;
     case 235:
-        $this->messenger()->addStatus($this->t("Valor Liquidacion: $".
-         $data['barrio_localidad_3'] ));
+        $term = Term::load(intval($data['barrio_localidad_3']));
+        $name = $term->getName();
+
+                $this->messenger()->addStatus($this->t("Barrio".
+                $name  ));
+
         break;
 }
 
