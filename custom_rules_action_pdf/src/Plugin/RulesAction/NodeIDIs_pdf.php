@@ -85,7 +85,7 @@ class NodeIDIs_pdf extends RulesActionBase
 
 
 
-
+//ss
 
        $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->value;
 
