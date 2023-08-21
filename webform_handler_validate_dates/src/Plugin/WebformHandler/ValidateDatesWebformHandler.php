@@ -317,13 +317,23 @@ $valor = $valor_liquidacion;
 
    switch ( $localidad) {
     case 233:
-        $data['barrio'] = $data['barrio_localidad_1'];
+
+        $term = Term::load(intval($data['barrio_localidad_1']));
+$name = $term->getName();
+
+$data['barrio'] = $name ;
+
         break;
     case 234:
-        $data['barrio'] = $data['barrio_localidad_2'];
+        $term = Term::load(intval($data['barrio_localidad_2']));
+$name = $term->getName();
+
+$data['barrio'] = $name ;
         break;
     case 235:
-        $data['barrio'] = $data['barrio_localidad_3'];
+        $term = Term::load(intval($data['barrio_localidad_3']));
+        $data['barrio'] = $name ;
+
         break;
 }
 

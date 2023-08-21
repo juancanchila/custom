@@ -62,18 +62,14 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    $message = "test";
     $hoy =new DrupalDateTime( 'now');
-    $title = "Creando titulo con rules en la fecha : " ;
+
     /** Obteniendo el field_consecutivo_factura del nodo creado */
   $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
-
-
-
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
-     $type = "Alert";
-     /  \Drupal::messenger()->addMessage(t($message), $type);
+     $type = "Se ha creado la Liquidación # ".$sec;
+     //   \Drupal::messenger()->addMessage(t($message), $type);
 
 
 
