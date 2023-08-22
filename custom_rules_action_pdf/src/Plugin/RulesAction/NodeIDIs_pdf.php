@@ -62,8 +62,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    \Drupal::messenger()->addMessage(t('Alert'), "status");
-
+    $hoy =new DrupalDateTime( 'now');
     }
 
  /**
