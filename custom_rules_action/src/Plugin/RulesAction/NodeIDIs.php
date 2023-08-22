@@ -90,8 +90,9 @@ $html= "Test";
 
 
      $mpdf->WriteHTML($html);
+     $file = File::load($mpdf);
    // $file = $mpdf->Output($sec.'.pdf', 'D');
-   $node->set('field_id_file', $mpdf->Output());
+   $node->set('field_id_file', $file);
         ;
 
     }
