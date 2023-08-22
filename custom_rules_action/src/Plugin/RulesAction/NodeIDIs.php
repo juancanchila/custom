@@ -73,25 +73,44 @@ class NodeIDIs extends RulesActionBase
 
 
 
+     $html = "Test";
 
-$html= "Test";
-     $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
-     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
-     $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+     // Create a single instance of Mpdf
+     $mpdf = new \Mpdf\Mpdf([
+         'tempDir' => 'sites/default/files/tmp',
+         'mode' => 'utf-8',
+         'format' => 'Letter-L',
+         'orientation' => 'L'
+     ]);
+
+     // Set header and footer
      $mpdf->SetHTMLHeader('
-    <div style="text-align: right; font-weight: bold;">
-       EPA
-    </div>','O');
+         <div style="text-align: right; font-weight: bold;">
+             EPA
+         </div>','O');
 
      $mpdf->SetHTMLFooter('
-    Test
+         Test
+     ');
 
-    ');
-
-
+     // Write HTML content to the PDF
      $mpdf->WriteHTML($html);
-     $file = File::load($mpdf);
-   // $file = $mpdf->Output($sec.'.pdf', 'D');
+
+     // Save the PDF to a variable
+     $pdfContent = $mpdf->Output('', \Mpdf\Output\Destination::STRING_RETURN);
+
+     // Create a Drupal file entity
+     $file = File::create([
+         'filename' => 'generated.pdf', // Set the desired filename
+         'uri' => 'temporary://' . uniqid() . '.pdf', // Use temporary scheme
+         'status' => FILE_STATUS_PERMANENT,
+     ]);
+     $file->save();
+
+     // Save the PDF content to the file
+     $file->setContents($pdfContent);
+     $file->save();
+
    $node->set('field_id_file', $file);
         ;
 
