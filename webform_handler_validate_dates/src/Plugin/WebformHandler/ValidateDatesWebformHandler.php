@@ -319,19 +319,19 @@ $valor = $valor_liquidacion;
     case 233:
 
         $term = Term::load(intval($data['barrio_localidad_1']));
-$name = $term->getName();
-
-$data['barrio'] = $name ;
+        $name = $term->getName();
+        $data['barrio'] = $name ;
 
         break;
     case 234:
         $term = Term::load(intval($data['barrio_localidad_2']));
-$name = $term->getName();
-
-$data['barrio'] = $name ;
+        $name = $term->getName();
+        $data['barrio'] = $name ;
         break;
     case 235:
+
         $term = Term::load(intval($data['barrio_localidad_3']));
+        $name = $term->getName();
         $data['barrio'] = $name ;
 
         break;
