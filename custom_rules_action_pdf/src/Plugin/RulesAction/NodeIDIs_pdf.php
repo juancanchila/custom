@@ -66,7 +66,7 @@ class NodeIDIs_pdf extends RulesActionBase
       //validar que la documentacion esta ok y mostrar un mensaje
 
 
-      \Drupal::messenger()->addMessage(t( "test" ), "Alert");
+      \Drupal::messenger()->addMessage(t( "test" ), 'status');
     }
 
  /**
