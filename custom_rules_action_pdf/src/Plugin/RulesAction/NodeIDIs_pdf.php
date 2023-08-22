@@ -65,10 +65,8 @@ class NodeIDIs_pdf extends RulesActionBase
 
       //validar que la documentacion esta ok y mostrar un mensaje
 
-      $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->value;
 
-
-      \Drupal::messenger()->addMessage(t( $dir_correspondecia_contrib ), "Alert");
+      \Drupal::messenger()->addMessage(t( "test" ), "Alert");
     }
 
  /**
