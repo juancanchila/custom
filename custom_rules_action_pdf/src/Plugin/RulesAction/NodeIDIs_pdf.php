@@ -63,7 +63,7 @@ class NodeIDIs_pdf extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 
     $message_info = "Se ha actualizado la Liquidación # ".$node->get('title')->value;
-    \Drupal::messenger()->addMessage(t( $message_info), 'status');
+    \Drupal::messenger()->addMessage(t( $message_info), 'warning');
     }
 
  /**
