@@ -72,7 +72,7 @@ class NodeIDIs extends RulesActionBase
       \Drupal::messenger()->addMessage(t('Liquidación Creada'), 'status');
 
 
-/*
+
 
 $html= "Test";
      $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
@@ -91,9 +91,9 @@ $html= "Test";
 
      $mpdf->WriteHTML($html);
      $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE);
-   // $file = $mpdf->Output($sec.'.pdf', 'D');
-   $node->set('field_id_file', $mpdf);
-        */
+
+ 
+      
 
     }
 
