@@ -31,6 +31,8 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+use Drupal\Core\File\FileSystemInterface;
+
 
 
 
@@ -62,7 +64,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    $message_info = "Se ha actualizado la Liquidación # ".$node->get('title')->value;
+    $message_info = "Se ha actualizado la Liquidación # ";
     \Drupal::messenger()->addMessage(t( $message_info), 'warning');
     }
 
