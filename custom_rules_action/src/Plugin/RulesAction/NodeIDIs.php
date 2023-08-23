@@ -31,11 +31,7 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-use Drupal\file\FileInterface;
-use Drupal\custom_module_name\Plugin\RulesAction\FileSystemInterface;
-use Drupal\rules\Core\RulesActionBase;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+
 
 
 /**
@@ -106,13 +102,6 @@ $filePath = $destinationDirectory . $filename;
 
     
 
-     // Load the PDF file that you generated
-     $fileContent = file_get_contents($filePath);
-  
-     $file = file_save_data($fileContent, 'private://' . $filename, FileSystemInterface::EXISTS_REPLACE);
-     
-     // Attach the file to the node field
-     $node->get('field_liquidacion')->setValue(['target_id' => $file->id()]);
 
       
 
