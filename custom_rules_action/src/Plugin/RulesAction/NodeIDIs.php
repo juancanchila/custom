@@ -74,18 +74,28 @@ class NodeIDIs extends RulesActionBase
       \Drupal::messenger()->addMessage(t( $type), 'status');
 
       //number_format( $valor_evento, 2, ',', '.');
+      $tipo_solicitante = $node->get('field_tipo_solicitante')->getValue();
     
-      $name_contrib = $node->get('field_consecutivo_liquidacion')->getValue();
-      $id_contribuyente = $node->get('field_consecutivo_liquidacion')->getValue();
+      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
+        $id_contribuyente = $node->get('field_idlegal')->getValue();
+        $name_contrib = $node->get('field_razon_social')->getValue();
+
+      }else{
+        $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
+        $name_contrib =  $node->get('field_nombre_contribuyente')->getValue();
+      }
+
+
       $email_cotrib = $node->get('field_email_contribuyente')->getValue();
       $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
       $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
       $valor_evento = $node->get('field_valor_evento')->getValue();
       $valor = $node->get('field_valor')->getValue();
       $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+      $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
 
-      $code="4157709998461239"."8020".$sec."3900".$valor[0]["value"]."96".date('Y')."1231";
-      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$valor[0]["value"]."(96)".date('Y')."1231";
+      $code="4157709998461239"."8020".$sec."3900".money_format_fild($valor[0]["value"])."96".date('Y')."1231";
+      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
       $html= ' <style>
 
       .page-title {
@@ -214,7 +224,7 @@ class NodeIDIs extends RulesActionBase
          <td >
          <p style="
       font-weight: bold;
-      ">$ '.$valor_liquidacion[0]["value"].'</p>
+      ">$ '.$valor[0]["value"].'</p>
          </td>
        </tr>
        <tr>
