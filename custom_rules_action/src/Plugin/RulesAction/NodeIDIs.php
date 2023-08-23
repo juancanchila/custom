@@ -32,7 +32,6 @@ use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
 
 
 /**
