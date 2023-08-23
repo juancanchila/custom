@@ -2,7 +2,7 @@
 
 namespace Drupal\custom_rules_action_pdf\Plugin\RulesAction;
 
-use Drupal\node\NodeInterface;
+use Drupal\node\UserInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -44,25 +44,23 @@ use Drupal\Core\File\FileSystemInterface;
  *   label = @Translation("get pdf"),
  *   category = @Translation("Node"),
  * context_definitions = {
- *     "node" = @ContextDefinition("entity:node",
- *       label = @Translation("Node"),
- *       description = @Translation("Specifies the content item to change."),
- *       assignment_restriction = "selector"
- *     ),
+ *  "user" = @ContextDefinition("entity:user", label = @Translation("User")),
  *   }
  * )
  *
  */
+
+
 class NodeIDIs_pdf extends RulesActionBase
 {
  /**
    * Executes the action with the given context.
    *
-   * @param \Drupal\node\NodeInterface $node
+   * @param \Drupal\node\UserInterface $node
    *   The node to modify.
    *
    */
-  protected function doExecute(NodeInterface $node) {
+  protected function doExecute(UserInterface $user) {
 
     $message_info = "Se ha actualizado la Liquidación # ";
     \Drupal::messenger()->addMessage(t( $message_info), 'warning');
