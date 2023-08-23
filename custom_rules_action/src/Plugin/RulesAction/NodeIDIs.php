@@ -92,18 +92,13 @@ class NodeIDIs extends RulesActionBase
       $mpdf->WriteHTML($html);
 
 
-    
-      use Drupal\Core\StreamWrapper\PrivateStream;
-      ...
-      ...
-      $output = 'Test Text';
-      $file_save_path_stream_directory = 'sites/default/files/tmp';
-      
-      file_prepare_directory($file_save_path_stream_directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
-      
-      $fileLocation = $file_save_path_stream_directory . '/test.txt';
-      
-      $file = file_save_data($output, $fileLocation, FILE_EXISTS_REPLACE); 
+      $file = File::create([
+        'uid' => 1,
+        'filename' => 'test.txt',
+        'uri' => '<private:test.txt',
+        'status' => 1,
+      ]);
+      $file->save();
 
  
 
