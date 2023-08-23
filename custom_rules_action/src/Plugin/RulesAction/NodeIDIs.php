@@ -92,12 +92,7 @@ class NodeIDIs extends RulesActionBase
       $mpdf->WriteHTML($html);
 
 
-      $path = "sites/default/files/tmp/mpdf";
-     
-      $data = 'Text file example content';
-      /** @var \Drupal\file\FileRepositoryInterface $fileRepository */
-      $fileRepository = \Drupal::service('file.repository');
-      $fileRepository->writeData($data, "public://my-dir/MY_FILE.txt", FileSystemInterface::EXISTS_REPLACE);
+    
  
 
 /*
