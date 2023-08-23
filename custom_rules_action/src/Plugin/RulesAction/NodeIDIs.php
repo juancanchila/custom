@@ -94,8 +94,8 @@ class NodeIDIs extends RulesActionBase
       $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
       $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
 
-      $code="4157709998461239"."8020".$sec."3900".money_format_fild($valor[0]["value"])."96".date('Y')."1231";
-      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
+      $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
+      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
       $html= ' <style>
 
       .page-title {
