@@ -71,25 +71,30 @@ class NodeIDIs extends RulesActionBase
      $type = "Se ha creado la Liquidación # ".$sec;
        \Drupal::messenger()->addMessage(t('Liquidación Creada'), 'status');
 
+       $html= "Test";
+       $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
+       $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
+       $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+       $mpdf->SetHTMLHeader('
+      <div style="text-align: right; font-weight: bold;">
+         EPA
+      </div>','O');
+  
+       $mpdf->SetHTMLFooter('
+      Test
+  
+      ');
+  
+      $mpdf->WriteHTML($html);
+      $mpdf->Output('filename.pdf', \Mpdf\Output\Destination::FILE);
+
+
 
 /*
 
-$html= "Test";
-     $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
-     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
-     $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
-     $mpdf->SetHTMLHeader('
-    <div style="text-align: right; font-weight: bold;">
-       EPA
-    </div>','O');
-
-     $mpdf->SetHTMLFooter('
-    Test
-
-    ');
 
 
-     $mpdf->WriteHTML($html);
+   
      $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE);
    // $file = $mpdf->Output($sec.'.pdf', 'D');
    $node->set('field_id_file', $mpdf);
