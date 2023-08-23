@@ -31,7 +31,11 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
+use Drupal\file\FileInterface;
+use Drupal\custom_module_name\Plugin\RulesAction\FileSystemInterface;
+use Drupal\rules\Core\RulesActionBase;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 /**
