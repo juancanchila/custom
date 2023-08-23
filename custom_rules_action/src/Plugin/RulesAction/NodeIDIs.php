@@ -93,7 +93,7 @@ class NodeIDIs extends RulesActionBase
        ');
        
        // Construct the full file path including the filename
-       $filePath = 'public://tmp/filename.pdf';
+       $filePath = 'private';
        
        // Save the PDF to the specified file path
        $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
