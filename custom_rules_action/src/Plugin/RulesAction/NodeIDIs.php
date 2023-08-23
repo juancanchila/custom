@@ -88,7 +88,8 @@ class NodeIDIs extends RulesActionBase
       $mpdf->WriteHTML($html);
       $filePath= 'sites/default/files/tmp';
 
-      $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
+      $absoluteFilePath = \Drupal::service('file_system')->realpath($filePath);
+      drupal_set_message($absoluteFilePath);
 
 /*
 
