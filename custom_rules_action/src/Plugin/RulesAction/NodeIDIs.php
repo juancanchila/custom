@@ -68,37 +68,13 @@ class NodeIDIs extends RulesActionBase
   $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
-     $type = "Se ha creado la Liquidación # ".$sec;
-     //   \Drupal::messenger()->addMessage(t($message), $type);
+    
+      \Drupal::messenger()->addMessage(t(\Drupal::service('file_system')->realpath("private://")), 'status');
 
 
 
 
-$html= "Test";
-     $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
-     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
-     $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
-     $mpdf->SetHTMLHeader('
-    <div style="text-align: right; font-weight: bold;">
-       EPA
-    </div>','O');
 
-     $mpdf->SetHTMLFooter('
-    Test
-
-    ');
-
-
-     $mpdf->WriteHTML($html);
-     $filename = 'example.pdf';
-$filePath = \Drupal::service('file_system')->realpath("private://"). $filename;
-
-// Save the PDF to the private file system
-$mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
-  
-   // $file = $mpdf->Output($sec.'.pdf', 'D');
-   //$node->set('field_id_file', $mpdf);
- 
 
     }
 
