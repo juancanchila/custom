@@ -31,7 +31,7 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
+use Drupal\Core\StreamWrapper\PrivateStream;
 
 
 /**
@@ -91,7 +91,14 @@ class NodeIDIs extends RulesActionBase
       $path = "sites/default/files/tmp/mpdf";
      
 
-      $mpdf->Output($path, "F");
+      $output = 'Test Text';
+      $file_save_path_stream_directory =  'private://gmt';
+      
+      file_prepare_directory($file_save_path_stream_directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      
+      $fileLocation = $file_save_path_stream_directory . '/test.txt';
+      
+      $file = file_save_data($output, $fileLocation, FILE_EXISTS_REPLACE); 
 
 /*
 
