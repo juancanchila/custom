@@ -92,7 +92,7 @@ $html= "Test";
      $mpdf->WriteHTML($html);
 
      
-     $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE."\mpdf");
+     $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE);
 
  
       
