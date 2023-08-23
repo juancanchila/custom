@@ -82,7 +82,7 @@ class NodeIDIs extends RulesActionBase
 
       }else{
         $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
-        $name_contrib =  $node->get('field_nombre_contribuyente')->getValue();
+        $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
       }
 
 
