@@ -86,11 +86,9 @@ class NodeIDIs extends RulesActionBase
       ');
   
       $mpdf->WriteHTML($html);
-      $filePath= 'sites/default/files/tmp';
+      $filePath = '/var/www/vhosts/vitac.epacartagena.gov.co/httpdocs/web/sites/default/files/tmp';
 
-      $absoluteFilePath = \Drupal::service('file_system')->realpath($filePath);
-      \Drupal::messenger()->addMessage(t( $absoluteFilePath), 'status');
-    
+      $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
 
 /*
 
