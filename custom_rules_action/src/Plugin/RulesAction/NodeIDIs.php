@@ -86,9 +86,7 @@ class NodeIDIs extends RulesActionBase
       ');
   
       $mpdf->WriteHTML($html);
-      $filePath = '/var/www/vhosts/vitac.epacartagena.gov.co/httpdocs/web/sites/default/files/tmp';
-
-      $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
+     
 
 /*
 
