@@ -62,7 +62,8 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    $hoy =new DrupalDateTime( 'now');
+    $message_info = "Se ha actualizado la Liquidación # ".$node->get('title')->value;
+    \Drupal::messenger()->addMessage(t( $message_info), 'status');
     }
 
  /**
@@ -73,20 +74,6 @@ class NodeIDIs_pdf extends RulesActionBase
     return ['node'];
   }
 
-  public function money_format_fild($money) {
 
-    $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
-    $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
-
-    $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
-
-    $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
-    $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
-
-    $money_clean = (float) str_replace(',', '.', $removedThousandSeparator);
-
-    return $money_clean;
-   // $this->messenger()->addStatus($this->t("Print:". $money_clean));
-  }
 
 }
