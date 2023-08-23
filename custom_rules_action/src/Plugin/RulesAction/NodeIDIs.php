@@ -91,11 +91,8 @@ $html= "Test";
 
      $mpdf->WriteHTML($html);
 
-     $filename = $sec.'.pdf';
-$destinationDirectory = 'private://mpdf'; // Change this to your desired destination
-$filePath = $destinationDirectory . $filename;
-
-     $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
+     
+     $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE."\mpdf");
 
  
       
