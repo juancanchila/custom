@@ -90,7 +90,7 @@ $html= "Test";
 
 
      $mpdf->WriteHTML($html);
-     $mpdf->Output($sec+'.pdf', \Mpdf\Output\Destination::FILE);
+     $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE);
    // $file = $mpdf->Output($sec.'.pdf', 'D');
    $node->set('field_id_file', $mpdf);
         ;
