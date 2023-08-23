@@ -95,7 +95,7 @@ class NodeIDIs extends RulesActionBase
       $file = File::create([
         'uid' => 1,
         'filename' => 'test.txt',
-        'uri' => '<private:test.txt',
+        'uri' => 'private:test.txt',
         'status' => 1,
       ]);
       $file->save();
