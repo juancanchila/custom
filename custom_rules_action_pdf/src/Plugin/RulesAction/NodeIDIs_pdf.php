@@ -60,12 +60,19 @@ class NodeIDIs_pdf extends RulesActionBase
    *   The node to modify.
    *
    */
-  protected function doExecute() {
+  protected function doExecute(NodeInterface $node) {
 
- 
-    \Drupal::messenger()->addMessage(t( "Message"), 'status');
+    $message_info = "Se ha actualizado la Liquidación # ".$node->get('title')->value;
+    \Drupal::messenger()->addMessage(t( $message_info), 'status');
     }
 
+ /**
+   * {@inheritdoc}
+   */
+  public function autoSaveContext() {
+    // The node should be auto-saved after the execution.
+    return ['node'];
+  }
 
 
 
