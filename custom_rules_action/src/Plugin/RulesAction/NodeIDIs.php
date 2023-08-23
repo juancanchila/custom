@@ -75,17 +75,17 @@ class NodeIDIs extends RulesActionBase
 
       //number_format( $valor_evento, 2, ',', '.');
     
-      $name_contrib =$node->field_consecutivo_liquidacion->getString(); 
-      $id_contribuyente =  $node->field_consecutivo_liquidacion->getString();
-      $email_cotrib = $node->field_email_contribuyente->getString(); 
-      $tmovil =  $node->field_telefono_movil_contribuyen->getString();  
-      $valor_tarifa =  $node->field_valor_tarifa->getString();  
-      $valor_evento =$node->field_valor_evento->getString(); 
-      $valor = $node->field_valor->getString(); 
-      $descripcion_evento = $node->field_descripcion_evento->getString(); 
+      $name_contrib = $node->get('field_consecutivo_liquidacion')->getValue();
+      $id_contribuyente = $node->get('field_consecutivo_liquidacion')->getValue();
+      $email_cotrib = $node->get('field_email_contribuyente')->getValue();
+      $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
+      $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
+      $valor_evento = $node->get('field_valor_evento')->getValue();
+      $valor = $node->get('field_valor')->getValue();
+      $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
 
-      $code="4157709998461239"."8020".$sec."3900".$valor."96".date('Y')."1231";
-      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$valor."(96)".date('Y')."1231";
+      $code="4157709998461239"."8020".$sec."3900".$valor[0]["value"]."96".date('Y')."1231";
+      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$valor[0]["value"]."(96)".date('Y')."1231";
       $html= ' <style>
 
       .page-title {
@@ -170,51 +170,51 @@ class NodeIDIs extends RulesActionBase
       <tr>
       <td ><p>PETICIONARIO / EMPRESA:</p></td>
       <td  colspan="3">
-      <p>'.$name_contrib.'</p>
+      <p>'.$name_contrib[0]["value"].'</p>
       </td>
       </tr>
       <tr>
       <td ><p>Id Solicitante:</p></td>
       <td  colspan="3">
-      <p>'.$id_contribuyente.'</p>
+      <p>'.$id_contribuyente[0]["value"].'</p>
       </td>
       </tr>
       
       <tr>
       <td ><p>DIRECCION:</p></td>
       <td  colspan="3">
-      <p>'.$dir_correspondecia_contrib.'</p>
+      <p>'.$dir_correspondecia_contrib[0]["value"].'</p>
       </td>
       </tr>
       
       <tr>
       <td ><p>CORREO:</p></td>
       <td  colspan="3">
-      <p>'.$email_cotrib.'</p>
+      <p>'.$email_cotrib[0]["value"].'</p>
       </td>
       </tr>
       <tr>
       <td ><p>TELÉFONO:</p></td>
       <td  colspan="3">
-      <p>'.$tmovil.'</p>
+      <p>'.$tmovil[0]["value"].'</p>
       </td>
       </tr>
        <tr>
          <td><p>VALOR TARIFA SEGÚN RESOLUCIÓN N° 107 de 17 de febrero de 2021 para este monto de proyecto: </p></td>
          <td colspan="3">
-         <p>$ '.$valor_tarifa.'</p>
+         <p>$ '.$valor_tarifa[0]["value"].'</p>
          </td>
        </tr>
        <tr>
          <td><p>VALOR EVENTO</p></td>
          <td>
-         <p> $'.$valor_evento.'</p>
+         <p> $'.$valor_evento[0]["value"].'</p>
          </td>
          <td >TOTAL LIQUIDACIÓN</td>
          <td >
          <p style="
       font-weight: bold;
-      ">$ '.$valor_liquidacion.'</p>
+      ">$ '.$valor_liquidacion[0]["value"].'</p>
          </td>
        </tr>
        <tr>
@@ -233,7 +233,7 @@ class NodeIDIs extends RulesActionBase
          <p>CONCEPTO</p>
       
          <div class="concepto">
-         <p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento.' pesos Colombianos MLV, PARA '.$numero_dias.' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p>
+         <p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$numero_dias.' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p>
          </div>
          </td>
        </tr>
@@ -246,7 +246,7 @@ class NodeIDIs extends RulesActionBase
       
       <tr>
       <td>
-      Detalle del evento: <p>'.$descripcion_evento.'<p>
+      Detalle del evento: <p>'.$descripcion_evento[0]["value"].'<p>
       
       
       
