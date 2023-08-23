@@ -69,7 +69,7 @@ class NodeIDIs extends RulesActionBase
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
      $type = "Se ha creado la Liquidación # ".$sec;
-      \Drupal::messenger()->addMessage(t('Liquidación Creada'), 'status');
+      \Drupal::messenger()->addMessage(t( $type), 'status');
 
 
 
