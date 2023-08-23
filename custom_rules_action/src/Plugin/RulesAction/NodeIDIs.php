@@ -75,23 +75,28 @@ class NodeIDIs extends RulesActionBase
      $type = "Se ha creado la Liquidación # ".$sec;
        \Drupal::messenger()->addMessage(t('Liquidación Creada'), 'status');
 
-       $html= "Test";
-       $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
-       $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
-       $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+       $html = "Test";
+       $mpdf = new \Mpdf\Mpdf([
+           'tempDir' => 'sites/default/files/tmp',
+           'mode' => 'utf-8',
+           'format' => 'Letter-L',
+           'orientation' => 'L'
+       ]);
+       
        $mpdf->SetHTMLHeader('
-      <div style="text-align: right; font-weight: bold;">
-         EPA
-      </div>','O');
-  
+         <div style="text-align: right; font-weight: bold;">
+            EPA
+         </div>', 'O');
+       
        $mpdf->SetHTMLFooter('
-      Test
-  
-      ');
-  
-      
-      // Saves file on the server as 'filename.pdf'
-      $mpdf->Output('filename.pdf', 'sites/default/files/tmp');
+         Test
+       ');
+       
+       // Construct the full file path including the filename
+       $filePath = 'public://tmp/filename.pdf';
+       
+       // Save the PDF to the specified file path
+       $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
  
 
 /*
