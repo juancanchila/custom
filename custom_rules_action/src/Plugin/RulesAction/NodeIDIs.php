@@ -95,7 +95,9 @@ class NodeIDIs extends RulesActionBase
 $textContent = "This is the content of the text file.\nSecond line.";
 
 // Specify the file path where you want to create the text file
-$filePath = 'private://example.txt'; // Replace with your desired path
+$directory = 'public://'; // Use the appropriate stream wrapper
+$filename = 'example.txt';
+$filePath = "$directory$filename";
 
 // Create the text file
 $bytesWritten = file_put_contents($filePath, $textContent);
