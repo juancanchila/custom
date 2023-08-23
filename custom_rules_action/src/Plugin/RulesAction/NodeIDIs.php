@@ -89,7 +89,8 @@ class NodeIDIs extends RulesActionBase
       $filePath= 'sites/default/files/tmp';
 
       $absoluteFilePath = \Drupal::service('file_system')->realpath($filePath);
-      drupal_set_message($absoluteFilePath);
+      \Drupal::messenger()->addMessage(t( $absoluteFilePath), 'status');
+    
 
 /*
 
