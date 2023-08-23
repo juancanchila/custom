@@ -298,7 +298,7 @@ class NodeIDIs extends RulesActionBase
      
      ');
 
-
+     $mpdf->WriteHTML($html);
      $filename = $sec . '.pdf';
 $destinationDirectory = 'private://'; // Change this to your desired private destination
 $filePath = $destinationDirectory . $filename;
