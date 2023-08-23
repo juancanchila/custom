@@ -75,14 +75,14 @@ class NodeIDIs extends RulesActionBase
 
       //number_format( $valor_evento, 2, ',', '.');
     
-      $name_contrib = $node->get('field_consecutivo_liquidacion')->getValue();
-      $id_contribuyente = $node->get('field_consecutivo_liquidacion')->getValue();
-      $email_cotrib = $node->get('field_email_contribuyente')->getValue();
-      $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
-      $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
-      $valor_evento = $node->get('field_valor_evento')->getValue();
-      $valor = $node->get('field_valor')->getValue();
-      $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+      $name_contrib =$node->field_consecutivo_liquidacion->value; 
+      $id_contribuyente =  $node->field_consecutivo_liquidacion->value;
+      $email_cotrib = $node->field_email_contribuyente->value; 
+      $tmovil =  $node->field_telefono_movil_contribuyen->value;  
+      $valor_tarifa =  $node->field_valor_tarifa->value;  
+      $valor_evento =$node->field_valor_evento->value; $node->get('')->getValue();
+      $valor = $node->field_valor->value; 
+      $descripcion_evento = $node->field_descripcion_evento->value; 
 
       $code="4157709998461239"."8020".$sec."3900".$valor."96".date('Y')."1231";
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$valor."(96)".date('Y')."1231";
