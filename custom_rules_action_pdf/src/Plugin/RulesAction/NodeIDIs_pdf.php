@@ -42,10 +42,14 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  *   label = @Translation("get pdf"),
  *   category = @Translation("Node"),
  * context_definitions = {
- *     "node" = @ContextDefinition("entity:node",
- *       label = @Translation("Node"),
- *       description = @Translation("Specifies the content item to change."),
- *       assignment_restriction = "selector"
+ *   context = {
+ *     "message" = @ContextDefinition("string",
+ *       label = @Translation("Message"),
+ *       description = @Translation("write your message"),
+ *     ),
+ *     "type" = @ContextDefinition("string",
+ *       label = @Translation("Message type"),
+ *       description = @Translation("Message type: status, warning or error "),
  *     ),
  *   }
  * )
@@ -53,25 +57,13 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class NodeIDIs_pdf extends RulesActionBase
 {
- /**
-   * Executes the action with the given context.
-   *
-   * @param \Drupal\node\NodeInterface $node
-   *   The node to modify.
-   *
-   */
-  protected function doExecute(NodeInterface $node) {
-
-
+    /**
+     * @param $name
+     */
+    protected function doExecute($message, $type)
+    {
+        \Drupal::messenger()->addMessage(t($message), $type);
     }
-
- /**
-   * {@inheritdoc}
-   */
-  public function autoSaveContext() {
-    // The node should be auto-saved after the execution.
-    return ['node'];
-  }
 
 
 
