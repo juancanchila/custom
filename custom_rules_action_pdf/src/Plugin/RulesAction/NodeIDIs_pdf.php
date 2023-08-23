@@ -42,7 +42,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  *   label = @Translation("get pdf"),
  *   category = @Translation("Node"),
  * context_definitions = {
- *     "node" = @ContextDefinition("entity:node",
+ *     "node_edited" = @ContextDefinition("entity:node",
  *       label = @Translation("Node"),
  *       description = @Translation("Specifies the content item to change."),
  *       assignment_restriction = "selector"
@@ -60,9 +60,9 @@ class NodeIDIs_pdf extends RulesActionBase
    *   The node to modify.
    *
    */
-  protected function doExecute(NodeInterface $node) {
+  protected function doExecute(NodeInterface $node_edited) {
 
-    $message_info = "Se ha actualizado la Liquidación # ".$node->get('title')->value;
+    $message_info = "Se ha actualizado la Liquidación # ".$node_edited->get('title')->value;
     \Drupal::messenger()->addMessage(t( $message_info), 'status');
     }
 
@@ -71,7 +71,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
-    return ['node'];
+    return ['node_edited'];
   }
 
 
