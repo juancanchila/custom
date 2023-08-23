@@ -71,7 +71,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
-    return ['node_edited'];
+    return ['node'];
   }
 
 
