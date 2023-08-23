@@ -62,7 +62,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    $type = "Se ha creado la Liquidación # ".$sec;
+    $type = "Se ha creado la Liquidación # ";
     \Drupal::messenger()->addMessage(t($type),'status');
     }
 
