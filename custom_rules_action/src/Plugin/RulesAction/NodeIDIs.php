@@ -91,15 +91,23 @@ class NodeIDIs extends RulesActionBase
   
       $mpdf->WriteHTML($html);
 
+// Your text content
+$textContent = "This is the content of the text file.\nSecond line.";
 
-      $file = File::create([
-        'uid' => 1,
-        'filename' => 'test.txt',
-        'uri' => 'private:test.txt',
-        'status' => 1,
-      ]);
-      $file->save();
+// Specify the file path where you want to create the text file
+$filePath = 'private://example.txt'; // Replace with your desired path
 
+// Create the text file
+$bytesWritten = file_put_contents($filePath, $textContent);
+
+if ($bytesWritten !== false) {
+  // File created successfully
+  drupal_set_message("Text file created successfully at $filePath.");
+}
+else {
+  // Error creating file
+  drupal_set_message("Error creating text file.", 'error');
+}
  
 
 /*
