@@ -106,8 +106,7 @@ $filePath = $destinationDirectory . $filename;
    $fileContent = file_get_contents($filePath);
     $pdfFile = file_save_data($fileContent, 'private://' . $filename, FileSystemInterface::EXISTS_REPLACE);
 
-    $node->set('field_liquidacion', ['target_id' => $file->id()]);
-  
+ 
 
     }
 
