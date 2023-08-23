@@ -31,7 +31,8 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
 
 
 /**
@@ -53,6 +54,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
+
+
  /**
    * Executes the action with the given context.
    *
@@ -61,7 +64,7 @@ class NodeIDIs extends RulesActionBase
    *
    */
   protected function doExecute(NodeInterface $node) {
-
+const FILE_EXISTS_REPLACE = FileSystemInterface::EXISTS_REPLACE;
     $hoy =new DrupalDateTime( 'now');
 
     /** Obteniendo el field_consecutivo_factura del nodo creado */
@@ -100,10 +103,12 @@ $filePath = $destinationDirectory . $filename;
 
  
 
-    
+    // Load the generated PDF file
+   $fileContent = file_get_contents($filePath);
+    $pdfFile = file_save_data($fileContent, 'private://' . $filename, FILE_EXISTS_REPLACE);
 
 
-      
+     $node->get('field_liquidacion')->setValue(['target_id' => $file->id()]);
 
     }
 
