@@ -5,6 +5,7 @@ namespace Drupal\custom_cron\Plugin\SimpleCron;
 use Drupal\Core\Logger\LoggerChannelTrait;
 use Drupal\simple_cron\Plugin\SimpleCronPluginBase;
 
+
 /**
  * Single cron example implementation.
  *
