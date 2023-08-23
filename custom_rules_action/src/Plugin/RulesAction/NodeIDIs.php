@@ -54,7 +54,7 @@ use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
-
+  const FILE_EXISTS_REPLACE = FileSystemInterface::EXISTS_REPLACE;
 
  /**
    * Executes the action with the given context.
@@ -64,7 +64,7 @@ class NodeIDIs extends RulesActionBase
    *
    */
   protected function doExecute(NodeInterface $node) {
-const FILE_EXISTS_REPLACE = FileSystemInterface::EXISTS_REPLACE;
+
     $hoy =new DrupalDateTime( 'now');
 
     /** Obteniendo el field_consecutivo_factura del nodo creado */
