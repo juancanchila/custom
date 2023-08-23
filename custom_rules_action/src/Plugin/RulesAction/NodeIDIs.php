@@ -89,9 +89,8 @@ class NodeIDIs extends RulesActionBase
 
 
       $path = "sites/default/files/";
-      $mpdf = new mPDF();
-      
-      $mpdf->WriteHTML('<p>Hello</p>');
+     
+
       $mpdf->Output($path, "F");
 
 /*
