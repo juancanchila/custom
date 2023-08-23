@@ -91,7 +91,7 @@ class NodeIDIs extends RulesActionBase
   
       
       // Saves file on the server as 'filename.pdf'
-      $mpdf->Output('filename.pdf', \Mpdf\Output\Destination::FILE);
+      $mpdf->Output('filename.pdf', 'sites/default/files/tmp');
  
 
 /*
