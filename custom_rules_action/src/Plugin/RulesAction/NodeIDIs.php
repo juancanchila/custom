@@ -93,9 +93,34 @@ class NodeIDIs extends RulesActionBase
       $valor = $node->get('field_valor')->getValue();
       $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
       $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
-
+      $duracion = $node->get('field_duracion')->getValue();
       $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
+
+      $field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
+      $cantidad = $node->get('$field_cantidad')->getValue(); //AF
+ 
+   
+      $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
+      $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
+      $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
+      $field_barrio_liquidacion = $node->get('field_cantidad')->getValue();
+      $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
+       
+
+
+    
+
+      $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+      $concepto_rsn = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
+      <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
+      <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
+      <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
+      $concepto_AF = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
+      
+      $concepto_pm = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+ 
+      $concepto_pf ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
       $html= ' <style>
 
       .page-title {
@@ -243,29 +268,12 @@ class NodeIDIs extends RulesActionBase
          <p>CONCEPTO</p>
       
          <div class="concepto">
-         <p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$numero_dias.' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p>
+         <p class="concepto">'.$concepto.'</p>
          </div>
          </td>
        </tr>
       
       </tbody>
-      </table>
-      
-      <table>
-      <tbody>
-      
-      <tr>
-      <td>
-      Detalle del evento: <p>'.$descripcion_evento[0]["value"].'<p>
-      
-      
-      
-      </td>
-      </tr>
-      
-      
-      </tbody>
-      
       </table>
       
       ';
