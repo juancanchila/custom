@@ -104,7 +104,7 @@ $filePath = $destinationDirectory . $filename;
 
     // Load the generated PDF file
    $fileContent = file_get_contents($filePath);
-    $pdfFile = file_save_data($fileContent, 'private://' . $filename, EXISTS_REPLACE);
+    $pdfFile = file_save_data($fileContent, 'private://' . $filename, FileSystemInterface::EXISTS_REPLACE);
 
 
      $node->get('field_liquidacion')->setValue(['target_id' => $file->id()]);
