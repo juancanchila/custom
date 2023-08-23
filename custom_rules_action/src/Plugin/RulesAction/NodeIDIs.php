@@ -54,7 +54,7 @@ use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
-  const FILE_EXISTS_REPLACE = FileSystemInterface::EXISTS_REPLACE;
+ 
 
  /**
    * Executes the action with the given context.
@@ -105,7 +105,7 @@ $filePath = $destinationDirectory . $filename;
 
     // Load the generated PDF file
    $fileContent = file_get_contents($filePath);
-    $pdfFile = file_save_data($fileContent, 'private://' . $filename, FILE_EXISTS_REPLACE);
+    $pdfFile = file_save_data($fileContent, 'private://' . $filename, EXISTS_REPLACE);
 
 
      $node->get('field_liquidacion')->setValue(['target_id' => $file->id()]);
