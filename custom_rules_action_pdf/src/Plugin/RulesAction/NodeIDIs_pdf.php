@@ -2,7 +2,7 @@
 
 namespace Drupal\custom_rules_action_pdf\Plugin\RulesAction;
 
-use Drupal\node\UserInterface;
+use Drupal\user\UserInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
