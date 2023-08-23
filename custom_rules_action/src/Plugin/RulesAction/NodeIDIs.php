@@ -69,7 +69,7 @@ class NodeIDIs extends RulesActionBase
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
     
-      \Drupal::messenger()->addMessage(t(\Drupal::service('file_system')->realpath("private://")), 'status');
+      \Drupal::messenger()->addMessage(t(\Drupal::service('file_system')->realpath("private://private")), 'status');
 
 
 
