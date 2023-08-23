@@ -31,7 +31,8 @@ use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Link;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-use Drupal\Core\File\FileSystemInterface;
+
+
 
 /**
  * Provides a 'Node ID is' condition.
@@ -52,11 +53,7 @@ use Drupal\Core\File\FileSystemInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
-
-
-
-
-   /**
+ /**
    * Executes the action with the given context.
    *
    * @param \Drupal\node\NodeInterface $node
@@ -65,7 +62,6 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-  
     $hoy =new DrupalDateTime( 'now');
 
     /** Obteniendo el field_consecutivo_factura del nodo creado */
@@ -73,42 +69,36 @@ class NodeIDIs extends RulesActionBase
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
      $type = "Se ha creado la Liquidación # ".$sec;
-       \Drupal::messenger()->addMessage(t('Liquidación Creada'), 'status');
+     //   \Drupal::messenger()->addMessage(t($message), $type);
 
-       $html = "Test";
-       $mpdf = new \Mpdf\Mpdf([
-           'tempDir' => 'sites/default/files/tmp',
-           'mode' => 'utf-8',
-           'format' => 'Letter-L',
-           'orientation' => 'L'
-       ]);
-       
-       $mpdf->SetHTMLHeader('
-         <div style="text-align: right; font-weight: bold;">
-            EPA
-         </div>', 'O');
-       
-       $mpdf->SetHTMLFooter('
-         Test
-       ');
-       
-       // Construct the full file path including the filename
-    // Construct the full file path including the filename
-$filename = 'example.pdf';
-$filePath = 'private://' . $filename;
+
+
+
+$html= "Test";
+     $mpdf = new \Mpdf\Mpdf(['tempDir' => 'sites/default/files/tmp']);
+     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
+     $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+     $mpdf->SetHTMLHeader('
+    <div style="text-align: right; font-weight: bold;">
+       EPA
+    </div>','O');
+
+     $mpdf->SetHTMLFooter('
+    Test
+
+    ');
+
+
+     $mpdf->WriteHTML($html);
+     $filename = 'example.pdf';
+$filePath = \Drupal::service('file_system')->realpath("private://"). $filename;
 
 // Save the PDF to the private file system
 $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
-
-/*
-
-
-
-   
-     $mpdf->Output($sec.'.pdf', \Mpdf\Output\Destination::FILE);
+  
    // $file = $mpdf->Output($sec.'.pdf', 'D');
-   $node->set('field_id_file', $mpdf);
-        */
+   //$node->set('field_id_file', $mpdf);
+ 
 
     }
 
