@@ -97,7 +97,7 @@ class NodeIDIs extends RulesActionBase
       ...
       ...
       $output = 'Test Text';
-      $file_save_path_stream_directory =  \Drupal::service('file_system')->realpath("private://");
+      $file_save_path_stream_directory = 'sites/default/files/tmp';
       
       file_prepare_directory($file_save_path_stream_directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
       
