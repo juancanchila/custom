@@ -74,7 +74,7 @@ class NodeIDIs extends RulesActionBase
       \Drupal::messenger()->addMessage(t( $type), 'status');
 
       //number_format( $valor_evento, 2, ',', '.');
-      $tipo_solicitante = $node->get('field_tipo_solicitante')->getValue();
+      $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
     
       if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
         $id_contribuyente = $node->get('field_idlegal')->getValue();
