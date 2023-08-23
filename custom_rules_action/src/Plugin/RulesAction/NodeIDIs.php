@@ -93,6 +93,22 @@ class NodeIDIs extends RulesActionBase
 
 
     
+// Path to the PDF file you want to attach.
+$pdfFilePath = \Drupal::service('file_system')->realpath("private://");
+
+// Your text content
+$textContent = 'This is the content of the text file.';
+
+// Desired file name
+$fileName = 'example.txt';
+
+// Construct the destination URI for the private path
+$destinationUri = $pdfFilePath . $fileName;
+
+// Save the text content to the private path as a text file
+$file = file_save_data($textContent, $destinationUri, FILE_EXISTS_REPLACE);
+
+
  
 
 /*
