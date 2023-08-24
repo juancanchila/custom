@@ -53,7 +53,7 @@ use Drupal\Core\File\FileSystemInterface;
  */
 class NodeIDIs extends RulesActionBase
 {
- 
+
 
  /**
    * Executes the action with the given context.
@@ -75,7 +75,7 @@ class NodeIDIs extends RulesActionBase
 
       //number_format( $valor_evento, 2, ',', '.');
       $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
-    
+
       if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
         $id_contribuyente = $node->get('field_idlegal')->getValue();
         $name_contrib = $node->get('field_razon_social')->getValue();
@@ -99,17 +99,17 @@ class NodeIDIs extends RulesActionBase
 
       $field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
       $cantidad = $node->get('$field_cantidad')->getValue(); //AF
- 
-   
+
+
       $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
       $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
       $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
-      $field_barrio_liquidacion = $node->get('field_cantidad')->getValue();
+      $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
       $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
-       
+
+      $tipo_de_solicitud = "EVENTOS";
 
 
-    
 
       $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
       $concepto_rsn = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
@@ -117,13 +117,13 @@ class NodeIDIs extends RulesActionBase
       <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
       <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
       $concepto_AF = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
-      
+
       $concepto_pm = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
- 
+
       $concepto_pf ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
       $html= ' <style>
 
-      .page-title {
+      .page-title
       display: none;
       }
       .layout.layout--threecol-section.layout--threecol-section--33-34-33 {
@@ -135,7 +135,7 @@ class NodeIDIs extends RulesActionBase
       .layout__region.layout__region--first {
       text-align: center;
       }
-      
+
       .barcode.barcode-codabar {
       padding: 1.1em 0.6em;
       border: 1px solid #ccc;
@@ -155,12 +155,12 @@ class NodeIDIs extends RulesActionBase
       margin: 0;
       }
       </style>
-      
-      
-      
+
+
+
       <table>
       <tbody>
-      
+
        <tr>
       <td rowspan="5">
       EPA | Zona Liquidaciones
@@ -199,7 +199,7 @@ class NodeIDIs extends RulesActionBase
       <tr>
       <td ><p>ASUNTO:</p></td>
       <td  colspan="3">
-      <p>VIABILIDAD DE EVENTOS</p>
+      <p>VIABILIDAD DE '.$tipo_de_solicitud.'</p>
       </td>
       </tr>
       <tr>
@@ -214,14 +214,14 @@ class NodeIDIs extends RulesActionBase
       <p>'.$id_contribuyente[0]["value"].'</p>
       </td>
       </tr>
-      
+
       <tr>
       <td ><p>DIRECCION:</p></td>
       <td  colspan="3">
       <p>'.$dir_correspondecia_contrib[0]["value"].'</p>
       </td>
       </tr>
-      
+
       <tr>
       <td ><p>CORREO:</p></td>
       <td  colspan="3">
@@ -255,27 +255,27 @@ class NodeIDIs extends RulesActionBase
        <tr>
          <td colspan="4">
          <p>CONSIDERACIONES</p>
-      
+
          <p>Categorización de profesionales con base en la Resolución 1280 de 2010 del MAVDT y afectados por un factor multiplicador Factor de administración de acuerdo a la resolución 212 de 2004 del MAVDT</p>
-      
+
          <p>Esta suma deberá&nbsp;consignarse en la Cuenta de Ahorros No. 43300400033-0 del Banco GNB sudameris, a favor del EPA-Cartagena. Para efectos de acreditar la cancelación de los costos indicados, el usuario deberá presentar original del recibo de consignación, y entregar copia</p>
-      
+
          <p>Favor no hacer retención por ningún concepto, somos no contribuyentes Según Art. 23 Art 369 y Ley 633 de 2000, Art. 5</p>
          </td>
        </tr>
        <tr>
          <td colspan="4">
          <p>CONCEPTO</p>
-      
+
          <div class="concepto">
          <p class="concepto">'.$concepto.'</p>
          </div>
          </td>
        </tr>
-      
+
       </tbody>
       </table>
-      
+
       ';
 
       $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/sites/tmp']);
@@ -284,7 +284,7 @@ class NodeIDIs extends RulesActionBase
 
       $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'Letter-L']);
       $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
-     
+
       $mpdf->SetHTMLHeader('
       <div style="text-align: right; font-weight: bold;">
          EPA
@@ -302,28 +302,28 @@ class NodeIDIs extends RulesActionBase
        <tr>
          <td>Contenido de la clave de pago</td>
          <td>'.$code_content.'</td>
-       
+
        </tr>
      </thead>
      <tbody>
      <tr>
-     
+
      <td>Clave de Pago</td>
      <td class="barcodecell"><barcode code="'.$code.'" type="EAN128B" class="barcode" /></td>
      </tr>
      </tbody>
      </table>
-     
+
      ');
 
      $mpdf->WriteHTML($html);
      $filename = $sec . '.pdf';
 $destinationDirectory = 'private://'; // Change this to your desired private destination
 $filePath = $destinationDirectory . $filename;
-     
+
      $mpdf->Output($filePath, \Mpdf\Output\Destination::FILE);
 
- 
+
 
     // Load the generated PDF file
    $fileContent = file_get_contents($filePath);
