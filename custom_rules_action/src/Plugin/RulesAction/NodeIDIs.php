@@ -98,6 +98,7 @@ class NodeIDIs extends RulesActionBase
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
 
       $field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
+      /*
       $cantidad = $node->get('field_cantidad')->getValue(); //AF
 
 
@@ -106,7 +107,7 @@ class NodeIDIs extends RulesActionBase
       $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
       $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
       $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
-
+*/
       $tipo_de_solicitud = "EVENTOS";
 
 
