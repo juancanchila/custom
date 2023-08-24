@@ -39,6 +39,7 @@ class NodeIDIs_pdf extends RulesActionBase
 
     $type = "Se ha creado la Liquidación # ".$node->id();
     \Drupal::messenger()->addMessage(t($type),'error');
+    $node->save();
     }
 
  /**
@@ -46,7 +47,7 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
-    return ['node'];
+    return FALSE;
   }
 
 
