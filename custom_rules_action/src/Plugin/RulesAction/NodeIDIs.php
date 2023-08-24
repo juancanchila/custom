@@ -331,6 +331,9 @@ $filePath = $destinationDirectory . $filename;
 
     $node->get('field_liquidacion')->setValue(['target_id' => $pdfFile->id()]);
 
+
+
+    $node->save();
     }
 
  /**
@@ -338,7 +341,7 @@ $filePath = $destinationDirectory . $filename;
    */
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
-    return ['node'];
+    return FALSE;
   }
 
   public function money_format_fild($money) {
