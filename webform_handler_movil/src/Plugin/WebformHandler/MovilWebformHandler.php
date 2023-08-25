@@ -90,11 +90,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
                }
 
 
-               if(  $page == 'confirmacion' ){
-                //   $this->submitMyFieldData($webform_submission);
-                       $this->valor_a_pagar($form_state,$webform_submission);
-                   }
-
+    
       
     }
 }
@@ -103,6 +99,14 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
  * {@inheritdoc}
  */
 public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
+    $page = $webform_submission->getCurrentPage();
+
+    if(  $page == 'confirmacion' ){
+     //   $this->submitMyFieldData($webform_submission);
+            $this->valor_a_pagar($form_state,$webform_submission);
+        }
+
+
 
     if (!$form_state->hasAnyErrors()) {
         //Tu logica despues del submit
@@ -239,7 +243,6 @@ $valor = $valor_liquidacion;
    $data = $webform_submission->getData();
    $current_page = $webform_submission->getCurrentPage();
    // to get a value from a form field
-   $form_value = $data['duracion_del_evento_den_dias'];
 
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
