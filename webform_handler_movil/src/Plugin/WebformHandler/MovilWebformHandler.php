@@ -81,7 +81,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
 
       if (  $diff_meses != $cantidad_meses  ) {
-        $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días, Se calculan : ".$diff_dias );
+        $form_state->setErrorByName($this->$form['duracion_del_evento_den_dias'], "Error en la Cantidad de Días, Se calculan : ".$diff_meses );
   }
 
 
