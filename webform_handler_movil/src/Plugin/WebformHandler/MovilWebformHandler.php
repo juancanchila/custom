@@ -245,51 +245,10 @@ $valor = $valor_liquidacion;
   if( $current_page == 'confirmacion' ){
 
 
-//Set geo info
-
-   $localidad = $data['localidad'];
-
-
-
-
-   switch ( $localidad) {
-    case 233:
-
-        $term = Term::load(intval($data['barrio_localidad_1']));
-        $name = $term->getName();
-        $data['barrio'] = $name ;
-
-        break;
-    case 234:
-        $term = Term::load(intval($data['barrio_localidad_2']));
-        $name = $term->getName();
-        $data['barrio'] = $name ;
-        break;
-    case 235:
-
-        $term = Term::load(intval($data['barrio_localidad_3']));
-        $name = $term->getName();
-        $data['barrio'] = $name ;
-
-        break;
-}
-
-
-//hola kt
-
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
    $webform_submission->setData($data);
 
-
-
-   //imprimir en pantalla
-   /*
-   $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("Valor Evento: $" . number_format( $valor_liquidacion , 2, ',', '.')));
-   $this->messenger()->addStatus($this->t("Días:".   $numero_dias));*/
 
 }
 
