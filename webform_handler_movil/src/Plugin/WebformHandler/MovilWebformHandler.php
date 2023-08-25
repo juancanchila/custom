@@ -47,13 +47,15 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
            // placas
            //cantidad_de_vehiculos
 
-           $cantidad_placas = $form_state->getValue('placas');
-           $listado_placas  = $form_state->getValue('cantidad_de_vehiculos');
+            $listado_placas = $form_state->getValue('placas');
+            $cantidad_placas = $form_state->getValue('cantidad_de_vehiculos');
+
+           if (count($listado_placas) != $cantidad_placas ) {
+            $form_state->setErrorByName($this->form['cantidad_de_vehiculos'], "La Cantidad de Placas no coincide con las placas ingresadas" );
+
+        }
 
           
-
-            $this->messenger()->addStatus($this->t("Test".count($cantidad_placas)."/".$listado_placas));
-            //prueba 3
                }
       
     }
