@@ -52,7 +52,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
           
 
-            $this->messenger()->addStatus($this->t("Test".$cantidad_placas[0]."/".$listado_placas));
+            $this->messenger()->addStatus($this->t("Test".count($cantidad_placas)."/".$listado_placas));
             //prueba 3
                }
       
