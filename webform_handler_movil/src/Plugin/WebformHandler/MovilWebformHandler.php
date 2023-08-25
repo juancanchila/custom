@@ -42,7 +42,14 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
         $page = $webform_submission->getCurrentPage();
         if(  $page == 'datos_del_evento' ){
             //   $this->submitMyFieldData($webform_submission);
-            $this->messenger()->addStatus($this->t("Test"));
+
+
+           // placas
+           //cantidad_de_vehiculos
+
+           $cantidad_placas = $form_state->getValue('placas');
+           $listado_placas  [] = $form_state->getValue('cantidad_de_vehiculos');
+            $this->messenger()->addStatus($this->t("Test".$cantidad_placas."/".$listado_placas));
                }
       
     }
