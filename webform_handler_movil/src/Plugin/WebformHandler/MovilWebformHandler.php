@@ -35,9 +35,11 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
+
     if (!$form_state->hasAnyErrors()) {
         //Tu validación aquí
 
+        $page = $webform_submission->getCurrentPage();
         if(  $page == 'datos_del_evento' ){
             //   $this->submitMyFieldData($webform_submission);
             $this->messenger()->addStatus($this->t("Test"));
