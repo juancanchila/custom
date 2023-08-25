@@ -48,9 +48,9 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
            //cantidad_de_vehiculos
 
            $cantidad_placas = $form_state->getValue('placas');
-           $listado_placas  = count(array($form_state->getValue('cantidad_de_vehiculos')));
+           $listado_placas  = $form_state->getValue('cantidad_de_vehiculos');
 
-
+          
 
             $this->messenger()->addStatus($this->t("Test".$cantidad_placas[0]."/".$listado_placas));
             //prueba 3
