@@ -1,10 +1,10 @@
 {
-    "name": "webform_handler_validate_dates",
+    "name": "webform_handler_movil",
     "type": "drupal-module",
     "description": "Configurable handler for comparing two dates on a webform.",
     "keywords": [    ],
     "license": "GPL-2.0+",
-    "homepage": "https://www.drupal.org/project/webform_handler_validate_dates",
+    "homepage": "https://www.drupal.org/project/webform_handler_movil",
     "minimum-stability": "dev",
     "authors": [
       {
