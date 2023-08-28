@@ -45,7 +45,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
         if(  $page == 'datos_del_evento' ){
             //   $this->submitMyFieldData($webform_submission);
 
-
+            $this->messenger()->addStatus($this->t("Prueba"));
            // placas
            //cantidad_de_vehiculos
            $page = $webform_submission->getCurrentPage();
@@ -66,12 +66,12 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
                $diff_meses = $diff_meses->format("%m");
            }
            
-           /*
+           
            if (count($listado_placas) != $cantidad_placas ) {
             $form_state->setErrorByName($this->form['cantidad_de_vehiculos'], "La cantidad de placas no coincide con la cantidad de vehículos" );
 
         }
-*/
+
         if ($date1 > $date2  ) {
             $form_state->setErrorByName($this->form['fecha_final'], "Error en las fechas " );
 
