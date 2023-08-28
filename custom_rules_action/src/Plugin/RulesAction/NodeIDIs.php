@@ -80,6 +80,7 @@ class NodeIDIs extends RulesActionBase
       \Drupal::messenger()->addMessage(t( $type), 'status');
       \Drupal::messenger()->addMessage(t( $field_concepto_ambiental_liq), 'status');
       \Drupal::messenger()->addMessage(t($tipo_solicitante), 'status');
+      \Drupal::messenger()->addMessage(t("Test 15"), 'status');
 
 
 
