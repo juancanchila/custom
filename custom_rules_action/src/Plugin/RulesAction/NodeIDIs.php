@@ -75,10 +75,11 @@ class NodeIDIs extends RulesActionBase
      $type = "Se ha creado la Liquidación # ".$sec;
      $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
      $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
+
      \Drupal::messenger()->addMessage(t("Alert"), 'status');
       \Drupal::messenger()->addMessage(t( $type), 'status');
-      \Drupal::messenger()->addMessage(t( $field_concepto_ambiental_liq[0]), 'status');
-      \Drupal::messenger()->addMessage(t($tipo_solicitante[0]), 'status');
+      \Drupal::messenger()->addMessage(t( $field_concepto_ambiental_liq), 'status');
+      \Drupal::messenger()->addMessage(t($tipo_solicitante), 'status');
 
 
 
