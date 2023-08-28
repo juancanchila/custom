@@ -67,13 +67,14 @@ class NodeIDIs extends RulesActionBase
     
     $hoy =new DrupalDateTime( 'now');
 
-    /** Obteniendo el field_consecutivo_factura del nodo creado */
+
+
   $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
      $type = "Se ha creado la Liquidación # ".$sec;
       \Drupal::messenger()->addMessage(t( $type), 'status');
-
+/*
       //number_format( $valor_evento, 2, ',', '.');
       $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
 
@@ -102,7 +103,10 @@ class NodeIDIs extends RulesActionBase
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
       $concepto_ambiental_liquidacion =  $node->get('field_concepto_ambiental_liq')->getValue();
       $concepto_ambiental_liquidacion =$concepto_ambiental_liquidacion[0];
-      $field_detalle ="test"; //$node->get('field_detalle')->getValue(); //direcciones y placas y especies
+      $field_detalle ="test";
+      */
+      
+      //$node->get('field_detalle')->getValue(); //direcciones y placas y especies
       /*
       $cantidad = $node->get('field_cantidad')->getValue(); //AF
 
@@ -115,7 +119,7 @@ class NodeIDIs extends RulesActionBase
 */
      
 
-
+/*
 
       switch ($concepto_ambiental_liquidacion) {
         case 'Publicidad Móvil':
@@ -130,7 +134,7 @@ class NodeIDIs extends RulesActionBase
           break;
      
     }
-
+*/
      
       /*
       $concepto_rsn = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
@@ -143,6 +147,8 @@ class NodeIDIs extends RulesActionBase
       $concepto_pf ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
       */
+
+      /*
       $html= ' <style>
 
       .page-title
@@ -161,9 +167,9 @@ class NodeIDIs extends RulesActionBase
       .barcode.barcode-codabar {
       padding: 1.1em 0.6em;
       border: 1px solid #ccc;
-      /* background: #efefef; */
+  
       width: 97%;
-      /* background: rgba(0,0,0,0.063); */
+   
       }
       tr td, tr th {
       padding: 0;
@@ -356,6 +362,13 @@ $filePath = $destinationDirectory . $filename;
 
 
     $node->save();
+
+
+    */
+
+
+
+
     }
 
  /**
