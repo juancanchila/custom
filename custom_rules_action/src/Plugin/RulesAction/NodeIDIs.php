@@ -96,7 +96,7 @@ class NodeIDIs extends RulesActionBase
       $duracion = $node->get('field_duracion')->getValue();
       $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
-
+      $concepto_ambiental_liquidacion =  $node->get('concepto_ambiental_liquidacion')->getValue();
       //$field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
       /*
       $cantidad = $node->get('field_cantidad')->getValue(); //AF
@@ -108,12 +108,25 @@ class NodeIDIs extends RulesActionBase
       $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
       $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
 */
-      $tipo_de_solicitud = "EVENTOS";
+     
 
 
 
-      $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
 
+      switch ($concepto_ambiental_liquidacion[0]) {
+        case 'Publicidad Móvil':
+          $tipo_de_solicitud = "Publicidad Móvil";
+          $concepto_pm = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+
+            break;
+        case "Eventos":
+          $tipo_de_solicitud = "Eventos";
+          $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+            break;
+     
+    }
+
+     
       /*
       $concepto_rsn = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
       <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
@@ -121,8 +134,7 @@ class NodeIDIs extends RulesActionBase
       <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
       $concepto_AF = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
 
-      $concepto_pm = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
-
+      
       $concepto_pf ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
       */
