@@ -73,10 +73,20 @@ class NodeIDIs extends RulesActionBase
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
      $type = "Se ha creado la Liquidación # ".$sec;
+     $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
+     $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
+
       \Drupal::messenger()->addMessage(t( $type), 'status');
+      \Drupal::messenger()->addMessage(t( $field_concepto_ambiental_liq[0]), 'status');
+      \Drupal::messenger()->addMessage(t($tipo_solicitante[0]), 'status');
+
+
+
+
+
 /*
       //number_format( $valor_evento, 2, ',', '.');
-      $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
+     
 
       if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
         $id_contribuyente = $node->get('field_idlegal')->getValue();
@@ -115,7 +125,7 @@ class NodeIDIs extends RulesActionBase
       $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
       $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
       $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
-      $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
+      
 */
      
 
