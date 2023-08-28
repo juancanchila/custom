@@ -64,6 +64,7 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
+    $this->messenger()->addStatus($this->t("ejecutando nodeid"));
     $hoy =new DrupalDateTime( 'now');
 
     /** Obteniendo el field_consecutivo_factura del nodo creado */
