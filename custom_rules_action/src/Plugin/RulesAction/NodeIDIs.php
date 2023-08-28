@@ -96,7 +96,7 @@ class NodeIDIs extends RulesActionBase
       $duracion = $node->get('field_duracion')->getValue();
       $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
-      $concepto_ambiental_liquidacion =  $node->get('concepto_ambiental_liquidacion')->getValue();
+      $concepto_ambiental_liquidacion =  $node->get('field_concepto_ambiental_liq')->getValue();
       //$field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
       /*
       $cantidad = $node->get('field_cantidad')->getValue(); //AF
