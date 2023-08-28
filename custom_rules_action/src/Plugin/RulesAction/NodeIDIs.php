@@ -64,7 +64,7 @@ class NodeIDIs extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 
-    $this->messenger()->addStatus($this->t("ejecutando nodeid"));
+    
     $hoy =new DrupalDateTime( 'now');
 
     /** Obteniendo el field_consecutivo_factura del nodo creado */
@@ -87,12 +87,15 @@ class NodeIDIs extends RulesActionBase
       }
 
 
+
+
+
+
       $email_cotrib = $node->get('field_email_contribuyente')->getValue();
       $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
       $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
       $valor_evento = $node->get('field_valor_evento')->getValue();
-      $valor = $node->get('field_valor')->getValue();
-      $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+      $valor = $node->get('field_valor')->getValue();  
       $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
       $duracion = $node->get('field_duracion')->getValue();
       $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
@@ -123,7 +126,8 @@ class NodeIDIs extends RulesActionBase
         case "Eventos":
           $tipo_de_solicitud = "Eventos";
           $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
-            break;
+          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+          break;
      
     }
 
