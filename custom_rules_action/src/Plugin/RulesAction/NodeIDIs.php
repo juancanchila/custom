@@ -110,7 +110,7 @@ class NodeIDIs extends RulesActionBase
 */
      
 
-
+\Drupal::messenger()->addMessage(t( $type), $concepto_ambiental_liquidacion[0]);
 
 
       switch ($concepto_ambiental_liquidacion[0]) {
