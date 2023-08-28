@@ -98,7 +98,7 @@ class NodeIDIs extends RulesActionBase
       $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
       $concepto_ambiental_liquidacion =  $node->get('field_concepto_ambiental_liq')->getValue();
       $concepto_ambiental_liquidacion =$concepto_ambiental_liquidacion[0];
-      //$field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
+      $field_detalle = $node->get('field_detalle')->getValue(); //direcciones y placas y especies
       /*
       $cantidad = $node->get('field_cantidad')->getValue(); //AF
 
@@ -117,7 +117,7 @@ class NodeIDIs extends RulesActionBase
       switch ($concepto_ambiental_liquidacion) {
         case 'Publicidad Móvil':
           $tipo_de_solicitud = "Publicidad Móvil";
-          $concepto_pm = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
 
             break;
         case "Eventos":
