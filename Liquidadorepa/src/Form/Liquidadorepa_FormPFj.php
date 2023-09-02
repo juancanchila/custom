@@ -2990,7 +2990,7 @@ $form['direccion_valla10_pfj'] = [
        '#type' => 'item',
        '#title' => $this->t('<h2>Validar la Información antes de enviar.</h2>'),
      ];
-
+     $Cantidad_vallas =  $this->session->get('session_liquidacion.cantidad_v_pfj', '');
      $id= $this->session->get('session_liquidacion.id_document_pfj', '');
      $email=$this->session->get('session_liquidacion.email_pfj', '');
      $Cantidad=$this->session->get('session_liquidacion.valor_evento_pfj', '');
@@ -3007,6 +3007,7 @@ $form['direccion_valla10_pfj'] = [
     <div class="col">Correo:<br> '.$email.'</div>
     <div class="col">No Identificación:<br> '.$id.'</div>
     <div class="col">Valor Inversión : <br>'.$Cantidad.'</div>
+    <div class="col">Cantidad de Vallas : <br>'.$Cantidad_vallas.'</div>
 	 <div class="col">Valor Tarifa : <br>'.$tarifa.'</div>
 	  <div class="col">Valor Liquidación :<br> '.$Valor_liquidacion.'</div>
 
