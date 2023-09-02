@@ -1,9 +1,9 @@
-name: 'Webform Handler: Create Nodes'
+name: 'Webform Handler: Handler Fija'
 type: module
 core_version_requirement: ^8 || ^9 || ^10
 package: 'Webform'
 dependencies:
   - webform:webform (>=8.x-5.x)
 description: |
-  Configurable handler for creating nodes
+  Configurable handler  Fija
 

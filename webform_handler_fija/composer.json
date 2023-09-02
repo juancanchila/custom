@@ -1,10 +1,10 @@
 {
-    "name": "webform_handler_creates_node",
+    "name": "webform_handler_fija",
     "type": "drupal-module",
     "description": "Configurable handler for creating nodea.",
     "keywords": [    ],
     "license": "GPL-2.0+",
-    "homepage": "https://www.drupal.org/project/webform_handler_creates_node",
+    "homepage": "https://www.drupal.org/project/webform_handler_fija",
     "minimum-stability": "dev",
     "authors": [
       {
