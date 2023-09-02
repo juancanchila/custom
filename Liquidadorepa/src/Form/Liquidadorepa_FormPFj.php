@@ -336,7 +336,7 @@ class Liquidadorepa_FormPFj extends FormBase
     $descripcion_evento = $this->session->get('session_liquidacion.descripcion_evento_pfj', '');
     $direccion_evento = $this->session->get('session_liquidacion.direccion_evento_pfj', '');
     $numero_dias =  $this->session->get('session_liquidacion.numero_dias_pfj', '');
-   
+
 	  $numero_vallas =  $this->session->get('session_liquidacion.cantidad_v_pfj', '');
 
     $valor_evento = number_format($valor_evento, 2, ',', '.');
@@ -668,7 +668,7 @@ p {
 	<tr>
 		<td>Contenido de la clave de pago</td>
     <td>'.$code_content.'</td>
-	
+
 	</tr>
 </thead>
 <tbody>
@@ -1151,7 +1151,7 @@ $form['numero_dias_pfj'] = array(
 );
 
 
-
+/*
 $form['field_select_NV_pfj'] = array(
 '#type' => 'select',
 '#required' => TRUE,
@@ -1162,8 +1162,21 @@ $form['field_select_NV_pfj'] = array(
 
       'name' => 'field_select_NV_pfj',
     ],
-);
+);*/
 
+
+
+
+$form['field_select_NV_pmj'] = array(
+  '#type' => 'number',
+  '#title' => 'Cantidad de Vallas a Evaluar',
+  '#width' => '30%',
+  '#align' => 'center',
+  //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
+  '#required' => true,
+  '#maxlength' => 3
+);
+/*
 $form['field_select_NV_pfj'] = array(
 '#type' => 'select',
 '#required' => TRUE,
@@ -1175,7 +1188,7 @@ $form['field_select_NV_pfj'] = array(
       'name' => 'field_select_NV_pfj',
     ],
 );
-
+*/
 
 $form['direccion_valla1_pfj'] = [
 '#type' => 'textfield',
