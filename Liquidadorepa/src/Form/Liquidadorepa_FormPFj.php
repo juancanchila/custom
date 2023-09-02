@@ -753,7 +753,7 @@ $params['attachments'][] = [
     $file1 = $this->session->get('session_liquidacion.soportes1_pfj');
     $file2 = $this->session->get('session_liquidacion.soportes2_pfj');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfj');
-     $cantidad_v = $this->session->get('session_liquidacion.cantidad_v_pfj');
+     $cantidad_v = intval($this->session->get('session_liquidacion.cantidad_v_pfj'));
 
   /*
       if (!empty($dir_vallas1)) {
