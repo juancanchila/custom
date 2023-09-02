@@ -995,6 +995,19 @@ $form_state->setRedirectUrl($url);
       '#required' => true,
       '#maxlength' => 3
     );
+
+
+    $form['field_select_NV_pmj'] = array(
+      '#type' => 'number',
+      '#title' => 'Cantidad de Vehículos a Evaluar',
+      '#width' => '30%',
+      '#align' => 'center',
+      //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
+      '#required' => true,
+      '#maxlength' => 3
+    );
+
+    /*
     $form['field_select_NV_pmj'] = array(
       '#type' => 'select',
       '#required' => TRUE,
@@ -1006,6 +1019,8 @@ $form_state->setRedirectUrl($url);
         'name' => 'field_select_NV_pmj',
       ],
     );
+*/
+
 
     $form['placa1'] = [
       '#type' => 'textfield',
