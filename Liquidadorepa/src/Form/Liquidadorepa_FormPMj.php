@@ -342,9 +342,6 @@ class Liquidadorepa_FormPMj extends FormBase
     $numero_dias = $this->session->get('session_liquidacion.numero_meses_pmj', '');
     $numero_vehiculos =$this->session->get('session_liquidacion.field_select_NV_pmj1', '') ;
 
-    $this->messenger()->addStatus($this->t("Print:". $numero_vehiculos ));
-
-
     $my_article = Node::create(['type' => 'liquidacion']);
     $my_article->set('title', $codigo_liquidacion);
     $my_article->set('field_valor',  $valor_liquidacion);
@@ -995,19 +992,6 @@ $form_state->setRedirectUrl($url);
       '#required' => true,
       '#maxlength' => 3
     );
-
-
-    $form['field_select_NV_pmj'] = array(
-      '#type' => 'number',
-      '#title' => 'Cantidad de Vehículos a Evaluar',
-      '#width' => '30%',
-      '#align' => 'center',
-      //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
-      '#required' => true,
-      '#maxlength' => 3
-    );
-
-    /*
     $form['field_select_NV_pmj'] = array(
       '#type' => 'select',
       '#required' => TRUE,
@@ -1019,8 +1003,6 @@ $form_state->setRedirectUrl($url);
         'name' => 'field_select_NV_pmj',
       ],
     );
-*/
-
 
     $form['placa1'] = [
       '#type' => 'textfield',
