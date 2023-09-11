@@ -80,9 +80,7 @@ class NodeIDIs extends RulesActionBase
 
       switch ($concepto_ambiental_liquidacion) {
         case 'Publicidad Móvil':
-          $tipo_de_solicitud = "Publicidad Móvil";
-          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
-          \Drupal::messenger()->addMessage("Publicidad Móvil", 'status');
+            \Drupal::messenger()->addMessage("Publicidad Móvil", 'status');
             break;
         case "Eventos":
           \Drupal::messenger()->addMessage("Evento", 'status');
