@@ -78,7 +78,7 @@ class NodeIDIs extends RulesActionBase
 
   
 
-      switch ($concepto_ambiental_liquidacion) {
+      switch ($concepto_ambiental_liquidacion[0]["value"]) {
         case 'Publicidad Móvil':
           $type = "Publicidad Móvil ";
           \Drupal::messenger()->addMessage(t($type),'error');
