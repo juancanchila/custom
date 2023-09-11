@@ -376,7 +376,7 @@ $filePath = $destinationDirectory . $filename;
     */
 
 
-
+    $node->save();
 
     }
 
