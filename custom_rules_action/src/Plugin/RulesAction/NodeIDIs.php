@@ -73,12 +73,31 @@ class NodeIDIs extends RulesActionBase
   $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
     $node->setTitle($sec);
      $type = "Se ha creado la Liquidación # ".$sec;
-     $field_concepto_ambiental_liq = $node->get('field_concepto_ambiental_liq')->getValue();
-     $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
+     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
+    
 
-     \Drupal::messenger()->addMessage(t("Alert"), 'status');
+  
 
+      switch ($concepto_ambiental_liquidacion) {
+        case 'Publicidad Móvil':
+          $tipo_de_solicitud = "Publicidad Móvil";
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+          \Drupal::messenger()->addMessage("Publicidad Móvil", 'status');
+            break;
+        case "Eventos":
+          $tipo_de_solicitud = "Eventos";
+          $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+          break;
+          \Drupal::messenger()->addMessage("Evento", 'status');
+          case "Publicidad Fija":
+         
+            $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+            $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+            break;
+            \Drupal::messenger()->addMessage("Evento", 'status');
 
+    }
 
 
 
