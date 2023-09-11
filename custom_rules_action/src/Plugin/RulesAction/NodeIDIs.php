@@ -259,13 +259,13 @@ class NodeIDIs extends RulesActionBase
       <tr>
       <td ><p>PETICIONARIO / EMPRESA:</p></td>
       <td  colspan="3">
-      <p>'.$name_contrib.'</p>
+      <p>'.$name_contrib[0]["value"].'</p>
       </td>
       </tr>
       <tr>
       <td ><p>Id Solicitante:</p></td>
       <td  colspan="3">
-      <p>'.$id_contribuyente.'</p>
+      <p>'.$id_contribuyente[0]["value"].'</p>
       </td>
       </tr>
 
