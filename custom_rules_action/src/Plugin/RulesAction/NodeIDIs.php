@@ -85,18 +85,23 @@ class NodeIDIs extends RulesActionBase
           \Drupal::messenger()->addMessage("Publicidad Móvil", 'status');
             break;
         case "Eventos":
-          $tipo_de_solicitud = "Eventos";
-          $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
-          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
-          break;
           \Drupal::messenger()->addMessage("Evento", 'status');
+          break;
+        
           case "Publicidad Fija":
-         
-            $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
-            $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+            \Drupal::messenger()->addMessage("Publicidad Fija", 'status');
             break;
-            \Drupal::messenger()->addMessage("Evento", 'status');
+          
+            case "Rumba Segura":
+    
+              \Drupal::messenger()->addMessage("Rumba Segura", 'status');
+              break;
+              case "Aprovechamiento Forestal":
+    
+                \Drupal::messenger()->addMessage("Aprovechamiento Forestal", 'status');
+                break;
 
+              
     }
 
 
