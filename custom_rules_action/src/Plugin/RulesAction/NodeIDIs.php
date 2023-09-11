@@ -65,21 +65,22 @@ class NodeIDIs extends RulesActionBase
   //number_format( $valor_evento, 2, ',', '.');
   protected function doExecute(NodeInterface $node) {
 
-    
+
     $hoy =new DrupalDateTime( 'now');
     $email_cotrib = $node->get('field_email_contribuyente')->getValue();
     $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
     $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
     $valor_evento = $node->get('field_valor_evento')->getValue();
-    $valor = $node->get('field_valor')->getValue();  
+    $valor = $node->get('field_valor')->getValue();
     $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
     $duracion = $node->get('field_duracion')->getValue();
     $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
     $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
     $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
+
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
-      $id_contribuyente = $node->get('field_idlegal')->getValue();
+      $id_contribuyente = $node->get('field_nit')->getValue();
       $name_contrib = $node->get('field_razon_social')->getValue();
 
     }else{
@@ -87,7 +88,7 @@ class NodeIDIs extends RulesActionBase
       $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
     }
 
-  
+
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
         case 'Publicidad Móvil':
@@ -114,18 +115,18 @@ class NodeIDIs extends RulesActionBase
          /* $type = "Eventos";
          \Drupal::messenger()->addMessage(t($type),'error');*/
           break;
-        
+
           case "Publicidad Fija":
               //Set pfija values
             $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
             $node->setTitle($sec); // Definiendo titulo consecutivo
- 
+
             $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
            /* $type = "Publicidad Fija ";
             \Drupal::messenger()->addMessage(t($type),'error');*/
             break;
-          
+
             case "Rumba Segura":
                  //Set rsegura values
 
@@ -153,27 +154,27 @@ class NodeIDIs extends RulesActionBase
 
                 $sec ="04"."0".$consecutivo_facturas[0]["value"].date('Y');
                 $node->setTitle($sec); // Definiendo titulo consecutivo
-    
+
                /* $type = "Aprovechamiento Forestal ";
                 \Drupal::messenger()->addMessage(t($type),'error');*/
                 break;
 
-              
+
     }
 
 
-    
-   
-     
-    
-
-     
 
 
-     
-     
 
- 
+
+
+
+
+
+
+
+
+
       $html= ' <style>
 
       .page-title
@@ -192,9 +193,9 @@ class NodeIDIs extends RulesActionBase
       .barcode.barcode-codabar {
       padding: 1.1em 0.6em;
       border: 1px solid #ccc;
-  
+
       width: 97%;
-   
+
       }
       tr td, tr th {
       padding: 0;
