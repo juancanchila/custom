@@ -90,7 +90,7 @@ class NodeIDIs extends RulesActionBase
       $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
     }
 
-    $type = "Se ha creado la Liquidación # ".$tipo_solicitante[0]["value"].":".  $name_contrib[0]["value"] .":".$id_contribuyente[0]["value"];
+    $type = "Se ha creado la Liquidación # ".$tipo_solicitante[0]["value"].":".  implode(",", $name_contrib).":".implode(",", $id_contribuyente);
     \Drupal::messenger()->addMessage(t($type),'error');
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
