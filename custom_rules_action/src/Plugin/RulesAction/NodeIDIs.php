@@ -84,7 +84,7 @@ class NodeIDIs extends RulesActionBase
           \Drupal::messenger()->addMessage(t($type),'error');
             break;
         case "Eventos":
-          $type = "Eventos ";
+          $type = "Eventos";
     \Drupal::messenger()->addMessage(t($type),'error');
           break;
         
