@@ -80,23 +80,27 @@ class NodeIDIs extends RulesActionBase
 
       switch ($concepto_ambiental_liquidacion) {
         case 'Publicidad Móvil':
-            \Drupal::messenger()->addMessage("Publicidad Móvil", 'status');
+          $type = "Publicidad Móvil ";
+          \Drupal::messenger()->addMessage(t($type),'error');
             break;
         case "Eventos":
-          \Drupal::messenger()->addMessage("Evento", 'status');
+          $type = "Eventos ";
+    \Drupal::messenger()->addMessage(t($type),'error');
           break;
         
           case "Publicidad Fija":
-            \Drupal::messenger()->addMessage("Publicidad Fija", 'status');
+            $type = "Publicidad Fija ";
+            \Drupal::messenger()->addMessage(t($type),'error');
             break;
           
             case "Rumba Segura":
-    
-              \Drupal::messenger()->addMessage("Rumba Segura", 'status');
+              $type = "Rumba Segura ";
+              \Drupal::messenger()->addMessage(t($type),'error');
               break;
               case "Aprovechamiento Forestal":
     
-                \Drupal::messenger()->addMessage("Aprovechamiento Forestal", 'status');
+                $type = "Aprovechamiento Forestal ";
+                \Drupal::messenger()->addMessage(t($type),'error');
                 break;
 
               
