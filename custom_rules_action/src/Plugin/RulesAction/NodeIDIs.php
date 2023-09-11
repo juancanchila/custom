@@ -79,6 +79,8 @@ class NodeIDIs extends RulesActionBase
     $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
 
+
+
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
       $id_contribuyente = $node->get('field_nit')->getValue();
       $name_contrib = $node->get('field_razon_social')->getValue();
@@ -88,7 +90,8 @@ class NodeIDIs extends RulesActionBase
       $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
     }
 
-
+    $type = "Se ha creado la Liquidación # ".$tipo_solicitante[0]["value"].":".  $name_contrib .":".$id_contribuyente;
+    \Drupal::messenger()->addMessage(t($type),'error');
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
         case 'Publicidad Móvil':
@@ -108,9 +111,10 @@ class NodeIDIs extends RulesActionBase
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
+           $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
           $tipo_de_solicitud = "Eventos";
           $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
-          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+
 
          /* $type = "Eventos";
          \Drupal::messenger()->addMessage(t($type),'error');*/
