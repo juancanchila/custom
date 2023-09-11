@@ -62,128 +62,118 @@ class NodeIDIs extends RulesActionBase
    *   The node to modify.
    *
    */
+  //number_format( $valor_evento, 2, ',', '.');
   protected function doExecute(NodeInterface $node) {
 
     
     $hoy =new DrupalDateTime( 'now');
+    $email_cotrib = $node->get('field_email_contribuyente')->getValue();
+    $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
+    $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
+    $valor_evento = $node->get('field_valor_evento')->getValue();
+    $valor = $node->get('field_valor')->getValue();  
+    $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
+    $duracion = $node->get('field_duracion')->getValue();
+    $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
+    $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
+    $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
+    $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
+     if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
+      $id_contribuyente = $node->get('field_idlegal')->getValue();
+      $name_contrib = $node->get('field_razon_social')->getValue();
 
-
-
-  $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
-  $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
-    $node->setTitle($sec);
-     $type = "Se ha creado la Liquidación # ".$sec;
-     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
-    
+    }else{
+      $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
+      $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
+    }
 
   
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
         case 'Publicidad Móvil':
-          $type = "Publicidad Móvil ";
-          \Drupal::messenger()->addMessage(t($type),'error');
+          //Set pmovil values
+         /* $type = "Publicidad Móvil ";
+          \Drupal::messenger()->addMessage(t($type),'error');*/
+          $tipo_de_solicitud = "Publicidad Móvil";
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+
+
+          $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+          $node->setTitle($sec); // Definiendo titulo consecutivo
             break;
         case "Eventos":
-          $type = "Eventos";
-    \Drupal::messenger()->addMessage(t($type),'error');
+
+          //Set eventos values
+          $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+          $node->setTitle($sec); // Definiendo titulo consecutivo
+
+          $tipo_de_solicitud = "Eventos";
+          $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
+
+         /* $type = "Eventos";
+         \Drupal::messenger()->addMessage(t($type),'error');*/
           break;
         
           case "Publicidad Fija":
-            $type = "Publicidad Fija ";
-            \Drupal::messenger()->addMessage(t($type),'error');
+              //Set pfija values
+            $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+            $node->setTitle($sec); // Definiendo titulo consecutivo
+ 
+            $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
+
+           /* $type = "Publicidad Fija ";
+            \Drupal::messenger()->addMessage(t($type),'error');*/
             break;
           
             case "Rumba Segura":
-              $type = "Rumba Segura ";
-              \Drupal::messenger()->addMessage(t($type),'error');
+                 //Set rsegura values
+
+                 $node->get('field_detalle')->getValue(); //direcciones y placas y especies
+                 $cantidad = $node->get('field_cantidad')->getValue(); //AF
+                 $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
+                 $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
+                 $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
+                 $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
+
+              $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+              $node->setTitle($sec); // Definiendo titulo consecutivo
+
+              $concepto = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
+      <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
+      <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
+      <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
+             /* $type = "Rumba Segura ";
+              \Drupal::messenger()->addMessage(t($type),'error');*/
               break;
               case "Aprovechamiento Forestal":
+                  //Set aforestal values
+                  $concepto = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
+
+
+                $sec ="04"."0".$consecutivo_facturas[0]["value"].date('Y');
+                $node->setTitle($sec); // Definiendo titulo consecutivo
     
-                $type = "Aprovechamiento Forestal ";
-                \Drupal::messenger()->addMessage(t($type),'error');
+               /* $type = "Aprovechamiento Forestal ";
+                \Drupal::messenger()->addMessage(t($type),'error');*/
                 break;
 
               
     }
 
 
+    
+   
+     
+    
 
-
-/*
-      //number_format( $valor_evento, 2, ',', '.');
      
 
-      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
-        $id_contribuyente = $node->get('field_idlegal')->getValue();
-        $name_contrib = $node->get('field_razon_social')->getValue();
 
-      }else{
-        $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
-        $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
-      }
-
-
-
-
-
-
-      $email_cotrib = $node->get('field_email_contribuyente')->getValue();
-      $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
-      $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
-      $valor_evento = $node->get('field_valor_evento')->getValue();
-      $valor = $node->get('field_valor')->getValue();  
-      $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
-      $duracion = $node->get('field_duracion')->getValue();
-      $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
-      $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
-      $concepto_ambiental_liquidacion =  $node->get('field_concepto_ambiental_liq')->getValue();
-      $concepto_ambiental_liquidacion =$concepto_ambiental_liquidacion[0];
-      $field_detalle ="test";
-      */
-      
-      //$node->get('field_detalle')->getValue(); //direcciones y placas y especies
-      /*
-      $cantidad = $node->get('field_cantidad')->getValue(); //AF
-
-
-      $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
-      $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
-      $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
-      $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
-      
-*/
+     
      
 
-/*
-
-      switch ($concepto_ambiental_liquidacion) {
-        case 'Publicidad Móvil':
-          $tipo_de_solicitud = "Publicidad Móvil";
-          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
-
-            break;
-        case "Eventos":
-          $tipo_de_solicitud = "Eventos";
-          $concepto='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
-          $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
-          break;
-     
-    }
-*/
-     
-      /*
-      $concepto_rsn = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
-      <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
-      <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
-      <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
-      $concepto_AF = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
-
-      
-      $concepto_pf ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
-
-      */
-
-      /*
+ 
       $html= ' <style>
 
       .page-title
@@ -395,11 +385,6 @@ $filePath = $destinationDirectory . $filename;
     $node->get('field_liquidacion')->setValue(['target_id' => $pdfFile->id()]);
 
 
-
-    $node->save();
-
-
-    */
 
 
     $node->save();
