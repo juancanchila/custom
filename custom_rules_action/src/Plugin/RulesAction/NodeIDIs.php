@@ -82,12 +82,12 @@ class NodeIDIs extends RulesActionBase
 
 
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
-      $id_contribuyente = $node->get('field_nit')->value;
-      $name_contrib = $node->get('field_razon_social')->value;
+      $id_contribuyente = $node->get('field_nit')->getValue();
+      $name_contrib = $node->get('field_razon_social')->getValue();
 
     }else{
-      $id_contribuyente = $node->get('field_id_contribuyente')->value;
-      $name_contrib =  $node->get('field_nombre_solicitante')->value;
+      $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
+      $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
     }
 
     $type = "Se ha creado la Liquidación # ".$tipo_solicitante.":".  $name_contrib.":".$id_contribuyente;
