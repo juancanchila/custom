@@ -79,8 +79,7 @@ class NodeIDIs extends RulesActionBase
     $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
     $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
-    $id_contribuyente = "";
-    $name_contrib = "";
+
 
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
       $id_contribuyente = $node->get('field_nit')->getValue();
@@ -110,9 +109,12 @@ class NodeIDIs extends RulesActionBase
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
+
+          $field_fecha_inicial= $node->get('field_fecha_inicial')->getValue();
+          $field_fecha_final= $node->get('field_fecha_final')->getValue();
            $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
           $tipo_de_solicitud = "Eventos";
-          $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p>';
+          $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p> El permiso Inicla en la fecha: '. $field_fecha_inicial[0]["value"] . "y termina en la fecha: ".$field_fecha_inicial[0]["value"] ;
 
 
          /* $type = "Eventos";
