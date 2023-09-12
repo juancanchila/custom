@@ -611,7 +611,7 @@ $node->save(); //Guarda el cambio una vez realizado
 	<tr>
 		<td>Contenido de la clave de pago</td>
     <td>'.$code_content.'</td>
-	
+
 	</tr>
 </thead>
 <tbody>
@@ -625,7 +625,7 @@ $node->save(); //Guarda el cambio una vez realizado
 
 ');
 
-	  
+
 	  /*
  $mpdf->SetHTMLFooter('
 <table width="100%">
@@ -653,21 +653,21 @@ $node->save(); //Guarda el cambio una vez realizado
 </table>
 
 ');
-	  
+
 	  */
 
  $mpdf->WriteHTML($html);
-	  
+
 	 $url = Url::fromRoute('entity.node.canonical', ['node' => 239]);
      $form_state->setRedirectUrl($url);
 
  $file = $mpdf->Output($sec.'.pdf', 'D');
-	
-	 
- 
+
+
+
 
 /*
-	  
+
 $params['attachments'][] = [
     'filecontent' => $file,
     'filename' => $sec.'.pdf',
@@ -675,8 +675,8 @@ $params['attachments'][] = [
   ];
 
 */
-	
-	  
+
+
     //$params['mail_title'] = 'Cobros';
    // $params['body'] = 'Gracias!';
     //$params['test'] = 'Gracias!';
@@ -701,10 +701,10 @@ $params['attachments'][] = [
     $url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' =>1]);
     $form_state->setRedirectUrl($url);
 */
-	  
-	 
 
-    
+
+
+
 
     }
 
@@ -826,37 +826,37 @@ $valor_tarifa =208879615;
  $valor_tarifa = number_format($valor_tarifa, 2, ',', '.');
  $valor_liquidacion = number_format($valor_liquidacion, 2, ',', '.');
 
-	  
+
  $this->setSessionValue('session_liquidacion.valorLiquidacion_en', $valor_liquidacion );
 
  $this->setSessionValue('session_liquidacion.valor_tarifa_en',  $valor_tarifa  );
 
 $now = DrupalDateTime::createFromTimestamp(time());
 $now->setTimezone(new \DateTimeZone('UTC'));
-	  
+
 	    $f1= strtotime($form_state->getValue('fecha_Inicial'));
         $cantidad_dias=  $form_state->getValue('numero_dias_e');
 	    $f_limit=strtotime($form_state->getValue('fecha_Final'));
 	     $dt=strtotime($now->format('Y-m-d'));
 	     $diff =($f_limit-$f1)/86400;
 	     $diff02 =($f1-$dt)/86400;
-	  
+
 	    if (  $f1 == $f_limit    ) {
 			  $sameday = true;
 			$diff = 1;
-			 
+
 		  }else{ $sameday = false;}
-	  
+
 	  	     if ($diff02 < 10){
-      $alert='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
-	  
+      $alert='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias hábiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentación requerida en el formulario, De conformidad con la ley 1437 del 2011</div>';
+
       $this->setSessionValue('session_liquidacion.alert_e', $alert);
 }
 	  	      if ($f1 > $f_limit){
     $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final '));
 }
 	      if ($cantidad_dias != $diff  ){
-			  
+
 			  if($diff == 0 || $sameday == false){
 			  $diff = "Error";
 			  }
@@ -865,7 +865,7 @@ $now->setTimezone(new \DateTimeZone('UTC'));
 
 			   $form_state->setValue('s0', 'test');
 }
-       
+
   }
              /**
              * Provides custom submission handler for page 1.

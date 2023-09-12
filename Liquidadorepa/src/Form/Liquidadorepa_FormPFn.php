@@ -882,7 +882,7 @@ $params['attachments'][] = [
 	  $diff02 =($f110-$dt)/86400;
 
      if ($diff02 < 10){
-     $alert='<div class="alertaproximidad">Tenga en cuententa la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentcion requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
+     $alert='<div class="alertaproximidad">Tenga en cuententa la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias hábiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentacion requerida en el formulario, De conformidad con la ley 1437 del 2011</div>';
       /*$this->messenger()->addStatus($this->t('Su fecha es menor a 10 días , el tramite se realizará con riesgo de no ser aceptado', ['@title' =>$N]));*/
       $this->setSessionValue('session_liquidacion.alert_pfn', $alert);
 }else{

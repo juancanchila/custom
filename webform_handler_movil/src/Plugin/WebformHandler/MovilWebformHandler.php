@@ -35,7 +35,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
-    $alert_near ='<div class="alertaproximidad">Tenga en cuenta la fecha de su publicidad antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentción requerida en el formumlario, De conformidad con la ley 1437 del 2011</div>';
+    $alert_near ='<div class="alertaproximidad">Tenga en cuenta la fecha de su publicidad antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias hábiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentación requerida en el formulario, De conformidad con la ley 1437 del 2011</div>';
 
 
     if (!$form_state->hasAnyErrors()) {
@@ -65,8 +65,8 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
                $diff_meses = $diff_meses->format("%m");
            }
-           
-           
+
+
            if (count($listado_placas) != $cantidad_placas ) {
             $form_state->setErrorByName($this->form['cantidad_de_vehiculos'], "La cantidad de placas no coincide con la cantidad de vehículos" );
 
@@ -87,12 +87,12 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
 
 
-          
+
                }
 
 
-    
-      
+
+
     }
 }
 

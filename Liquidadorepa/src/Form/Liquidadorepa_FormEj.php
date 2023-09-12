@@ -823,7 +823,7 @@ $now->setTimezone(new \DateTimeZone('UTC'));
 		  }else{ $sameday = false;}
 
 	  	     if ($diff02 < 10){
-      $alert='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias habiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentación requerida en el formulario, De conformidad con la ley 1437 del 2011</div>';
+      $alert='<div class="alertaproximidad">Tenga en cuenta la fecha de su envento antes de liquidar. Su Solicitud tiene un tiempo de respuesta de 15 dias hábiles Contados a partir de la fecha en la que sea adjuntado el soporte de pago y la documentación requerida en el formulario, De conformidad con la ley 1437 del 2011</div>';
 
       $this->setSessionValue('session_liquidacion.alert_ej', $alert);
 }
