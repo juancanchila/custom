@@ -66,6 +66,7 @@ class NodeIDIs extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 
 
+    $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
     $hoy =new DrupalDateTime( 'now');
     $email_cotrib = $node->get('field_email_contribuyente')->getValue();
     $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
@@ -78,8 +79,8 @@ class NodeIDIs extends RulesActionBase
     $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
     $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
-
-
+    $id_contribuyente = "";
+    $name_contrib = "";
 
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
       $id_contribuyente = $node->get('field_nit')->getValue();
@@ -90,8 +91,6 @@ class NodeIDIs extends RulesActionBase
       $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
     }
 
-    $type = "Se ha creado la Liquidación # ".$tipo_solicitante.":".  $name_contrib.":".$id_contribuyente;
-    \Drupal::messenger()->addMessage(t($type),'error');
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
         case 'Publicidad Móvil':
