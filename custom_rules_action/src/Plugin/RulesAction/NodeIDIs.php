@@ -114,7 +114,7 @@ class NodeIDIs extends RulesActionBase
           $field_fecha_final= $node->get('field_fecha_final')->getValue();
            $descripcion_evento = $node->get('field_descripcion_evento')->getValue();
           $tipo_de_solicitud = "Eventos";
-          $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"].'<p> El permiso Inicla en la fecha: '. $field_fecha_inicial[0]["value"] . "y termina en la fecha: ".$field_fecha_inicial[0]["value"] ;
+          $concepto ='<p class="concepto">LIQUIDACION DE VIABILIDAD PARA REALIZACIÓN DE EVENTOS,REALIZACIÓN DE EVENTO CON COSTO DE PROYECTO : '.$valor_evento[0]["value"].' pesos Colombianos MLV, PARA '.$duracion[0]["value"].' DÍAS, SEGÚN SOLICITUD #'.$sec.'</p> <p> Detalle del evento:</p> <p>'.$descripcion_evento[0]["value"] ;
 
 
          /* $type = "Eventos";
