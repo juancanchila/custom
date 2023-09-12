@@ -82,15 +82,15 @@ class NodeIDIs extends RulesActionBase
 
 
      if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
-      $id_contribuyente = $node->get('field_nit')->getValue();
-      $name_contrib = $node->get('field_razon_social')->getValue();
+      $id_contribuyente = $node->get('field_nit')->value;
+      $name_contrib = $node->get('field_razon_social')->value;
 
     }else{
-      $id_contribuyente = $node->get('field_id_contribuyente')->getValue();
-      $name_contrib =  $node->get('field_nombre_solicitante')->getValue();
+      $id_contribuyente = $node->get('field_id_contribuyente')->value;
+      $name_contrib =  $node->get('field_nombre_solicitante')->value;
     }
 
-    $type = "Se ha creado la Liquidación # ".$tipo_solicitante[0]["value"].":".  implode(",", $name_contrib).":".implode(",", $id_contribuyente);
+    $type = "Se ha creado la Liquidación # ".$tipo_solicitante.":".  $name_contrib.":".$id_contribuyente;
     \Drupal::messenger()->addMessage(t($type),'error');
 
       switch ($concepto_ambiental_liquidacion[0]["value"]) {
