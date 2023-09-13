@@ -738,7 +738,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $valor = number_format($valor1, 2, ',', '.');
 
     $cantidad = intval(  $this->session->get('session_liquidacion.field_select_NV_pmn', ''));
-	  $numero_dias  =  $form_state->getValue('numero_meses_pmn');
+	  $numero_dias  = intval( $this->session->get('session_liquidacion.numero_meses_pmn', ''));
 	  $valor_liquidacion =  $form_state->getValue('valor_evento_pmn');
 
 
@@ -764,9 +764,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       $valor_tarifa = 118561;//ok
       $valor_liquidacion = 118561 *  $numero_dias * $cantidad ;
 
-      $this->messenger()->addMessage($this->t('cantidades:'. $valor_liquidacion .":". $numero_dias.":".$cantidad ), 'error');
-
-      $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
+       $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
     } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
         $valor_tarifa = 166176;//ok
       $valor_liquidacion = 166176  *   $numero_dias * $cantidad ;
@@ -917,6 +915,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       $this->setSessionValue('session_liquidacion.numero_meses_pmn', $form_state->getValue('numero_meses_pmn'));
       $this->setSessionValue('session_liquidacion.field_select_NV_pmn', $form_state->getValue('field_select_NV_pmn'));
       $this->setSessionValue('session_liquidacion.valor_evento_pmn', $form_state->getValue('valor_evento_pmn'));
+      /*
       $this->setSessionValue('session_liquidacion.placa1_pmn', $form_state->getValue('placa1_pmn'));
       $this->setSessionValue('session_liquidacion.placa2_pmn', $form_state->getValue('placa2_pmn'));
       $this->setSessionValue('session_liquidacion.placa3_pmn', $form_state->getValue('placa3_pmn'));
@@ -927,6 +926,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       $this->setSessionValue('session_liquidacion.placa8_pmn', $form_state->getValue('placa8_pmn'));
       $this->setSessionValue('session_liquidacion.placa9_pmn', $form_state->getValue('placa9_pmn'));
       $this->setSessionValue('session_liquidacion.placa10_pmn', $form_state->getValue('placa10_pmn'));
+      */
   }
 
   /**
