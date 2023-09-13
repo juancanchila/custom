@@ -722,7 +722,7 @@ $form_state->setRedirectUrl($url);
 
 
 
-    $cantidad =   $this->session->get('session_liquidacion.field_select_NV_pmj', '');
+    $cantidad = intval(  $this->session->get('session_liquidacion.field_select_NV_pmj', ''));
     $numero_dias = $form_state->getValue('numero_meses_pmj');
 
     $valor_liquidacion =  $form_state->getValue('valor_evento_pmj');
@@ -2074,7 +2074,7 @@ $form_state->setRedirectUrl($url);
     $id = $this->session->get('session_liquidacion.id_document_pmj', '');
     $email = $this->session->get('session_liquidacion.email_pmj', '');
    /* $Cantidad1 = $this->session->get('session_liquidacion.field_select_NV_pmj1', '');*/
-    $Cantidad1 =$this->session->get('session_liquidacion.field_select_NV_pmj', '');
+    $Cantidad1 =intval( $this->session->get('session_liquidacion.field_select_NV_pmj', ''));
     $Placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $Cantidad2 = $this->session->get('session_liquidacion.valor_evento_pmj',
     '');
