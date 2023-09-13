@@ -556,7 +556,7 @@ $nid = $my_article->id();
 	<tr>
 		<td>Contenido de la clave de pago</td>
     <td>'.$code_content.'</td>
-	
+
 	</tr>
 </thead>
 <tbody>
@@ -658,7 +658,7 @@ $form_state->setRedirectUrl($url);
    *   The current state of the form.
    */
   public function fapiExampleMultistepFormNextValidate(array &$form, FormStateInterface $form_state) {
-
+/*
     $placas = "";
 
     $placa1 = $this->session->get('session_liquidacion.placa1_pmn', '');
@@ -719,7 +719,9 @@ $form_state->setRedirectUrl($url);
     $this->setSessionValue('session_liquidacion.placas_pmn', $placas);
     // calculos
     $this->setSessionValue('session_liquidacion.field_select_NV_pmn1', $cantidad);
+*/
 
+$placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $vocabulary_name = 'smlv';
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('vid', $vocabulary_name);
@@ -735,6 +737,7 @@ $form_state->setRedirectUrl($url);
     $valor1 =$value[0]["value"];
     $valor = number_format($valor1, 2, ',', '.');
 
+    $cantidad =   $this->session->get('session_liquidacion.field_select_NV_pmn', '');
 	  $numero_dias  =  $form_state->getValue('numero_meses_pmn');
 	  $valor_liquidacion =  $form_state->getValue('valor_evento_pmn');
 
@@ -1006,6 +1009,28 @@ $form_state->setRedirectUrl($url);
           '#required' => true,
           '#maxlength' => 3
       );
+
+
+      $form['field_select_NV_pmn'] = array(
+        '#type' => 'number',
+        '#title' => $this->t('Número de Vehículos a Evaluar'),
+        '#width' => '30%',
+        '#align' => 'center',
+        //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
+        '#required' => true,
+        '#maxlength' => 3
+      );
+
+      $form['placas_pfn'] = [
+        '#type' => 'textarea',
+        //'#default_value' => $this->session->get('session_liquidacion.direccion_valla1_pfj', ''),
+        '#title' => 'Ingresar la placas separadas por coma',
+
+      ];
+
+
+
+      /*
         $form['field_select_NV_pmn'] = array(
         '#type' => 'select',
           '#required' => TRUE,
@@ -1833,7 +1858,7 @@ $form_state->setRedirectUrl($url);
       );
 
 
-
+*/
 
     $form['back'] = [
       '#type' => 'submit',

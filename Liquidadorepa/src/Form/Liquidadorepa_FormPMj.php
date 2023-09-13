@@ -340,7 +340,7 @@ class Liquidadorepa_FormPMj extends FormBase
     $name_contrib = $this->session->get('session_liquidacion.name_pmj', '');
 
     $numero_dias = $this->session->get('session_liquidacion.numero_meses_pmj', '');
-    $numero_vehiculos =$this->session->get('session_liquidacion.field_select_NV_pmj1', '') ;
+    $numero_vehiculos =$this->session->get('session_liquidacion.field_select_NV_pmj', '') ;
 
     $my_article = Node::create(['type' => 'liquidacion']);
     $my_article->set('title', $codigo_liquidacion);
@@ -629,7 +629,7 @@ $form_state->setRedirectUrl($url);
     //placas
 
 
-
+/*
     $placa1 = $this->session->get('session_liquidacion.placa1_pmj', '');
     $placa2 = $this->session->get('session_liquidacion.placa2_pmj', '');
     $placa3 = $this->session->get('session_liquidacion.placa3_pmj', '');
@@ -684,11 +684,11 @@ $form_state->setRedirectUrl($url);
       $placas = $placas . "/" . $placa10;
       $cantidad = $cantidad + 1;
     }
+*/
 
-
-    $this->setSessionValue('session_liquidacion.placas_pmj', $placas);
+    //$this->setSessionValue('session_liquidacion.placas_pmj', $placas);
     // calculos
-    $this->setSessionValue('session_liquidacion.field_select_NV_pmj1', $cantidad);
+ //   $this->setSessionValue('session_liquidacion.field_select_NV_pmj1', $cantidad);
 
     $vocabulary_name = 'smlv';
     $query = \Drupal::entityQuery('taxonomy_term');
@@ -722,7 +722,7 @@ $form_state->setRedirectUrl($url);
 
 
 
-    //$numero_vehiculos =   $this->session->get('session_liquidacion.field_select_NV_pmj', '');
+    $cantidad =   $this->session->get('session_liquidacion.field_select_NV_pmj', '');
     $numero_dias = $form_state->getValue('numero_meses_pmj');
 
     $valor_liquidacion =  $form_state->getValue('valor_evento_pmj');
@@ -896,6 +896,9 @@ $form_state->setRedirectUrl($url);
     $this->setSessionValue('session_liquidacion.numero_meses_pmj', $form_state->getValue('numero_meses_pmj'));
     $this->setSessionValue('session_liquidacion.field_select_NV_pmj', $form_state->getValue('field_select_NV_pmj'));
     $this->setSessionValue('session_liquidacion.valor_evento_pmj', $form_state->getValue('valor_evento_pmj'));
+    $this->setSessionValue('session_liquidacion.placas_pmj', $form_state->getValue('placas_pmj'));
+
+    /*
     $this->setSessionValue('session_liquidacion.placa1_pmj', $form_state->getValue('placa1'));
     $this->setSessionValue('session_liquidacion.placa2_pmj', $form_state->getValue('placa2'));
     $this->setSessionValue('session_liquidacion.placa3_pmj', $form_state->getValue('placa3'));
@@ -906,6 +909,8 @@ $form_state->setRedirectUrl($url);
     $this->setSessionValue('session_liquidacion.placa8_pmj', $form_state->getValue('placa8'));
     $this->setSessionValue('session_liquidacion.placa9_pmj', $form_state->getValue('placa9'));
     $this->setSessionValue('session_liquidacion.placa10_pmj', $form_state->getValue('placa10'));
+
+    */
   }
 
   /**
@@ -992,6 +997,26 @@ $form_state->setRedirectUrl($url);
       '#required' => true,
       '#maxlength' => 3
     );
+
+    $form['field_select_NV_pmj'] = array(
+      '#type' => 'number',
+      '#title' => $this->t('Número de Vehículos a Evaluar'),
+      '#width' => '30%',
+      '#align' => 'center',
+      //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
+      '#required' => true,
+      '#maxlength' => 3
+    );
+
+    $form['placas_pfj'] = [
+      '#type' => 'textarea',
+      //'#default_value' => $this->session->get('session_liquidacion.direccion_valla1_pfj', ''),
+      '#title' => 'Ingresar la placas separadas por coma',
+
+    ];
+
+
+    /*
     $form['field_select_NV_pmj'] = array(
       '#type' => 'select',
       '#required' => TRUE,
@@ -1849,7 +1874,7 @@ $form_state->setRedirectUrl($url);
       ),
     ];
 
-
+*/
     $form['valor_evento_pmj'] = array(
       '#type' => 'number',
       '#title' => 'Valor Total de Inversión de la Publicidad Movil',
@@ -2049,7 +2074,7 @@ $form_state->setRedirectUrl($url);
     $id = $this->session->get('session_liquidacion.id_document_pmj', '');
     $email = $this->session->get('session_liquidacion.email_pmj', '');
    /* $Cantidad1 = $this->session->get('session_liquidacion.field_select_NV_pmj1', '');*/
-    $Cantidad1 =$this->session->get('session_liquidacion.field_select_NV_pmj1', '');
+    $Cantidad1 =$this->session->get('session_liquidacion.field_select_NV_pmj', '');
     $Placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $Cantidad2 = $this->session->get('session_liquidacion.valor_evento_pmj',
     '');
