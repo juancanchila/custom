@@ -1105,8 +1105,13 @@ $form['numero_dias_pfn'] = array(
 
   '#maxlength' => 3
 );
+$form['direcciones_valla_pfj'] = [
+  '#type' => 'textarea',
+  //'#default_value' => $this->session->get('session_liquidacion.direccion_valla1_pfj', ''),
+  '#title' => 'Ingresar la Direcciónes separadas por coma',
 
-
+];
+/*
 $form['field_select_NV_pfn'] = array(
 '#type' => 'select',
 '#required' => TRUE,
@@ -1119,7 +1124,8 @@ $form['field_select_NV_pfn'] = array(
     ],
 );
 
-
+*/
+/*
 $form['direccion_valla1_pfn'] = [
 '#type' => 'textfield',
 '#default_value' => $this->session->get('session_liquidacion.direccion_valla1_pfn', ''),
@@ -2736,7 +2742,7 @@ $form['direccion_valla10_pfn'] = [
 
 'visible' => [  [ ':input[name="field_select_NV_pfn"]' => ['value' => '9'],  ],  ]	),
   ];
-
+*/
 
     $form['back'] = [
       '#type' => 'submit',
