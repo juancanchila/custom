@@ -709,6 +709,10 @@ $params['attachments'][] = [
    *   The current state of the form.
    */
   public function fapiExampleMultistepFormNextValidate(array &$form, FormStateInterface $form_state) {
+
+    $cantidad_v = intval($this->session->get('session_liquidacion.cantidad_v_pfn'));
+
+    /*
   $dir_vallas1 = $form_state->getValue('direccion_valla1_pfn');
     $dir_vallas2 = $form_state->getValue('direccion_valla2_pfn');
     $dir_vallas3 = $form_state->getValue('direccion_valla3_pfn');
@@ -719,10 +723,13 @@ $params['attachments'][] = [
     $dir_vallas8 = $form_state->getValue('direccion_valla8_pfn');
     $dir_vallas9 = $form_state->getValue('direccion_valla9_pfn');
     $dir_vallas10 = $form_state->getValue('direccion_valla10_pfn');
+*/
+
     $file1 = $this->session->get('session_liquidacion.soportes1_pfn');
     $file2 = $this->session->get('session_liquidacion.soportes2_pfn');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfn');
 
+/*
     $cantidad_v = 0;
 
       if (!empty($dir_vallas1)) {
@@ -765,10 +772,10 @@ $params['attachments'][] = [
             $dir_vallas = $dir_vallas."/".$dir_vallas10 ;
 			   $cantidad_v=  $cantidad_v + 1;
         }
+*/
 
-
-        $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
-        $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
+       /* $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));
+        $this->messenger()->addStatus($this->t("Cantidad:".  $cantidad_v ));**/
 	    $vocabulary_name = 'smlv';
 
 
