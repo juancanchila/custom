@@ -765,7 +765,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       $valor_liquidacion = 118561 *  $numero_dias * $cantidad ;
 
       $this->messenger()->addMessage($this->t('cantidades:'. $valor_liquidacion .":". $numero_dias.":".$cantidad ), 'error');
-    }
+
       $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
     } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
         $valor_tarifa = 166176;//ok
