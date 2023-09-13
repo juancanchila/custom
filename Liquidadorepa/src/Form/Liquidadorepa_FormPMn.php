@@ -721,7 +721,7 @@ $form_state->setRedirectUrl($url);
     $this->setSessionValue('session_liquidacion.field_select_NV_pmn1', $cantidad);
 */
 
-$placas = $this->session->get('session_liquidacion.placas_pmj', '');
+$placas = $this->session->get('session_liquidacion.placas_pmn', '');
     $vocabulary_name = 'smlv';
     $query = \Drupal::entityQuery('taxonomy_term');
     $query->condition('vid', $vocabulary_name);
