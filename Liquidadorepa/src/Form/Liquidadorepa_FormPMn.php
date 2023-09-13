@@ -737,9 +737,11 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $valor1 =$value[0]["value"];
     $valor = number_format($valor1, 2, ',', '.');
 
+
     $cantidad = intval(  $this->session->get('session_liquidacion.field_select_NV_pmn', ''));
-	  $numero_dias  = intval( $this->session->get('session_liquidacion.numero_meses_pmn', ''));
-	  $valor_liquidacion =  $form_state->getValue('valor_evento_pmn');
+    $numero_dias = $form_state->getValue('numero_meses_pmn');
+
+    $valor_liquidacion =  $form_state->getValue('valor_evento_pmn');
 
 
     $valor_tarifa_evento_25 = $valor1 * 25 ;
@@ -757,14 +759,11 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $valor_tarifa_evento_2115 = $valor1 * 2115 ;
     $valor_tarifa_evento_8458 = $valor1 * 8458 ;
 
-	  $valor_evento = number_format($valor_evento, 2, ',', '.');
-      $valor_liquidacion = number_format($valor_liquidacion, 2, ',', '.');
 
-     if ($valor_liquidacion < $valor_tarifa_evento_25) {
+    if ($valor_liquidacion < $valor_tarifa_evento_25) {
       $valor_tarifa = 118561;//ok
       $valor_liquidacion = 118561 *  $numero_dias * $cantidad ;
-
-       $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
+      $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
     } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
         $valor_tarifa = 166176;//ok
       $valor_liquidacion = 166176  *   $numero_dias * $cantidad ;
@@ -821,6 +820,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
 
 	}else {
       /*$valor_tarifa =($valor_evento * 0.4)/100;
+      $valor_liquidacion = ( ($valor_evento * 0.4)/100) ;*/
 	  $valor_tarifa =208879615;
      /* $valor_liquidacion =37374939 *  $numero_dias;
       $valor_liquidacion_r =37374939 *  $numero_dias;*/
