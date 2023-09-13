@@ -737,7 +737,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
     $valor1 =$value[0]["value"];
     $valor = number_format($valor1, 2, ',', '.');
 
-    $cantidad =   $this->session->get('session_liquidacion.field_select_NV_pmn', '');
+    $cantidad = intval(  $this->session->get('session_liquidacion.field_select_NV_pmn', ''));
 	  $numero_dias  =  $form_state->getValue('numero_meses_pmn');
 	  $valor_liquidacion =  $form_state->getValue('valor_evento_pmn');
 
