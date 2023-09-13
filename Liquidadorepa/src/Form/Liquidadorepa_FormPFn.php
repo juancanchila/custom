@@ -300,12 +300,14 @@ class Liquidadorepa_FormPFn extends FormBase
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
 
+    $dir_vallas =  $this->session->get('session_liquidacion.direcciones_valla_pfn', '');
 
+    /*
     $dir_vallas =  $this->session->get('session_liquidacion.direccion_vallas_pfn', '');
 
     $dir_vallas2 = explode(',',$dir_vallas);
 	  //esperar valores de session
-
+*/
 
 
 
@@ -332,7 +334,7 @@ class Liquidadorepa_FormPFn extends FormBase
     $tfijo =  $this->session->get('session_liquidacion.tfijo_pfn', '');
     $estrato =  $this->session->get('session_liquidacion.estrato_pfn', '');
     $condicion =  $this->session->get('session_liquidacion.condicion_pfn', '');
-
+/*
     $dir_vallas1 = $form_state->getValue('direccion_valla1_pfn');
     $dir_vallas2 = $form_state->getValue('direccion_valla2_pfn');
     $dir_vallas3 = $form_state->getValue('direccion_valla3_pfn');
@@ -343,9 +345,13 @@ class Liquidadorepa_FormPFn extends FormBase
     $dir_vallas8 = $form_state->getValue('direccion_valla8_pfn');
     $dir_vallas9 = $form_state->getValue('direccion_valla9_pfn');
     $dir_vallas10 = $form_state->getValue('direccion_valla10_pfn');
+
+    */
     $file1 = $this->session->get('session_liquidacion.soportes1_pfn');
     $file2 = $this->session->get('session_liquidacion.soportes2_pfn');
     $file3 = $this->session->get('session_liquidacion.soportes3_pfn');
+    $cantidad_v =  $this->session->get('session_liquidacion.cantidad_v_pfn', '');
+/*
   $cantidad_v = 0;
       if (!empty($dir_vallas1)) {
             $dir_vallas = $dir_vallas."/".$dir_vallas1 ;
@@ -387,7 +393,7 @@ class Liquidadorepa_FormPFn extends FormBase
             $dir_vallas = $dir_vallas."/".$dir_vallas10 ;
 			     $cantidad =  $cantidad_v + 1;
         }
-
+*/
        /*
 
 Creando un nodo tipo factura con los datos recibidos
@@ -963,7 +969,11 @@ if ($f_limit> $limite){
         $this->setSessionValue('session_liquidacion.fecha_Inicial_pfn', $form_state->getValue('fecha_Inicial_pfn'));
         $this->setSessionValue('session_liquidacion.fecha_Final_pfn', $form_state->getValue('fecha_Final_pfn'));
         $this->setSessionValue('session_liquidacion.numero_dias_pfn', $form_state->getValue('numero_dias_pfn'));
+        $this->setSessionValue('session_liquidacion.cantidad_v_pfj', $form_state->getValue('cantidad_v_pfn'));
+        $this->setSessionValue('session_liquidacion.direcciones_valla_pfj', $form_state->getValue('direcciones_valla_pfn'));
+        /*
         $this->setSessionValue('session_liquidacion.field_select_NV_pfn', $form_state->getValue('field_select_NV_pfn'));
+
         $this->setSessionValue('session_liquidacion.direccion_valla1_pfn', $form_state->getValue('direccion_valla1_pfn'));
         $this->setSessionValue('session_liquidacion.direccion_valla2_pfn', $form_state->getValue('direccion_valla2_pfn'));
         $this->setSessionValue('session_liquidacion.direccion_valla3_pfn', $form_state->getValue('direccion_valla3_pfn'));
@@ -984,7 +994,7 @@ if ($f_limit> $limite){
 	    $this->setSessionValue('session_liquidacion.descripcion_valla8_pfn', $form_state->getValue('descripcion_valla8_pfn'));
 	    $this->setSessionValue('session_liquidacion.descripcion_valla9_pfn', $form_state->getValue('descripcion_valla9_pfn'));
 	    $this->setSessionValue('session_liquidacion.descripcion_valla10_pfn', $form_state->getValue('descripcion_valla10_pfn'));
-
+*/
 
 
   }
@@ -1105,7 +1115,22 @@ $form['numero_dias_pfn'] = array(
 
   '#maxlength' => 3
 );
-$form['direcciones_valla_pfj'] = [
+
+
+
+$form['cantidad_v_pfn'] = array(
+  '#type' => 'number',
+  '#title' => 'Cantidad de Vallas a Evaluar',
+  '#width' => '30%',
+  '#align' => 'center',
+  //'#default_value' => $this->session->get('session_liquidacion.numero_meses_pmj', ''),
+  '#required' => true,
+  '#maxlength' => 3
+);
+
+
+
+$form['direcciones_valla_pfn'] = [
   '#type' => 'textarea',
   //'#default_value' => $this->session->get('session_liquidacion.direccion_valla1_pfj', ''),
   '#title' => 'Ingresar la Direcciónes separadas por coma',
