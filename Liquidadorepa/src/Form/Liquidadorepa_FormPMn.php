@@ -1846,7 +1846,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       ),
       ];
 
-
+*/
         $form['valor_evento_pmn'] = array(
           '#type' => 'number',
           '#title' => 'Valor Total de Inversión de la Publicidad Movil',
@@ -1858,7 +1858,7 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
       );
 
 
-*/
+
 
     $form['back'] = [
       '#type' => 'submit',
