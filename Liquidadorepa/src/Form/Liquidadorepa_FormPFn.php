@@ -969,8 +969,8 @@ if ($f_limit> $limite){
         $this->setSessionValue('session_liquidacion.fecha_Inicial_pfn', $form_state->getValue('fecha_Inicial_pfn'));
         $this->setSessionValue('session_liquidacion.fecha_Final_pfn', $form_state->getValue('fecha_Final_pfn'));
         $this->setSessionValue('session_liquidacion.numero_dias_pfn', $form_state->getValue('numero_dias_pfn'));
-        $this->setSessionValue('session_liquidacion.cantidad_v_pfj', $form_state->getValue('cantidad_v_pfn'));
-        $this->setSessionValue('session_liquidacion.direcciones_valla_pfj', $form_state->getValue('direcciones_valla_pfn'));
+        $this->setSessionValue('session_liquidacion.cantidad_v_pfn', $form_state->getValue('cantidad_v_pfn'));
+        $this->setSessionValue('session_liquidacion.direcciones_valla_pfn', $form_state->getValue('direcciones_valla_pfn'));
         /*
         $this->setSessionValue('session_liquidacion.field_select_NV_pfn', $form_state->getValue('field_select_NV_pfn'));
 
