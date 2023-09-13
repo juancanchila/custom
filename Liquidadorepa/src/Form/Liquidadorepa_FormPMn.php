@@ -2043,12 +2043,12 @@ $placas = $this->session->get('session_liquidacion.placas_pmj', '');
 
       $id = $this->session->get('session_liquidacion.id_document_pmn', '');
       $email = $this->session->get('session_liquidacion.email_pmn', '');
-      $Cantidad1=$this->session->get('session_liquidacion.field_select_NV_pmn1', '');
+      $Cantidad1= $this->session->get('session_liquidacion.field_select_NV_pmn1', '');
       $Placas = $this->session->get('session_liquidacion.placas_pmn', '');
       $Cantidad2 = $this->session->get('session_liquidacion.valor_evento_pmn',
       '');
 
-      $Cantidad2 = number_format( $Cantidad2, 2, ',', '.');
+      $Cantidad2 = number_format($Cantidad2, 2, ',', '.');
       $alert = $this->session->get('session_liquidacion.alert_pmn', '');
       $tarifa =  $this->session->get('session_liquidacion.tarifa_pmn', '');
       $total_liquidacion = $this->session->get('session_liquidacion.valorLiquidacion_pmn', '');
