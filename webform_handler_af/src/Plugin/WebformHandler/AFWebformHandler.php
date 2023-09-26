@@ -28,6 +28,7 @@ use Drupal\file\Entity\File;
  */
 class AFWebformHandler extends WebformHandlerBase {
 
+
     /**
  * {@inheritdoc}
  */
