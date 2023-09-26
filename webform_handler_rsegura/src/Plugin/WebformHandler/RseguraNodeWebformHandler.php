@@ -26,7 +26,7 @@ use Drupal\file\Entity\File;
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
  * )
  */
-class RseguraWebformHandler extends WebformHandlerBase {
+class RseguraNodeWebformHandler extends WebformHandlerBase {
 
 
 
