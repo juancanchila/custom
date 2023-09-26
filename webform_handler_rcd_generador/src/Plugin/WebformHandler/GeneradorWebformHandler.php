@@ -29,8 +29,6 @@ use Drupal\file\Entity\File;
 class GeneradorWebformHandler extends WebformHandlerBase {
 
 
-
-
     /**
  * {@inheritdoc}
  */
