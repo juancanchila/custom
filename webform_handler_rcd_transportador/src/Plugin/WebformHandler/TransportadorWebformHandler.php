@@ -29,8 +29,19 @@ use Drupal\file\Entity\File;
 class TransportadorWebformHandler extends WebformHandlerBase {
 
 
+ /**
+     * {@inheritdoc}
+     */
 
 
+
+     public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
+
+
+        parent::validateForm($form, $form_state, $webform_submission);
+
+
+    }
 
     /**
      * {@inheritdoc}
@@ -38,86 +49,217 @@ class TransportadorWebformHandler extends WebformHandlerBase {
     public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
 
-        if (!$form_state->hasAnyErrors()) {
 
-            //Tu logica despues del submit
-
-/**
- * Campos del webform
- * $form_state->getValue('field_name');
- * tipo_de_solicitante
- * nombre_de_representante_legal_
- * nombres_y_apellidos
- * razon_social
- * ndeg_de_documento_de_representante_legal_
- * documento_de_identidad
- * correo_electronico
- * telefono_movil
- * telefono_fijo
- * direccion_de_correspondencia_del_solicitante
- * localidad
- * barrio_localidad_1
- * barrio_localidad_2
- * barrio_localidad_3
- * direccion_del_evento
- * duracion_del_evento_den_dias
- * breve_descripcion_del_evento
- *
-
- * valor_del_la_inversion
- *
- * Documentos
- * 	identificacion
- * 	rut_form1
- *  representacion_legal
- *	evidencia_inversion
- * yo_acepto_terminos_y_condiciones_del_uso_de_mis_datos_personales
- * // oculto
- * 	valor_tarifa
- * 	valor_a_pagar
- *
- */
-
-
- $my_article = Node::create(['type' => 'liquidacion']);
- $my_article->set('title', "test");
- /*
- $my_article->set('field_valor' , $valor_liquidacion);//aqui
- $my_article->set('field_barrio_liquidacion', $barrio_liquidacion);//aqui//
- $my_article->set('field_concepto_ambiental_liq', "Eventos");
- $my_article->set('field_direccion_correspondencia', $dir_correspondecia_contrib);
- $my_article->set('field_direccion_del_predio', $direccion_evento);
-
-
- $my_article->set('field_valor_evento', $valore);
-      $my_article->set('field_descripcion_evento', $descripcion_evento );
-
- $my_article->set('field_tipo_de_solicitante', $tipo_solicitante);
- $my_article->set('field_id_contribuyente', $id_contribuyente);
- $my_article->set('field_nombre_contribuyente', $name_contrib);
- $my_article->set('field_email_contribuyente', $email_cotrib );
- $my_article->set('field_telefono_fijo_contribuyent', $tfijo);
- $my_article->set('field_telefono_movil_contribuyen', $tmovil);
- $my_article->set('field_estrato_contribuyente', $estrato);
- $my_article->set('field_condicion_contribuyente', $condicion);
- $my_article->set('field_comparado_factura',false);
- //$my_article->set('field_codigo_liquidacion_factura', false);
- $my_article->set('field_estado',FALSE);
-
-
- $my_article->set('field_id_file', $file1);
- $my_article->set('field_rut_file', $file2);
- $my_article->set('field_ei_file', $file3);*/
-
- $my_article->set('status', '0');
- //$my_article->set('uid', $id_contribuyente);
-
- $my_article->enforceIsNew();
-   $my_article->save();
-
-
-        }
     }
+
+  /**
+   * @param $webform_submission
+   *
+   * Manipulate data.
+   *
+   */
+  private function submitMyFieldData($webform_submission) {
+
+
+  }
+
+ public function money_format_fild($money) {
+
+    $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
+    $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
+
+    $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
+
+    $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
+    $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+
+    $money_clean = (float) str_replace(',', '.', $removedThousandSeparator);
+
+    return $money_clean;
+   // $this->messenger()->addStatus($this->t("Print:". $money_clean));
+  }
+
+
+
+ public function valor_a_pagar( $form_state,$webform_submission) {
+
+
+
+ //calculos
+ $vocabulary_name = 'smlv';
+ $query = \Drupal::entityQuery('taxonomy_term');
+ $query->condition('vid', $vocabulary_name);
+ $tids = $query->execute();
+ $terms = Term::loadMultiple($tids);
+
+
+ foreach ($terms as $term) {
+   $id2 = $term->getFields();
+       $value  = $term->get('field_smlv')->getValue();
+       $valor =$value[0]["value"];
+ }
+ $valor =$value[0]["value"];
+
+
+ $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
+
+
+
+ $numero_dias = intval($form_state->getValue('duracion_del_evento_den_dias'));
+
+
+
+
+ $valor_tarifa_evento_25 = $valor * 25 ;
+ $valor_tarifa_evento_35 = $valor * 35 ;
+ $valor_tarifa_evento_50 = $valor * 50 ;
+ $valor_tarifa_evento_70 = $valor * 70 ;
+ $valor_tarifa_evento_100 = $valor * 100 ;
+ $valor_tarifa_evento_200 = $valor * 200 ;
+ $valor_tarifa_evento_300 = $valor * 300 ;
+ $valor_tarifa_evento_400 = $valor * 400 ;
+ $valor_tarifa_evento_500 = $valor * 500 ;
+ $valor_tarifa_evento_700 = $valor * 700 ;
+ $valor_tarifa_evento_900 = $valor * 900 ;
+ $valor_tarifa_evento_1500 = $valor * 1500 ;
+ $valor_tarifa_evento_2115 = $valor * 2115 ;
+ $valor_tarifa_evento_8458 = $valor * 8458 ;
+
+
+
+
+if ($valor_liquidacion < $valor_tarifa_evento_25) {
+$valor_tarifa = 118561;//ok
+$valor_liquidacion = 118561 *  $numero_dias ;
+$valor_liquidacion_r = 118600 *  $numero_dias ;
+} elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
+ $valor_tarifa = 166176;//ok
+$valor_liquidacion = 166176  *  $numero_dias ;
+$valor_liquidacion_r = 166200 *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_35  && $valor_liquidacion < $valor_tarifa_evento_50) {
+ $valor_tarifa =237598;
+$valor_liquidacion =237598  *  $numero_dias;
+$valor_liquidacion_r = 237600 *  $numero_dias ;
+
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_50  && $valor_liquidacion < $valor_tarifa_evento_70 ) {
+ $valor_tarifa =332829;
+$valor_liquidacion = 332829  *  $numero_dias ;
+$valor_liquidacion_r =  332850 *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_70  && $valor_liquidacion < $valor_tarifa_evento_100) {
+ $valor_tarifa =  475672;
+$valor_liquidacion = 475672  *  $numero_dias ;
+$valor_liquidacion_r =  475700  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_100  && $valor_liquidacion < $valor_tarifa_evento_200) {
+ $valor_tarifa =  951804;
+$valor_liquidacion = 951804 * $numero_dias;
+$valor_liquidacion_r =  951800  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_200  && $valor_liquidacion < $valor_tarifa_evento_300) {
+ $valor_tarifa = 1427971;
+$valor_liquidacion = 1427971 *  $numero_dias;
+$valor_liquidacion_r =  1428000  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_300  && $valor_liquidacion < $valor_tarifa_evento_400) {
+ $valor_tarifa = 1904121;
+$valor_liquidacion =  1904121  *  $numero_dias ;
+$valor_liquidacion_r =  1904150  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_400  && $valor_liquidacion < $valor_tarifa_evento_500) {
+ $valor_tarifa = 2380269;
+$valor_liquidacion =  2380269  *  $numero_dias  ;
+$valor_liquidacion_r = 2380300  *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_500  && $valor_liquidacion < $valor_tarifa_evento_700) {
+ $valor_tarifa =3332567 ;
+$valor_liquidacion = 3332567 *  $numero_dias ;
+$valor_liquidacion_r = 3332600 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_700  && $valor_liquidacion < $valor_tarifa_evento_900) {
+ $valor_tarifa = 4284866;
+$valor_liquidacion = 4284866  *  $numero_dias ;
+$valor_liquidacion_r = 4284900 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_900  && $valor_liquidacion < $valor_tarifa_evento_1500) {
+ $valor_tarifa =8160204;
+$valor_liquidacion = 8160204  *  $numero_dias ;
+$valor_liquidacion_r = 8160200 *  $numero_dias;
+}elseif ($valor_liquidacion >= $valor_tarifa_evento_1500  && $valor_liquidacion < $valor_tarifa_evento_2115) {
+$valor_tarifa =10917526;
+$valor_liquidacion = 10917526 *  $numero_dias;
+$valor_liquidacion_r = 10917550 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
+$valor_tarifa =37374939;
+$valor_liquidacion =37374939 *  $numero_dias;
+$valor_liquidacion_r =37374939 *  $numero_dias;
+
+}else {
+/*$valor_tarifa =($valor_evento * 0.4)/100;
+$valor_liquidacion = ( ($valor_evento * 0.4)/100) ;*/
+$valor_tarifa =208879615;
+/* $valor_liquidacion =37374939 *  $numero_dias;
+$valor_liquidacion_r =37374939 *  $numero_dias;*/
+}
+$valor = $valor_liquidacion;
+
+
+   $data = $webform_submission->getData();
+   $current_page = $webform_submission->getCurrentPage();
+   // to get a value from a form field
+   $form_value = $data['duracion_del_evento_den_dias'];
+
+   // to set the value of a form field
+  if( $current_page == 'confirmacion' ){
+
+
+//Set geo info
+
+   $localidad = $data['localidad'];
+
+
+
+
+   switch ( $localidad) {
+    case 233:
+
+        $term = Term::load(intval($data['barrio_localidad_1']));
+        $name = $term->getName();
+        $data['barrio'] = $name ;
+
+        break;
+    case 234:
+        $term = Term::load(intval($data['barrio_localidad_2']));
+        $name = $term->getName();
+        $data['barrio'] = $name ;
+        break;
+    case 235:
+
+        $term = Term::load(intval($data['barrio_localidad_3']));
+        $name = $term->getName();
+        $data['barrio'] = $name ;
+
+        break;
+}
+
+
+//hola kt
+
+   $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
+   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
+   $webform_submission->setData($data);
+
+
+
+   //imprimir en pantalla
+   /*
+   $this->messenger()->addStatus($this->t("Valor Liquidacion: $". number_format($valor_liquidacion , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("Valor Tarifa: $". number_format($valor_tarifa , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("SMLV: $". number_format( $valor , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("Valor Evento: $" . number_format( $valor_liquidacion , 2, ',', '.')));
+   $this->messenger()->addStatus($this->t("Días:".   $numero_dias));*/
+
+}
+
+
+
+
+
+ }
+
+
 
 
 
