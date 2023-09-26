@@ -1,9 +1,9 @@
-name: 'Webform Handler: Validate AF.'
+name: 'Webform Handler: Validate af.'
 type: module
 core_version_requirement: ^8 || ^9 || ^10
 package: 'Webform'
 dependencies:
   - webform:webform (>=8.x-5.x)
 description: |
-  Configurable handler AF.
+  Configurable handler af.
 

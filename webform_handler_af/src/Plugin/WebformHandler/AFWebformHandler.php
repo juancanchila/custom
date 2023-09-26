@@ -17,7 +17,7 @@ use Drupal\file\Entity\File;
  * Webform validate handler.
  *
  * @WebformHandler(
- *   id = "validate_af",
+ *   id = "validate_af_typ",
  *   label = @Translation("Validate AF"),
  *   category = @Translation("Validation"),
  *   description = @Translation("validate epa forms"),
