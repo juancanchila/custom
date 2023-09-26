@@ -591,7 +591,7 @@ font-weight: bold;
 	<tr>
 		<td>Contenido de la clave de pago</td>
     <td>'.$code_content.'</td>
-	
+
 	</tr>
 </thead>
 <tbody>
@@ -663,7 +663,7 @@ $form_state->setRedirectUrl($url);
 
      $cantidad_arboles = $form_state->getValue('cantidad_arboles_af');
 	   $valor_liquidacion =  $valor *  $cantidad_arboles ;
-     
+
 	   $this->setSessionValue('session_liquidacion.valorLiquidacion_pdf',$valor_liquidacion);
 	   $valor_liquidacion = number_format($valor_liquidacion, 2, ',', '.'); // mostrar la tarifa actual
 	 $this->setSessionValue('session_liquidacion.valorLiquidacion_af',$valor_liquidacion);
