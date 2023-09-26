@@ -114,7 +114,7 @@ $valor_tarifa = $valor_tarifa3_mayor80 ;
   if( $current_page == 'confirmacion' ){
 
 
-   $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
+   $data['valor_a_pagar'] =number_format($valor_tarifa, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
    $webform_submission->setData($data);
 
