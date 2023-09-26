@@ -81,7 +81,7 @@ public function money_format_fild($money) {
 
  public function valor_a_pagar( $form_state,$webform_submission) {
 
-  $total_mts2 = $this->money_format_fild( $form_state->getValue('ingresar_area_comercial_en_mts2'));
+  $total_mts2 = intval($this->money_format_fild( $form_state->getValue('ingresar_area_comercial_en_mts2')));
 
   $valor_tarifa1_menor45  = 290000;
   $valor_tarifa2_entre46y79  = 435000;
