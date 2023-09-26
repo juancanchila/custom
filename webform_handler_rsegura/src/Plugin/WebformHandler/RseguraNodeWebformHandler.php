@@ -104,9 +104,6 @@ if( $total_mts2 > 80 ){
 $valor_tarifa = $valor_tarifa3_mayor80 ;
 }
 
-   $valor_tarifa = number_format($valor_tarifa, 2, ',', '.');
-
-
 
 
    $data = $webform_submission->getData();
