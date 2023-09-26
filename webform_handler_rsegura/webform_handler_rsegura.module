@@ -7,10 +7,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 function webform_handler_fija_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help
-    case 'help.page.webform_handler_fija':
+    case 'help.page.webform_handler_rsegura':
       return t(<<<'OUTPUT'
       <h2>About</h2>
-      <p>Configurable handler for fija.</p>
+      <p>Configurable handler for rsegura.</p>
 OUTPUT
     );
 

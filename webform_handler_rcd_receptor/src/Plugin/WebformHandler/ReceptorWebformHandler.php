@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_handler_creates_node\Plugin\WebformHandler;
+namespace Drupal\webform_handler_rcd_receptor\Plugin\WebformHandler;
 
 
 
@@ -17,16 +17,16 @@ use Drupal\file\Entity\File;
  * Webform validate handler.
  *
  * @WebformHandler(
- *   id = "creates_nodes",
- *   label = @Translation("Create Liq Eventos"),
+ *   id = "handler_rcd_receptor",
+ *   label = @Translation("Create Liq Receptor"),
  *   category = @Translation("Creation"),
- *   description = @Translation("Create epa forms"),
+ *   description = @Translation("Create epa forms receptor"),
  *   cardinality = \Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
  *   results = \Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
  *   submission = \Drupal\webform\Plugin\WebformHandlerInterface::SUBMISSION_OPTIONAL,
  * )
  */
-class CreatesNodeWebformHandler extends WebformHandlerBase {
+class ReceptorWebformHandler extends WebformHandlerBase {
 
 
 

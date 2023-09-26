@@ -1,0 +1,18 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+/**
+ * Implements hook_help().
+ */
+function webform_handler_rcd_transportador_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help
+    case 'help.page.webform_handler_rcd_transportador':
+      return t(<<<'OUTPUT'
+      <h2>About</h2>
+      <p>Configurable handler for _rcd_transportador</p>
+OUTPUT
+    );
+
+  }
+}

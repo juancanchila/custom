@@ -19,3 +19,4 @@ Mejoras
 5. vinvular con firebase
 6. activar notificaciones a uusario pricipals
 7. visaulizar los clientes en la aplciacion movil
+8. conectar la app con los fomrulairos webform

@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function webform_handler_establecimientos_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help
+    case 'help.page.webform_handler_establecimientos':
+      return t(<<<'OUTPUT'
+      <h2>About</h2>
+      <p>Configurable handler for Establecimeintos.</p>
+OUTPUT
+    );
+
+  }
+}

@@ -1,10 +1,9 @@
-name: 'Webform Handler: Validar Fechas'
+name: 'Webform Handler: Validate AF'
 type: module
 core_version_requirement: ^8 || ^9 || ^10
 package: 'Webform'
 dependencies:
   - webform:webform (>=8.x-5.x)
-description: 
-  Configurable handler for comparing two fields on a webform.
-
+description: |
+  Configurable handler AF.
 

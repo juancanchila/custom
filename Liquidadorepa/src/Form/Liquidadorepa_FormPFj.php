@@ -845,7 +845,6 @@ if ($valor_liquidacion < $valor_tarifa_evento_25) {
         $valor_liquidacion_r = 118600 * $numero_dias * $cantidad_v  ;
 
 
-
       } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
           $valor_tarifa = 166176;//ok
         $valor_liquidacion = 166176  *  $numero_dias * $cantidad_v ;

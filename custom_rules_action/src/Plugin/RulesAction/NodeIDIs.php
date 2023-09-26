@@ -75,9 +75,6 @@ class NodeIDIs extends RulesActionBase
     $valor = $node->get('field_valor')->getValue();
     $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
     $duracion = $node->get('field_duracion')->getValue();
-    $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
-    $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
-    $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
     $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
 
 
@@ -171,7 +168,10 @@ class NodeIDIs extends RulesActionBase
 
 
 
+    $code="4157709998461239"."8020".$sec."3900".$this->money_format_fild($valor[0]["value"])."96".date('Y')."1231";
 
+    $code_content="(415)7709998461239"."(8020)".$sec."(3900)".$this->money_format_fild($valor[0]["value"])."(96)".date('Y')."1231";
+    $consecutivo_facturas = $node->get('field_consecutivo_liquidacion')->getValue();
 
 
 
