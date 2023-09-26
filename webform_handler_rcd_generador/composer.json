@@ -1,10 +1,10 @@
 {
-    "name": "webform_handler_rcd_generator",
+    "name": "webform_handler_rcd_generador",
     "type": "drupal-module",
     "description": "Configurable handler Generador.",
     "keywords": [    ],
     "license": "GPL-2.0+",
-    "homepage": "https://www.drupal.org/project/webform_handler_rcd_generator",
+    "homepage": "https://www.drupal.org/project/webform_handler_rcd_generador",
     "minimum-stability": "dev",
     "authors": [
       {

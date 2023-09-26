@@ -2,4 +2,4 @@
 INTRODUCTION
 ------------
 
-The Webform Handler _rcd_generator
+The Webform Handler _rcd_generador
