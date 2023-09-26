@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\webform_handler_validate_dates\Plugin\WebformHandler;
+namespace Drupal\webform_handler_af\Plugin\WebformHandler;
 
 
 
@@ -17,7 +17,7 @@ use Drupal\file\Entity\File;
  * Webform validate handler.
  *
  * @WebformHandler(
- *   id = "validate_AF",
+ *   id = "validate_af",
  *   label = @Translation("Validate AF"),
  *   category = @Translation("Validation"),
  *   description = @Translation("validate epa forms"),

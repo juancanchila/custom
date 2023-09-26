@@ -18,7 +18,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  protected static $modules = ['webform_handler_validate_dates'];
+  protected static $modules = ['webform_handler_af'];
 
   /**
    * A user with permission to administer site configuration.

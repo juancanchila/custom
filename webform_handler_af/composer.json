@@ -1,10 +1,10 @@
 {
-    "name": "webform_handler_AF",
+    "name": "webform_handler_af",
     "type": "drupal-module",
     "description": "Configurable handler AF.",
     "keywords": [    ],
     "license": "GPL-2.0+",
-    "homepage": "https://www.drupal.org/project/webform_handler_AF",
+    "homepage": "https://www.drupal.org/project/webform_handler_af",
     "minimum-stability": "dev",
     "authors": [
       {
