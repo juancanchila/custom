@@ -38,7 +38,10 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
     parent::validateForm($form, $form_state, $webform_submission);
 
 
-
+    if(  $page == 'datos_del_evento' ){
+      //   $this->submitMyFieldData($webform_submission);
+            $this->validate_dates($form_state,$webform_submission);
+         }
 
 
 
@@ -52,10 +55,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
 
 
-    if(  $page == 'documentos' ){
-      //   $this->submitMyFieldData($webform_submission);
-            $this->validate_dates($form_state,$webform_submission);
-         }
+
 
 
     if(  $page == 'confirmacion' ){
