@@ -53,8 +53,8 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
     if(  $page == 'datos_del_evento' ){
       //   $this->submitMyFieldData($webform_submission);
-          //  $this->validate_dates($form_state,$webform_submission);
-          $this->messenger()->addStatus($this->t("datos_del_evento"));
+            $this->validate_dates($form_state,$webform_submission);
+          //$this->messenger()->addStatus($this->t("datos_del_evento"));
          }
 
 
@@ -87,23 +87,20 @@ public function money_format_fild($money) {
   }
 
   public function validate_dates($form_state, $webform_submission) {
-    $now = DrupalDateTime::createFromTimestamp(time());
-    $now->setTimezone(new \DateTimeZone('UTC'));
-    
-    $f1 = strtotime($form_state->getValue('fecha_inicio'));
-    $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
-    $f_limit = strtotime($form_state->getValue('fecha_final'));
-    $dt = strtotime($now->format('Y-m-d'));
-    $diff = ($f_limit - $f1) / 86400;
-    $diff02 = ($f1 - $dt) / 86400;
-    $this->messenger()->addStatus($this->t("Print:". $f1));
-    
-    if ($f1 > $f_limit) {
-      // Use addError to display an alert message.
-      $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
-  }
+    $now = new DrupalDateTime('now', new \DateTimeZone('UTC'));
 
-   // $this->messenger()->addStatus($this->t("Print:". $f1));
+    $fecha_inicial = DrupalDateTime::createFromTimestamp(strtotime($form_state->getValue('fecha_inicio')));
+    $fecha_final = DrupalDateTime::createFromTimestamp(strtotime($form_state->getValue('fecha_final')));
+
+    // Make sure the dates are in UTC timezone
+    $fecha_inicial->setTimezone(new \DateTimeZone('UTC'));
+    $fecha_final->setTimezone(new \DateTimeZone('UTC'));
+
+    // Compare the dates
+    if ($fecha_inicial->getTimestamp() > $fecha_final->getTimestamp()) {
+        // Use addError to display an alert message.
+        $form_state->setErrorByName('fecha_inicio', $this->t('La fecha inicial no puede ser mayor a la final'));
+    }
 }
 
 
