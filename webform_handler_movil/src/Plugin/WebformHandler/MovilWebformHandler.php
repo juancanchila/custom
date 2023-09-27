@@ -113,6 +113,8 @@ if ($f1 > $f_limit) {
   $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
 }
 
+}
+
 public function valor_a_pagar( $form_state,$webform_submission) {
 
 
