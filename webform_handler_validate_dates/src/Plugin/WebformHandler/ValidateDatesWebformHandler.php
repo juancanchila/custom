@@ -38,8 +38,11 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
     parent::validateForm($form, $form_state, $webform_submission);
 
 
-    $this->validate_dates($form_state,$webform_submission);
-  
+
+ 
+         $this->validate_dates($form_state,$webform_submission);
+        
+
 }
 
 /**
@@ -50,7 +53,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
 
 
-   
+
 
 
     if(  $page == 'confirmacion' ){
@@ -81,18 +84,23 @@ public function money_format_fild($money) {
   }
 
   public function validate_dates($form_state, $webform_submission) {
-    $now = new DrupalDateTime('now', new \DateTimeZone('UTC'));
+    $now = DrupalDateTime::createFromTimestamp(time());
+    $now->setTimezone(new \DateTimeZone('UTC'));
+    
+    $f1 = strtotime($form_state->getValue('fecha_inicio'));
+    $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
+    $f_limit = strtotime($form_state->getValue('fecha_final'));
+    $dt = strtotime($now->format('Y-m-d'));
+    $diff = ($f_limit - $f1) / 86400;
+    $diff02 = ($f1 - $dt) / 86400;
+    $this->messenger()->addStatus($this->t("Print:". $f1));
+    
+    if ($f1 > $f_limit) {
+      // Use addError to display an alert message.
+      $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
+  }
 
-    $fecha_inicial = new DrupalDateTime(strtotime($form_state->getValue('fecha_inicio')), new \DateTimeZone('UTC'));
-    $fecha_final = new DrupalDateTime(strtotime($form_state->getValue('fecha_final')), new \DateTimeZone('UTC'));
-
-  
-
-    // Compare the dates
-    if ($fecha_inicial->getTimestamp() > $fecha_final->getTimestamp()) {
-        // Use addError to display an alert message.
-        $form_state->setErrorByName('fecha_inicio', $this->t('La fecha inicial no puede ser mayor a la final'));
-    }
+   // $this->messenger()->addStatus($this->t("Print:". $f1));
 }
 
 
