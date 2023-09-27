@@ -124,13 +124,20 @@ $valor_tarifa = $valor_tarifa3_mayor80 ;
 
 
     if($barrio1){
-      $data['barrio'] = $barrio1;
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio1)->get('name')->value;
+
+      $data['barrio'] = $term_name;
     }
     if($barrio2){
-      $data['barrio'] = $barrio2;
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio2)->get('name')->value;
+
+      $data['barrio'] = $term_name;
     }
     if($barrio3){
-      $data['barrio'] = $barrio3;
+
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio3)->get('name')->value;
+
+      $data['barrio'] = $term_name;
     }
 
 
