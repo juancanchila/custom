@@ -86,11 +86,17 @@ public function money_format_fild($money) {
   public function validate_dates($form_state, $webform_submission) {
     $now = DrupalDateTime::createFromTimestamp(time());
     $now->setTimezone(new \DateTimeZone('UTC'));
-    
-    $f1 = strtotime($form_state->getValue('fecha_inicio'));
     $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
+
+    $f1 = strtotime($form_state->getValue('fecha_inicio'));
     $f_limit = strtotime($form_state->getValue('fecha_final'));
     $dt = strtotime($now->format('Y-m-d'));
+
+
+    $f1 = DrupalDateTime::createFromTimestamp($f1);
+    $f_limit = DrupalDateTime::createFromTimestamp($f_limit);
+    $dt = DrupalDateTime::createFromTimestamp( $dt);
+
     $diff = ($f_limit - $f1) / 86400;
     $diff02 = ($f1 - $dt) / 86400;
     
