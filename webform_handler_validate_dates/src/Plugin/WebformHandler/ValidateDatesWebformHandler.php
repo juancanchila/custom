@@ -100,6 +100,11 @@ public function money_format_fild($money) {
     $interval = $f1->diff($f_limit);
     $daysDifference = $interval->days;
 
+    if (   $f1 == $f_limit  ) {
+      $daysDifference = 1;
+
+    }
+
     if ( $cantidad_dias != $daysDifference) {
       // Use addError to display an alert message.
       $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de días no cuincide se calculan:'.$daysDifference ));
