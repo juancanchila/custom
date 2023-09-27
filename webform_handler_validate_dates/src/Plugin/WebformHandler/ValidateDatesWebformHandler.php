@@ -50,6 +50,14 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
     $page = $webform_submission->getCurrentPage();
 
+
+
+    if(  $page == 'datos_del_evento' ){
+      //   $this->submitMyFieldData($webform_submission);
+            $this->vidate_dates($form_state,$webform_submission);
+         }
+
+
     if(  $page == 'confirmacion' ){
      //   $this->submitMyFieldData($webform_submission);
            $this->valor_a_pagar($form_state,$webform_submission);
@@ -219,6 +227,8 @@ $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_locali
     }
 
 
+    
+
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
    $data['valor_tarifa'] =number_format($valor_tarifa, 2, ',', '.');
    $webform_submission->setData($data);
@@ -232,5 +242,19 @@ $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_locali
 
  }
 
+ public function validate_date( $form_state,$webform_submission) {
+
+  $now = DrupalDateTime::createFromTimestamp(time());
+  $now->setTimezone(new \DateTimeZone('UTC'));
+  
+        $f1= strtotime($form_state->getValue('fecha_inicial'));
+         $cantidad_dias =  $form_state->getValue('numero_dias_e');
+        $f_limit=strtotime($form_state->getValue('fecha_final'));
+         $dt=strtotime($now->format('Y-m-d'));
+         $diff =($f_limit-$f1)/86400;
+         $diff02 =($f1-$dt)/86400;
+         $this->messenger()->addStatus($this->t("Print: Alert"));
+
+ }
 
 }
