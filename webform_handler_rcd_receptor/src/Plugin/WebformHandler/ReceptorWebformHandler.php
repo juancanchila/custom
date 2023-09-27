@@ -108,7 +108,7 @@ public function money_format_fild($money) {
   
   if ($f1 > $f_limit) {
     // Use addError to display an alert message.
-    $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
+    $form_state->setErrorByName('fecha_inicio', $this->t('La fecha inicial no puede ser menor a la final'));
   }
   
   }
