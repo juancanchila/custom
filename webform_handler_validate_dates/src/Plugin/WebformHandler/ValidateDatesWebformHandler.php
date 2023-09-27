@@ -119,72 +119,71 @@ public function money_format_fild($money) {
  $valor_tarifa_evento_8458 = $valor * 8458 ;
 
 
-
-
  if ($valor_liquidacion < $valor_tarifa_evento_25) {
-    $valor_tarifa = 118561;//ok
-    $valor_liquidacion = 118561 *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
-  } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
-      $valor_tarifa = 166176;//ok
-    $valor_liquidacion = 166176  *   $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 166200 *  $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_35  && $valor_liquidacion < $valor_tarifa_evento_50) {
-      $valor_tarifa =237598;
-    $valor_liquidacion =237598  *   $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 237600 *  $numero_dias * $cantidad ;
+  $valor_tarifa = 118561;//ok
+  $valor_liquidacion = 118561 *  $numero_dias ;
+  $valor_liquidacion_r = 118600 *  $numero_dias ;
+} elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
+    $valor_tarifa = 166176;//ok
+  $valor_liquidacion = 166176  *  $numero_dias ;
+  $valor_liquidacion_r = 166200 *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_35  && $valor_liquidacion < $valor_tarifa_evento_50) {
+    $valor_tarifa =237598;
+  $valor_liquidacion =237598  *  $numero_dias;
+  $valor_liquidacion_r = 237600 *  $numero_dias ;
 
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_50  && $valor_liquidacion < $valor_tarifa_evento_70 ) {
-      $valor_tarifa =332829;
-    $valor_liquidacion = 332829  *   $numero_dias * $cantidad ;
-    $valor_liquidacion_r =  332850 *  $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_70  && $valor_liquidacion < $valor_tarifa_evento_100) {
-      $valor_tarifa =  475672;
-    $valor_liquidacion = 475672  *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r =  475700  *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_100  && $valor_liquidacion < $valor_tarifa_evento_200) {
-      $valor_tarifa =  951804;
-    $valor_liquidacion = 951804 *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r =  951800  *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_200  && $valor_liquidacion < $valor_tarifa_evento_300) {
-      $valor_tarifa = 1427971;
-   $valor_liquidacion = 1427971 *  $numero_dias * $cantidad ;
-   $valor_liquidacion_r =  1428000  *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_300  && $valor_liquidacion < $valor_tarifa_evento_400) {
-      $valor_tarifa = 1904121;
-   $valor_liquidacion =  1904121  *  $numero_dias * $cantidad ;
-   $valor_liquidacion_r =  1904150  *  $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_400  && $valor_liquidacion < $valor_tarifa_evento_500) {
-      $valor_tarifa = 2380269;
-    $valor_liquidacion =  2380269  *   $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 2380300  *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_500  && $valor_liquidacion < $valor_tarifa_evento_700) {
-      $valor_tarifa =3332567 ;
-   $valor_liquidacion = 3332567 *   $numero_dias * $cantidad ;
-   $valor_liquidacion_r = 3332600 *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_700  && $valor_liquidacion < $valor_tarifa_evento_900) {
-      $valor_tarifa = 4284866;
-    $valor_liquidacion = 4284866  *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 4284900 *  $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_900  && $valor_liquidacion < $valor_tarifa_evento_1500) {
-      $valor_tarifa =8160204;
-   $valor_liquidacion = 8160204  *  $numero_dias * $cantidad ;
-   $valor_liquidacion_r = 8160200 *  $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion >= $valor_tarifa_evento_1500  && $valor_liquidacion < $valor_tarifa_evento_2115) {
-    $valor_tarifa =10917526;
-    $valor_liquidacion = 10917526 *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
-    $valor_tarifa =37374939;
-    $valor_liquidacion =37374939 *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r =37374939 *   $numero_dias * $cantidad ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_50  && $valor_liquidacion < $valor_tarifa_evento_70 ) {
+    $valor_tarifa =332829;
+  $valor_liquidacion = 332829  *  $numero_dias ;
+  $valor_liquidacion_r =  332850 *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_70  && $valor_liquidacion < $valor_tarifa_evento_100) {
+    $valor_tarifa =  475672;
+  $valor_liquidacion = 475672  *  $numero_dias ;
+  $valor_liquidacion_r =  475700  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_100  && $valor_liquidacion < $valor_tarifa_evento_200) {
+    $valor_tarifa =  951804;
+  $valor_liquidacion = 951804 * $numero_dias;
+  $valor_liquidacion_r =  951800  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_200  && $valor_liquidacion < $valor_tarifa_evento_300) {
+    $valor_tarifa = 1427971;
+ $valor_liquidacion = 1427971 *  $numero_dias;
+ $valor_liquidacion_r =  1428000  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_300  && $valor_liquidacion < $valor_tarifa_evento_400) {
+    $valor_tarifa = 1904121;
+ $valor_liquidacion =  1904121  *  $numero_dias ;
+ $valor_liquidacion_r =  1904150  *  $numero_dias ;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_400  && $valor_liquidacion < $valor_tarifa_evento_500) {
+    $valor_tarifa = 2380269;
+  $valor_liquidacion =  2380269  *  $numero_dias  ;
+  $valor_liquidacion_r = 2380300  *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_500  && $valor_liquidacion < $valor_tarifa_evento_700) {
+    $valor_tarifa =3332567 ;
+ $valor_liquidacion = 3332567 *  $numero_dias ;
+ $valor_liquidacion_r = 3332600 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_700  && $valor_liquidacion < $valor_tarifa_evento_900) {
+    $valor_tarifa = 4284866;
+  $valor_liquidacion = 4284866  *  $numero_dias ;
+  $valor_liquidacion_r = 4284900 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_900  && $valor_liquidacion < $valor_tarifa_evento_1500) {
+    $valor_tarifa =8160204;
+ $valor_liquidacion = 8160204  *  $numero_dias ;
+ $valor_liquidacion_r = 8160200 *  $numero_dias;
+}elseif ($valor_liquidacion >= $valor_tarifa_evento_1500  && $valor_liquidacion < $valor_tarifa_evento_2115) {
+  $valor_tarifa =10917526;
+  $valor_liquidacion = 10917526 *  $numero_dias;
+  $valor_liquidacion_r = 10917550 *  $numero_dias;
+}elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
+  $valor_tarifa =37374939;
+  $valor_liquidacion =37374939 *  $numero_dias;
+  $valor_liquidacion_r =37374939 *  $numero_dias;
 
-  }else {
-    /*$valor_tarifa =($valor_evento * 0.4)/100;
-    $valor_tarifa =208879615;
-   /* $valor_liquidacion =37374939 *  $numero_dias;
-    $valor_liquidacion_r =37374939 *  $numero_dias;*/
-  }
+}else {
+  /*$valor_tarifa =($valor_evento * 0.4)/100;
+  $valor_liquidacion = ( ($valor_evento * 0.4)/100) ;*/
+$valor_tarifa =208879615;
+ /* $valor_liquidacion =37374939 *  $numero_dias;
+  $valor_liquidacion_r =37374939 *  $numero_dias;*/
+}
 
 
 
