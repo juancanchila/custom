@@ -100,13 +100,17 @@ public function money_format_fild($money) {
     $interval = $f1->diff($f_limit);
     $daysDifference = $interval->days;
 
-    if ($f1 > $f_limit) {
+    if ( $cantidad_dias != $daysDifference) {
       // Use addError to display an alert message.
-      $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
+      $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de días no cuincide se calculan:'.$daysDifference ));
   }
 
+  if ($f1 > $f_limit) {
+    // Use addError to display an alert message.
+    $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
+}
 
-$this->messenger()->addStatus($this->t("Calculadas:". $daysDifference ));
+
  
 }
 
