@@ -89,7 +89,7 @@ public function money_format_fild($money) {
     $now = DrupalDateTime::createFromTimestamp(time());
     $now->setTimezone(new \DateTimeZone('UTC'));
     
-    $f1 = strtotime($form_state->getValue('fecha_inicial'));
+    $f1 = strtotime($form_state->getValue('fecha_inicio'));
     $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
     $f_limit = strtotime($form_state->getValue('fecha_final'));
     $dt = strtotime($now->format('Y-m-d'));
