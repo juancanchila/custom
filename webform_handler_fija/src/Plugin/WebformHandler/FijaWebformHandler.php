@@ -36,7 +36,13 @@ class FijaWebformHandler extends WebformHandlerBase {
 public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
     parent::validateForm($form, $form_state, $webform_submission);
+    $page = $webform_submission->getCurrentPage();
 
+
+    if(  $page == 'datos_del_evento' ){
+         $this->validate_dates($form_state,$webform_submission);
+         $this->validate_count($form_state,$webform_submission);
+        }
  
 
 
@@ -52,7 +58,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
     if(  $page == 'confirmacion' ){
      //   $this->submitMyFieldData($webform_submission);
-           // $this->valor_a_pagar($form_state,$webform_submission);
+            $this->valor_a_pagar($form_state,$webform_submission);
         }
 
 
@@ -78,7 +84,51 @@ public function money_format_fild($money) {
   }
 
 
+  public function validate_count($form_state, $webform_submission) {
+    $cantidad_placas = intval($form_state->getValue('cantidad_de_vehiculos'));
+    $array_placas = count($form_state->getValue('placas'));
+  
+    if ( $cantidad_placas != $array_placas) {
+      // Use addError to display an alert message.
+      $form_state->setErrorByName('cantidad_de_vehiculos', $this->t('La cantidad de placas no cuinciden con las ingresadas' ));
+  }
 
+}
+
+
+public function validate_dates($form_state, $webform_submission) {
+  $now = DrupalDateTime::createFromTimestamp(time());
+  $now->setTimezone(new \DateTimeZone('UTC'));
+  $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
+
+  $f1 = strtotime($form_state->getValue('fecha_inicio'));
+  $f_limit = strtotime($form_state->getValue('fecha_final'));
+  $dt = strtotime($now->format('Y-m-d'));
+
+
+  $f1 = DrupalDateTime::createFromTimestamp($f1);
+  $f_limit = DrupalDateTime::createFromTimestamp($f_limit);
+  $dt = DrupalDateTime::createFromTimestamp( $dt);
+
+  $interval = $f1->diff($f_limit);
+  $daysDifference = $interval->days;
+
+  if (   $f1 == $f_limit  ) {
+    $daysDifference = 1;
+
+  }
+
+  if ( $cantidad_dias != $daysDifference) {
+    // Use addError to display an alert message.
+    $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de días no cuincide se calculan:'.$daysDifference ));
+}
+
+if ($f1 > $f_limit) {
+  // Use addError to display an alert message.
+  $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
+}
+
+}
  public function valor_a_pagar( $form_state,$webform_submission) {
 
 
