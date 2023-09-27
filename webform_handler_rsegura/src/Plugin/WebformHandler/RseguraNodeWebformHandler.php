@@ -83,6 +83,14 @@ public function money_format_fild($money) {
 
   $total_mts2 = intval($this->money_format_fild( $form_state->getValue('ingresar_area_comercial_en_mts2')));
 
+
+  $barrio1 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
+
+  $barrio2 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_2')));
+
+  $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
+
+
   $valor_tarifa1_menor45  = 290000;
   $valor_tarifa2_entre46y79  = 435000;
   $valor_tarifa3_mayor80  = 580000;
@@ -112,6 +120,20 @@ $valor_tarifa = $valor_tarifa3_mayor80 ;
 
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
+
+
+
+    if($barrio1){
+      $data['barrio'] = $barrio1;
+    }
+    if($barrio2){
+      $data['barrio'] = $barrio2;
+    }
+    if($barrio3){
+      $data['barrio'] = $barrio3;
+    }
+
+
 
 
    $data['valor_a_pagar'] =number_format($valor_tarifa, 2, ',', '.');
