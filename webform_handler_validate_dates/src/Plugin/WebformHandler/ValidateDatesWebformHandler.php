@@ -52,7 +52,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
 
 
-    if(  $page == 'documentos' ){
+    if(  $page == 'datos_del_evento' ){
       //   $this->submitMyFieldData($webform_submission);
             $this->validate_dates($form_state,$webform_submission);
          }
