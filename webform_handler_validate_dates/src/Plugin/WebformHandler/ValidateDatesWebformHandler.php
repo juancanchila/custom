@@ -52,7 +52,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
 
 
-    if(  $page == 'datos_del_evento' ){
+    if(  $page == 'documentos' ){
       //   $this->submitMyFieldData($webform_submission);
             $this->validate_dates($form_state,$webform_submission);
          }
@@ -96,9 +96,8 @@ public function money_format_fild($money) {
     $diff = ($f_limit - $f1) / 86400;
     $diff02 = ($f1 - $dt) / 86400;
 
-    $this->messenger()->addStatus($this->t("Print:". $cantidad_dias ));
 
- $this->messenger()->addStatus($this->t("Print:". $f1 > $f_limit));
+
     if ($f1 > $f_limit) {
         // Use addError to display an alert message.
         $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final'));
