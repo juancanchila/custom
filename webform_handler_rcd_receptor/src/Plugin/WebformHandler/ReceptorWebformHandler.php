@@ -61,7 +61,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 public function submitForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
     $page = $webform_submission->getCurrentPage();
 
-    if(  $page == 'confirmacion' ){
+    if(  $page == 'informacion_de_la_solicitud' ){
      //   $this->submitMyFieldData($webform_submission);
            // $this->valor_a_pagar($form_state,$webform_submission);
         }
