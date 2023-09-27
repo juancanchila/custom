@@ -101,7 +101,7 @@ public function money_format_fild($money) {
   
     $f1 = DrupalDateTime::createFromTimestamp($f1);
     $f_limit = DrupalDateTime::createFromTimestamp($f_limit);
-    $dt = DrupalDateTime::createFromTimestamp( $dt);
+  
   
  
   
