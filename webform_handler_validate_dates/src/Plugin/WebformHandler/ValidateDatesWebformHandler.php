@@ -98,6 +98,7 @@ public function money_format_fild($money) {
            $diff02 =($f1-$dt)/86400;
 
            if ($f1 > $f_limit){
+            $this->messenger()->addStatus($this->t("La fecha inicial no puede ser menor a la final"));
             $form_state->setErrorByName('fecha_inicial', $this->t('La fecha inicial no puede ser menor a la final '));
         }
 
