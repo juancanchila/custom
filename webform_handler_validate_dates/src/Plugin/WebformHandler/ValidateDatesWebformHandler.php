@@ -96,6 +96,7 @@ public function money_format_fild($money) {
     $diff = ($f_limit - $f1) / 86400;
     $diff02 = ($f1 - $dt) / 86400;
 
+    $this->messenger()->addStatus($this->t("Print:". $cantidad_dias ));
 
  $this->messenger()->addStatus($this->t("Print:". $f1 > $f_limit));
     if ($f1 > $f_limit) {
