@@ -186,7 +186,8 @@ public function money_format_fild($money) {
   }
 
 
-$valor = $valor_liquidacion;
+
+
 $barrio1 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
 
 $barrio2 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_2')));
@@ -219,7 +220,7 @@ $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_locali
 
 
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
-   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
+   $data['valor_tarifa'] =number_format($valor_tarifa, 2, ',', '.');
    $webform_submission->setData($data);
 
 
