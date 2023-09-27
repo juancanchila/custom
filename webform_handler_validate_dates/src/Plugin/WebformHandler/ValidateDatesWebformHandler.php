@@ -242,7 +242,7 @@ $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_locali
 
  }
 
- public function validate_date( $form_state,$webform_submission) {
+ public function validate_dates( $form_state,$webform_submission) {
 
   $now = DrupalDateTime::createFromTimestamp(time());
   $now->setTimezone(new \DateTimeZone('UTC'));
