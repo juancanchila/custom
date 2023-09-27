@@ -38,9 +38,8 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
     parent::validateForm($form, $form_state, $webform_submission);
 
 
-
     $this->validate_dates($form_state,$webform_submission);
-
+  
 }
 
 /**
@@ -84,12 +83,10 @@ public function money_format_fild($money) {
   public function validate_dates($form_state, $webform_submission) {
     $now = new DrupalDateTime('now', new \DateTimeZone('UTC'));
 
-    $fecha_inicial = DrupalDateTime::createFromTimestamp(strtotime($form_state->getValue('fecha_inicio')));
-    $fecha_final = DrupalDateTime::createFromTimestamp(strtotime($form_state->getValue('fecha_final')));
+    $fecha_inicial = new DrupalDateTime(strtotime($form_state->getValue('fecha_inicio')), new \DateTimeZone('UTC'));
+    $fecha_final = new DrupalDateTime(strtotime($form_state->getValue('fecha_final')), new \DateTimeZone('UTC'));
 
-    // Make sure the dates are in UTC timezone
-    $fecha_inicial->setTimezone(new \DateTimeZone('UTC'));
-    $fecha_final->setTimezone(new \DateTimeZone('UTC'));
+  
 
     // Compare the dates
     if ($fecha_inicial->getTimestamp() > $fecha_final->getTimestamp()) {
