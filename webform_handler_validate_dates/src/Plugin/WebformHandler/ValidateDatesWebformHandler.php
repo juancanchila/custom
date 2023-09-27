@@ -98,10 +98,11 @@ public function money_format_fild($money) {
  }
  $valor =$value[0]["value"];
 
-
+ $valor_tarifa = 0;
  $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
  $numero_dias = intval($form_state->getValue('duracion_del_evento_den_dias'));
  $cantidad = intval($form_state->getValue('cantidad_de_vehiculos'));
+
  $valor_tarifa_evento_25 = $valor * 25 ;
  $valor_tarifa_evento_35 = $valor * 35 ;
  $valor_tarifa_evento_50 = $valor * 50 ;
