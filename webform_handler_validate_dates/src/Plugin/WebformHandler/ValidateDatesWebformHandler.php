@@ -36,12 +36,12 @@ class ValidateDatesWebformHandler extends WebformHandlerBase {
 public function validateForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
 
     parent::validateForm($form, $form_state, $webform_submission);
+    $page = $webform_submission->getCurrentPage();
 
 
-
- 
+    if(  $page == '	datos_del_evento' ){
          $this->validate_dates($form_state,$webform_submission);
-        
+        }
 
 }
 
