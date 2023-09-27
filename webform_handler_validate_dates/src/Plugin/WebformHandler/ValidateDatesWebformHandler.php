@@ -54,7 +54,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
     if(  $page == 'datos_del_evento' ){
       //   $this->submitMyFieldData($webform_submission);
-            $this->vidate_dates($form_state,$webform_submission);
+            $this->validate_dates($form_state,$webform_submission);
          }
 
 
@@ -85,7 +85,20 @@ public function money_format_fild($money) {
    // $this->messenger()->addStatus($this->t("Print:". $money_clean));
   }
 
+  public function validate_dates( $form_state,$webform_submission) {
 
+    $now = DrupalDateTime::createFromTimestamp(time());
+    $now->setTimezone(new \DateTimeZone('UTC'));
+    
+          $f1= strtotime($form_state->getValue('fecha_inicial'));
+           $cantidad_dias =  $form_state->getValue('numero_dias_e');
+          $f_limit=strtotime($form_state->getValue('fecha_final'));
+           $dt=strtotime($now->format('Y-m-d'));
+           $diff =($f_limit-$f1)/86400;
+           $diff02 =($f1-$dt)/86400;
+           $this->messenger()->addStatus($this->t("Print: Alert"));
+  
+   }
 
  public function valor_a_pagar( $form_state,$webform_submission) {
 
@@ -242,19 +255,6 @@ $barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_locali
 
  }
 
- public function validate_dates( $form_state,$webform_submission) {
 
-  $now = DrupalDateTime::createFromTimestamp(time());
-  $now->setTimezone(new \DateTimeZone('UTC'));
-  
-        $f1= strtotime($form_state->getValue('fecha_inicial'));
-         $cantidad_dias =  $form_state->getValue('numero_dias_e');
-        $f_limit=strtotime($form_state->getValue('fecha_final'));
-         $dt=strtotime($now->format('Y-m-d'));
-         $diff =($f_limit-$f1)/86400;
-         $diff02 =($f1-$dt)/86400;
-         $this->messenger()->addStatus($this->t("Print: Alert"));
-
- }
 
 }
