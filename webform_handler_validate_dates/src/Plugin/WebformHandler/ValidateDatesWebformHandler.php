@@ -96,7 +96,7 @@ public function money_format_fild($money) {
            $dt=strtotime($now->format('Y-m-d'));
            $diff =($f_limit-$f1)/86400;
            $diff02 =($f1-$dt)/86400;
-           $this->messenger()->addStatus($this->t("Print: Alert"));
+           $form_state->setErrorByName('fecha_inicial', t('Your title should be number'));
   
    }
 
