@@ -39,7 +39,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
     $page = $webform_submission->getCurrentPage();
 
 
-    if(  $page == '	datos_del_evento' ){
+    if(  $page == 'datos_del_evento' ){
          $this->validate_dates($form_state,$webform_submission);
         }
 
