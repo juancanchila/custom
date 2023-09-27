@@ -52,7 +52,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
     if(  $page == 'confirmacion' ){
      //   $this->submitMyFieldData($webform_submission);
-           // $this->valor_a_pagar($form_state,$webform_submission);
+           $this->valor_a_pagar($form_state,$webform_submission);
         }
 
 
@@ -187,7 +187,11 @@ public function money_format_fild($money) {
 
 
 $valor = $valor_liquidacion;
+$barrio1 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
 
+$barrio2 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_2')));
+
+$barrio3 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
 
    $data = $webform_submission->getData();
    $current_page = $webform_submission->getCurrentPage();
@@ -196,7 +200,22 @@ $valor = $valor_liquidacion;
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
 
+    if($barrio1){
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio1)->get('name')->value;
 
+      $data['barrio'] = $term_name;
+    }
+    if($barrio2){
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio2)->get('name')->value;
+
+      $data['barrio'] = $term_name;
+    }
+    if($barrio3){
+
+      $term_name = \Drupal\taxonomy\Entity\Term::load($barrio3)->get('name')->value;
+
+      $data['barrio'] = $term_name;
+    }
 
 
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
