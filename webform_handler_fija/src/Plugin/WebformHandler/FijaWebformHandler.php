@@ -118,7 +118,7 @@ public function validate_dates($form_state, $webform_submission) {
 
   }
 
-  if ( $cantidad_dias != $daysDifference) {
+  if ( $cantidad_dias != $monthsDifference) {
     // Use addError to display an alert message.
     $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de meses no cuincide se calculan:'.$monthsDifference ));
 }
