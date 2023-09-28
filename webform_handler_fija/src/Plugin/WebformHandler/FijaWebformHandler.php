@@ -90,7 +90,7 @@ public function money_format_fild($money) {
   
     if ( $cantidad_placas != $array_placas) {
       // Use addError to display an alert message.
-      $form_state->setErrorByName('cantidad_de_vehiculos', $this->t('La cantidad de placas no cuinciden con las ingresadas' ));
+      $form_state->setErrorByName('cantidad_de_vehiculos', $this->t('La cantidad de direcciones no cuinciden con las ingresadas' ));
   }
 
 }
