@@ -44,8 +44,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
       }
 
 
-      
-
+  
   
 }
 
@@ -93,6 +92,7 @@ public function validate_count($form_state, $webform_submission) {
 
 }
 public function validate_dates($form_state, $webform_submission) {
+  
   $now = DrupalDateTime::createFromTimestamp(time());
   $now->setTimezone(new \DateTimeZone('UTC'));
   $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
