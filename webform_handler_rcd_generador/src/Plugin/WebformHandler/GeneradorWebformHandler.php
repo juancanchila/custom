@@ -36,11 +36,11 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
- 
 
 
 
-    
+
+
 }
 
 /**
@@ -195,9 +195,9 @@ $valor = $valor_liquidacion;
    // to set the value of a form field
   if( $current_page == 'confirmacion' ){
 
-
+/*
    $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
-   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
+   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');*/
    $webform_submission->setData($data);
 
 
