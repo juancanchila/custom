@@ -95,7 +95,7 @@ public function money_format_fild($money) {
        
       
       
-           $cantidad_arboles = $form_state->getValue('cantidad_arboles_af');
+           $cantidad_arboles = $form_state->getValue('cantidad_de_arboles');
            $valor_liquidacion =  $valor * intval( $cantidad_arboles[0]["value"]) ;
            $barrio1 = intval($this->money_format_fild( $form_state->getValue('barrio_localidad_1')));
 
