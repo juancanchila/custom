@@ -37,6 +37,12 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
+    $page = $webform_submission->getCurrentPage();
+
+
+    if(  $page == 'datos_del_evento' ){
+         $this->validate_count($form_state,$webform_submission);
+        }
  
 
 
@@ -61,6 +67,18 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
         //Tu logica despues del submit
     }
 }
+
+public function validate_count($form_state, $webform_submission) {
+  $cantidad_placas = $form_state->getValue('cantidad_de_arboles');
+  $array_placas = count($form_state->getValue('cantidad'));
+
+  if (  $array_placas > $cantidad_placas ) {
+    // Use addError to display an alert message.
+    $form_state->setErrorByName('cantidad_de_arboles', $this->t('La cantidad de Árboles no cuincide con las especies ingresadas' ));
+}
+
+}
+
 public function money_format_fild($money) {
 
     $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
