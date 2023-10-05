@@ -69,10 +69,11 @@ class EstablecimientoID extends RulesActionBase
 // si no hay visitas crearlas
 // notificar a administrativa y al ususario
 
+$type = "Nuevo Establecimiento Creado ";
+                \Drupal::messenger()->addMessage(t($type),'error');
 
 
-
-    $node->save();
+   // $node->save();
 
     }
 
