@@ -81,8 +81,13 @@ $visita = new \Drupal\node\Entity\Node([
   ],
 ]);
 
-// Guarda el nodo en la base de datos.
+
+$visita = Node::create(['type' => 'visita_cs']);
+$visita->set('title', 'My article');
+$visita->enforceIsNew();
 $visita->save();
+
+// Guarda el nodo en la base de datos.
     $node->save();
 
 
