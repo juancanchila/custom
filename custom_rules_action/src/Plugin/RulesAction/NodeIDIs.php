@@ -151,11 +151,14 @@ class NodeIDIs extends RulesActionBase
               break;
               case "Aprovechamiento Forestal":
                   //Set aforestal values
-                  $concepto = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad[0]["value"].' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
+                  $sec ="04"."0".$consecutivo_facturas[0]["value"].date('Y');
+                  $node->setTitle($sec); // Definiendo titulo consecutivo
+                  $cantidad = $node->get('field_cantidad')->getValue(); //AF
+                  $concepto = '<p class="concepto">LIQUIDACIÓN DE EVALUACIÓN TECNICA PARA
+                   APROVECHAMIENTO FORESTAL,TALA PODA Y/O TRASLADO DE '.$cantidad.' ÁRBOLES, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
 
 
-                $sec ="04"."0".$consecutivo_facturas[0]["value"].date('Y');
-                $node->setTitle($sec); // Definiendo titulo consecutivo
+              
 
                /* $type = "Aprovechamiento Forestal ";
                 \Drupal::messenger()->addMessage(t($type),'error');*/
