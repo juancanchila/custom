@@ -51,25 +51,7 @@ use Drupal\Core\File\FileSystemInterface;
  */
 class EstablecimientoID extends RulesActionBase
 {
-// ...
 
-  /**
-   * @var \Drupal\Core\Mail\MailManagerInterface
-   */
-  protected $mailManager;
-
-  /**
-   * EstablecimientoID constructor.
-   *
-   * @param array $configuration
-   * @param string $plugin_id
-   * @param mixed $plugin_definition
-   * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailManagerInterface $mail_manager) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->mailManager = $mail_manager;
-  }
 
  /**
    * Executes the action with the given context.
