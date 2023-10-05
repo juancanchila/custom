@@ -73,7 +73,7 @@ class EstablecimientoID extends RulesActionBase
 
 $visita = Node::create(['type' => 'visita_cs']);
 $visita->set('title', 'Visita de Control y Seguimiento');
-$visita->set('establecimiento', $node->id());
+$visita->set('field_establecimiento', $node->id());
 $visita->enforceIsNew();
 $visita->save();
 
