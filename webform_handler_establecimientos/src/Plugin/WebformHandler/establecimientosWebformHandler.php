@@ -112,8 +112,7 @@ public function money_format_fild($money) {
       $data['barrio'] = $term_name;
     }
 
-   $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
-   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
+
    $webform_submission->setData($data);
 
 
