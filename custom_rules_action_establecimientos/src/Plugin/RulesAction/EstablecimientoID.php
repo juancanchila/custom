@@ -17,6 +17,8 @@ use Drupal\Core\Url;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\FormBase;
+use Drupal\Core\Mail\MailManagerInterface;
+
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
@@ -87,12 +89,12 @@ class EstablecimientoID extends RulesActionBase
 
 $type = "Nuevo Establecimiento Creado ";
                 \Drupal::messenger()->addMessage(t($type),'error');
-                $current_timestamp = \Drupal::time()->getCurrentTime();
+
 
                 // Define los valores del nodo que deseas crear.
 $visita = new \Drupal\node\Entity\Node([
   'type' => 'visita_cs', // Cambia 'article' al tipo de contenido que desees crear.
-  'title' => 'Visita #'.$current_timestamp,
+  'title' => 'Mi nodo programático',
   'body' => [
     'value' => 'Este es el contenido del nodo programático.',
     'format' => 'full_html', // Formato de texto (puedes cambiarlo según tus necesidades).
@@ -104,21 +106,7 @@ $visita->save();
    // $node->save();
 
 
-   $to = 'juan.canchila@hotmail.com';
-   $from = 'atencionalciudadano@epacartagena.gov.co';
-   $subject = 'Visita Asignada';
-   $message = 'Validar un nuevo establecimiento';
 
-   $params = [
-     'subject' => $subject,
-     'message' => $message,
-   ];
-
-   $result = $this->mailManager->mail('system', 'mail', $to, \Drupal::languageManager()->getDefaultLanguage()->getId(), $params, $from, TRUE);
-
-   if ($result['result'] !== TRUE) {
-     \Drupal::logger('custom_rules_action_establecimientos')->error('No se pudo enviar el correo electrónico: @error', ['@error' => $result['result']]);
-   }
 
 
 
