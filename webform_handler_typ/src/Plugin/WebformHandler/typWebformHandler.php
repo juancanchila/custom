@@ -74,7 +74,7 @@ public function validate_count($form_state, $webform_submission) {
 
   if (  $array_placas > $cantidad_placas ) {
     // Use addError to display an alert message.
-    $form_state->setErrorByName('cantidad_de_arboles', $this->t('La cantidad de Árboles no cuincide con las especies ingresadas' ));
+    $form_state->setErrorByName('cantidad_de_arboles', $this->t('La cantidad de árboles no coincide con las especies ingresadas' ));
 }
 
 }
