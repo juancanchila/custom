@@ -67,9 +67,6 @@ class EstablecimientoID extends RulesActionBase
 // si no hay visitas crearlas
 // notificar a administrativa y al ususario
 
-$type = "Nuevo Establecimiento Creado ";
-                \Drupal::messenger()->addMessage(t($type),'error');
-
 
                 // Define los valores del nodo que deseas crear.
 $visita = new \Drupal\node\Entity\Node([
