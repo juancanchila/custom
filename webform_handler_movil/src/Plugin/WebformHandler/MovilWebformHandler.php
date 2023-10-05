@@ -44,8 +44,7 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
       }
 
 
-      
-
+  
   
 }
 
@@ -92,7 +91,9 @@ public function validate_count($form_state, $webform_submission) {
 }
 
 }
+
 public function validate_dates($form_state, $webform_submission) {
+  
   $now = DrupalDateTime::createFromTimestamp(time());
   $now->setTimezone(new \DateTimeZone('UTC'));
   $cantidad_dias = $form_state->getValue('duracion_del_evento_den_dias');
@@ -107,17 +108,17 @@ public function validate_dates($form_state, $webform_submission) {
   $dt = DrupalDateTime::createFromTimestamp( $dt);
 
   $interval = $f1->diff($f_limit);
-  $daysDifference = $interval->days;
+  $monthsDifference = ($interval->y * 12) + $interval->m;
 
-  if (   $f1 == $f_limit  ) {
-    $daysDifference = 1;
+  if (    $monthsDifference == 0  ) {
+    $monthsDifference = 1;
 
   }
+    
 
-  if ( $cantidad_dias != $daysDifference) {
-    // Use addError to display an alert message.
-    $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de días no cuincide se calculan:'.$daysDifference ));
-}
+  if ( $cantidad_dias !=$monthsDifference) {
+    $form_state->setErrorByName('duracion_del_evento_den_dias', $this->t('La cantidad de meses no cuincide se calculan: '.$monthsDifference ));
+  }
 
 if ($f1 > $f_limit) {
   // Use addError to display an alert message.
