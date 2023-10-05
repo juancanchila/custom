@@ -52,7 +52,7 @@ public function submitForm(array &$form, FormStateInterface $form_state, Webform
 
     if(  $page == 'confirmacion' ){
      //   $this->submitMyFieldData($webform_submission);
-           // $this->valor_a_pagar($form_state,$webform_submission);
+           $this->valor_a_pagar($form_state,$webform_submission);
         }
 
 
