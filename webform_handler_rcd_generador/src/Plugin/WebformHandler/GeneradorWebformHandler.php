@@ -36,8 +36,6 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
-<<<<<<< HEAD
-=======
     $page = $webform_submission->getCurrentPage();
 
 
@@ -45,7 +43,6 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
          $this->validate_dates($form_state,$webform_submission);
         }
 
->>>>>>> 00155e9aaf49a4bd2e3535098a2aec22f18583a0
 
 
 
