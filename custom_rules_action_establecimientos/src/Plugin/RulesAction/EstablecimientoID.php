@@ -89,12 +89,12 @@ class EstablecimientoID extends RulesActionBase
 
 $type = "Nuevo Establecimiento Creado ";
                 \Drupal::messenger()->addMessage(t($type),'error');
-
+                $current_timestamp = \Drupal::time()->getCurrentTime();
 
                 // Define los valores del nodo que deseas crear.
 $visita = new \Drupal\node\Entity\Node([
   'type' => 'visita_cs', // Cambia 'article' al tipo de contenido que desees crear.
-  'title' => 'Mi nodo programático',
+  'title' => 'Visita #'.$current_timestamp,
   'body' => [
     'value' => 'Este es el contenido del nodo programático.',
     'format' => 'full_html', // Formato de texto (puedes cambiarlo según tus necesidades).
