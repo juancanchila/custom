@@ -6,7 +6,7 @@ use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
-
+use Drupal\Core\Mail\MailManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
@@ -53,7 +53,25 @@ use Drupal\Core\File\FileSystemInterface;
  */
 class EstablecimientoID extends RulesActionBase
 {
+// ...
 
+  /**
+   * @var \Drupal\Core\Mail\MailManagerInterface
+   */
+  protected $mailManager;
+
+  /**
+   * EstablecimientoID constructor.
+   *
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
+   * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailManagerInterface $mail_manager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->mailManager = $mail_manager;
+  }
 
  /**
    * Executes the action with the given context.
@@ -73,7 +91,38 @@ $type = "Nuevo Establecimiento Creado ";
                 \Drupal::messenger()->addMessage(t($type),'error');
 
 
+                // Define los valores del nodo que deseas crear.
+$visita = new \Drupal\node\Entity\Node([
+  'type' => 'visita_cs', // Cambia 'article' al tipo de contenido que desees crear.
+  'title' => 'Mi nodo programático',
+  'body' => [
+    'value' => 'Este es el contenido del nodo programático.',
+    'format' => 'full_html', // Formato de texto (puedes cambiarlo según tus necesidades).
+  ],
+]);
+
+// Guarda el nodo en la base de datos.
+$visita->save();
    // $node->save();
+
+
+   $to = 'juan.canchila@hotmail.com';
+   $from = 'atencionalciudadano@epacartagena.gov.co';
+   $subject = 'Visita Asignada';
+   $message = 'Validar un nuevo establecimiento';
+
+   $params = [
+     'subject' => $subject,
+     'message' => $message,
+   ];
+
+   $result = $this->mailManager->mail('system', 'mail', $to, \Drupal::languageManager()->getDefaultLanguage()->getId(), $params, $from, TRUE);
+
+   if ($result['result'] !== TRUE) {
+     \Drupal::logger('custom_rules_action_establecimientos')->error('No se pudo enviar el correo electrónico: @error', ['@error' => $result['result']]);
+   }
+
+
 
     }
 
