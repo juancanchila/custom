@@ -68,15 +68,7 @@ class EstablecimientoID extends RulesActionBase
 // notificar a administrativa y al ususario
 
 
-                // Define los valores del nodo que deseas crear.
-$visita = new \Drupal\node\Entity\Node([
-  'type' => 'visita_cs', // Cambia 'article' al tipo de contenido que desees crear.
-  'title' => 'Mi nodo programático',
-  'body' => [
-    'value' => 'Este es el contenido del nodo programático.',
-    'format' => 'full_html', // Formato de texto (puedes cambiarlo según tus necesidades).
-  ],
-]);
+
 
 
 $visita = Node::create(['type' => 'visita_cs']);
