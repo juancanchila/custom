@@ -125,7 +125,7 @@ class NodeIDIs extends RulesActionBase
             $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
             $node->setTitle($sec); // Definiendo titulo consecutivo
 
-            $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' PARA LAS DIRECCIONES :'.$field_detalle[0]["value"].', SEGÚN SOLICITUD #'.$sec.'</p>' ;
+            $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' Por un periodo de :'.$duracion[0]["value"].' Meses, SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
            /* $type = "Publicidad Fija ";
             \Drupal::messenger()->addMessage(t($type),'error');*/
