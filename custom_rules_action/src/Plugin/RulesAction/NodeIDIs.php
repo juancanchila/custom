@@ -72,6 +72,8 @@ class NodeIDIs extends RulesActionBase
     $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
     $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
     $valor_evento = $node->get('field_valor_evento')->getValue();
+
+
     $valor = $node->get('field_valor')->getValue();
     $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
     $duracion = $node->get('field_duracion')->getValue();
@@ -138,6 +140,7 @@ class NodeIDIs extends RulesActionBase
                  $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
                  $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
                  $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
+                 $valor_evento[0]["value"] = 0;
 
               $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
               $node->setTitle($sec); // Definiendo titulo consecutivo
@@ -151,6 +154,7 @@ class NodeIDIs extends RulesActionBase
               break;
               case "Aprovechamiento Forestal":
                   //Set aforestal values
+                  $valor_evento[0]["value"] = 0;
                   $sec ="04"."0".$consecutivo_facturas[0]["value"].date('Y');
                   $node->setTitle($sec); // Definiendo titulo consecutivo
                   $cantidad = $node->get('field_cantidad')->getValue(); //AF
@@ -303,7 +307,7 @@ class NodeIDIs extends RulesActionBase
          </td>
        </tr>
        <tr>
-         <td><p>VALOR EVENTO</p></td>
+         <td><p>VALOR INVERSIÓN</p></td>
          <td>
          <p> $'.$valor_evento[0]["value"].'</p>
          </td>
