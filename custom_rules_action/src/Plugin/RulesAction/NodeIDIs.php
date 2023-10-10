@@ -112,7 +112,7 @@ class NodeIDIs extends RulesActionBase
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
-          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' .$concatenated_values. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p> En un periodo de '.$duracion[0]["value"].' meses';
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD #' . $sec . '</p> Para las placas : ' .$concatenated_values. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p> En un periodo de '.$duracion[0]["value"].' meses';
 
 
 
