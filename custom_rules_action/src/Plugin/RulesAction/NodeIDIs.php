@@ -99,13 +99,13 @@ class NodeIDIs extends RulesActionBase
           $field_detalle = $node->get('field_placas')->getValue();
           $concatenated_values = '';
 
-          $i = 0;
+
           foreach ( $field_detalle as $item) {
             // Access the 'value' key in $item using square brackets.
-            $value = $item[$i]['value'];
+            $value = $item['value'];
             // Separate values with a comma and a space.
             $concatenated_values .= ($concatenated_values ? ', ' : '') . $value;
-            $i++;
+
           }
 
           $tipo_de_solicitud = "Publicidad Móvil";
