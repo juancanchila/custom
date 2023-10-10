@@ -97,12 +97,31 @@ class NodeIDIs extends RulesActionBase
           \Drupal::messenger()->addMessage(t($type),'error');*/
           $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
           $field_detalle = $node->get('field_detalleplacas')->getValue();
+          if (is_array($field_detalle)) {
+            $values = array_map(function ($item) {
+              return $item['value'];
+            }, $field_detalle);
+
+            // Join the values with commas
+            $concatenated_values = implode(', ', $values);
+
+            // Now you have $concatenated_values containing the comma-separated values
+            // Do something with $concatenated_values
+          } else {
+            // Handle the case where $field_detalle is not an array
+            // You may want to log an error or take appropriate action
+          }
+
+
+
+
+
 
           $tipo_de_solicitud = "Publicidad Móvil";
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
-          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p> En un periodo de '.$duracion[0]["value"].' meses';
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $concatenated_values. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p> En un periodo de '.$duracion[0]["value"].' meses';
 
 
 
