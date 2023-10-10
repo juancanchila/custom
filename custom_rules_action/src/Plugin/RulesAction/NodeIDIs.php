@@ -96,8 +96,8 @@ class NodeIDIs extends RulesActionBase
          /* $type = "Publicidad Móvil ";
           \Drupal::messenger()->addMessage(t($type),'error');*/
           $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
-          $field_detalle = $node->get('field_cantidad_vehiculos')->getValue();
-          $json_encoded_detalle = json_encode($field_detalle);
+          $field_detalle = $node->get('field_detalleplacas')->getValue();
+          $json_encoded_detalle = json_encode($field_detalle[0]["value"]);
           $tipo_de_solicitud = "Publicidad Móvil";
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
