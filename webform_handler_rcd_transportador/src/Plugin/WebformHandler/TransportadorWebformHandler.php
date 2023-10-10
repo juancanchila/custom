@@ -37,11 +37,11 @@ public function validateForm(array &$form, FormStateInterface $form_state, Webfo
 
     parent::validateForm($form, $form_state, $webform_submission);
 
- 
 
 
 
-    
+
+
 }
 
 /**
@@ -83,6 +83,7 @@ public function money_format_fild($money) {
 
   $valor_liquidacion = 232000;
   $valor_tarifa =232000;
+
    $data = $webform_submission->getData();
    $current_page = $webform_submission->getCurrentPage();
    // to get a value from a form field
@@ -91,8 +92,8 @@ public function money_format_fild($money) {
   if( $current_page == 'confirmacion' ){
 
 
-   $data['valor_a_pagar'] =number_format($valor_liquidacion, 2, ',', '.');
-   $data['valor_tarifa'] =number_format($valor_tarifa , 2, ',', '.');
+   $data['valor_a_pagar_'] =number_format($valor_liquidacion, 2, ',', '.');
+   $data['valor_tarifa_'] =number_format($valor_tarifa , 2, ',', '.');
    $webform_submission->setData($data);
 
 
