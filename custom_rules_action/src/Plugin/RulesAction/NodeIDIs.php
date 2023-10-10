@@ -99,8 +99,14 @@ class NodeIDIs extends RulesActionBase
           $field_detalle = $node->get('field_detalleplacas')->getValue();
           $concatenated_values = '';
 
-
-          \Drupal::messenger()->addMessage(t(  $field_detalle ),'error');
+          $i = 0;
+          foreach ($field_items as $item) {
+            // Access the 'value' key in $item using square brackets.
+            $value = $item[$i]['value'];
+            // Separate values with a comma and a space.
+            $concatenated_values .= ($concatenated_values ? ', ' : '') . $value;
+            $i++;
+          }
 
           $tipo_de_solicitud = "Publicidad Móvil";
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
