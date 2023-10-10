@@ -101,7 +101,7 @@ class NodeIDIs extends RulesActionBase
        $separated_values = '';
 
   // Loop through the field items and separate the values.
-  foreach ($field_items as $item) {
+  foreach ( $field_detalle as $item) {
     $value = $item['value'];
     // Separate values with a comma and a space.
     $separated_values .= ($separated_values ? ', ' : '') . $value;
