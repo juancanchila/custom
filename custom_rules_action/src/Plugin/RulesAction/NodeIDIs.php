@@ -100,9 +100,7 @@ class NodeIDIs extends RulesActionBase
           $concatenated_values = '';
 
 
-
-          drupal_set_message( $field_detalle[0], 'status');
-          \Drupal::messenger()->addMessage(t($concatenated_values),'error');
+          \Drupal::messenger()->addMessage(t(  $field_detalle ),'error');
 
           $tipo_de_solicitud = "Publicidad Móvil";
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
