@@ -98,7 +98,8 @@ class NodeIDIs extends RulesActionBase
           $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
           $field_detalle = $node->get('field_detalleplacas')->getValue();
 
-       $separated_values = json_encode( $field_detalle );
+          print( $field_detalle );
+       $separated_values = json_encode( $field_detalle[0] );
 
 
           $tipo_de_solicitud = "Publicidad Móvil";
