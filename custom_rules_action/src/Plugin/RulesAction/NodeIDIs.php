@@ -100,7 +100,7 @@ class NodeIDIs extends RulesActionBase
           $concatenated_values = '';
 
           $i = 0;
-          foreach ($field_items as $item) {
+          foreach ( $field_detalle as $item) {
             // Access the 'value' key in $item using square brackets.
             $value = $item[$i]['value'];
             // Separate values with a comma and a space.
