@@ -98,15 +98,7 @@ class NodeIDIs extends RulesActionBase
           $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
           $field_detalle = $node->get('field_detalleplacas')->getValue();
 
-       $separated_values = '';
-
-  // Loop through the field items and separate the values.
-  foreach ( $field_detalle as $item) {
-    $value = $item[0]['value'];
-    // Separate values with a comma and a space.
-    $separated_values .= ($separated_values ? ', ' : '') . $value;
-  }
-
+       $separated_values = json_encode( $field_detalle );
 
 
           $tipo_de_solicitud = "Publicidad Móvil";
