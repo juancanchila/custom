@@ -95,12 +95,12 @@ class NodeIDIs extends RulesActionBase
           //Set pmovil values
          /* $type = "Publicidad Móvil ";
           \Drupal::messenger()->addMessage(t($type),'error');*/
-
+          $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
           $tipo_de_solicitud = "Publicidad Móvil";
           $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
-          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$duracion[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
+          $concepto = '<p class="concepto">VIABILIDAD PARA PUBLICIDAD EXTERIOR VISUAL MÓVIL PARA UN NÚMERO DE VEHÍCULOS IGUAL A : ' .$cantidad[0]["value"] . ' , SEGÚN SOLICITUD CON #' . $sec . '</p> Para las placas : ' . $field_detalle[0]["value"]. ', Con una Inversión de ' . $valor_evento[0]["value"] . '</p>';
 
 
 
