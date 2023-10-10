@@ -324,7 +324,7 @@ class NodeIDIs extends RulesActionBase
        <tr>
          <td><p>VALOR INVERSIÓN</p></td>
          <td>
-         <p> $'.$valor_evento[0]["value"].'</p>
+         <p>'.$valor_evento[0]["value"].'</p>
          </td>
          <td >TOTAL LIQUIDACIÓN</td>
          <td >
