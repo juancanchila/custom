@@ -99,13 +99,9 @@ class NodeIDIs extends RulesActionBase
           $field_detalle = $node->get('field_detalleplacas')->getValue();
           $concatenated_values = '';
 
-          // Loop through the field items and concatenate the values.
-          foreach ($field_items as $item) {
-            $value = $item['value'];
-            // Separate values with a comma and a space.
-            $concatenated_values .= ($concatenated_values ? ', ' : '') . $value;
-          }
 
+
+          drupal_set_message( $field_detalle[0], 'status');
           \Drupal::messenger()->addMessage(t($concatenated_values),'error');
 
           $tipo_de_solicitud = "Publicidad Móvil";
