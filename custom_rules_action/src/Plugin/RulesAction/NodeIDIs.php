@@ -96,7 +96,7 @@ class NodeIDIs extends RulesActionBase
          /* $type = "Publicidad Móvil ";
           \Drupal::messenger()->addMessage(t($type),'error');*/
           $cantidad = $node->get('field_cantidad_vehiculos')->getValue();
-          $field_detalle = $node->get('field_detalleplacas')->getValue();
+          $field_detalle = $node->get('field_placas')->getValue();
           $concatenated_values = '';
 
           $i = 0;
