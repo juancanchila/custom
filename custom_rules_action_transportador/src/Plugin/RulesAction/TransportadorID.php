@@ -82,7 +82,6 @@ class TransportadorID extends RulesActionBase
 
          $valor = $node->get('field_valor')->getValue();
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
-         $duracion = $node->get('field_duracion')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
 
