@@ -69,6 +69,7 @@ class TransportadorID extends RulesActionBase
 
 
  $tipo_de_solicitud= "PIN Transportador";
+
          \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
 
          $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
@@ -105,10 +106,6 @@ class TransportadorID extends RulesActionBase
          $node->setTitle($sec); // Definiendo titulo consecutivo
          $cantidad = $node->get('field_cantidad')->getValue(); //AF
          $concepto = '<p class="concepto">LIQUIDACIÓN DE PIN Transportador, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
-
-
-
-
 
 
            $html= ' <style>
