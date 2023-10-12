@@ -80,16 +80,12 @@ class TransportadorID extends RulesActionBase
          $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
          $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
          $valor_evento = $node->get('field_valor_evento')->getValue();
-
-
          $valor = $node->get('field_valor')->getValue();
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
-
-  $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
-              $node->setTitle($sec); // Definiendo titulo consecutivo
-
+          $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
+          $node->setTitle($sec); // Definiendo titulo consecutivo
           if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
            $id_contribuyente = $node->get('field_nit')->getValue();
            $name_contrib = $node->get('field_razon_social')->getValue();
