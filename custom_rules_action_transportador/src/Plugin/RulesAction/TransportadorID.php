@@ -87,7 +87,7 @@ class TransportadorID extends RulesActionBase
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
 
-  $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+  $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
               $node->setTitle($sec); // Definiendo titulo consecutivo
 
           if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
@@ -106,8 +106,7 @@ class TransportadorID extends RulesActionBase
 
 
          $valor_evento[0]["value"] = 0;
-         $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
-         $node->setTitle($sec); // Definiendo titulo consecutivo
+
          $cantidad = $node->get('field_cantidad')->getValue(); //AF
          $concepto = '<p class="concepto">LIQUIDACIÓN DE PIN Transportador, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
 
