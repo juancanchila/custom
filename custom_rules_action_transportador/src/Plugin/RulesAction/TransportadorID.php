@@ -72,6 +72,9 @@ class TransportadorID extends RulesActionBase
 
          \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
 
+         $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
+              $node->setTitle($sec); // Definiendo titulo consecutivo
+
          $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
          $hoy =new DrupalDateTime( 'now');
          $email_cotrib = $node->get('field_email_contribuyente')->getValue();
