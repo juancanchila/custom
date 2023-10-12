@@ -84,7 +84,7 @@ class TransportadorID extends RulesActionBase
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
-          $sec ="07"."0".$consecutivo_facturas.date('Y');
+          $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
           if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
            $id_contribuyente = $node->get('field_nit')->getValue();
