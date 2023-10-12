@@ -68,9 +68,6 @@ class TransportadorID extends RulesActionBase
 // notificar a administrativa y al ususario
 
 
- $tipo_de_solicitud= "PIN Transportador";
-
-         \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
 
 /*
 
