@@ -68,8 +68,11 @@ class TransportadorID extends RulesActionBase
 // notificar a administrativa y al ususario
 
 
+ $tipo_de_solicitud= "PIN Transportador";
 
-/*
+         \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
+
+
 
          $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
          $hoy =new DrupalDateTime( 'now');
@@ -319,7 +322,7 @@ class TransportadorID extends RulesActionBase
 
          $node->save();
 
-*/
+
 /*
 
 $visita = Node::create(['type' => 'visita_cs']);
