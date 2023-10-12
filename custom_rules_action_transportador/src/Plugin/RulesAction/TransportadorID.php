@@ -68,11 +68,6 @@ class TransportadorID extends RulesActionBase
 // notificar a administrativa y al ususario
 
 
- $tipo_de_solicitud= "PIN Transportador";
-
-         \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
-
-
 
          $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
          $hoy =new DrupalDateTime( 'now');
@@ -84,8 +79,10 @@ class TransportadorID extends RulesActionBase
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
+
           $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
+
           if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
            $id_contribuyente = $node->get('field_nit')->getValue();
            $name_contrib = $node->get('field_razon_social')->getValue();
