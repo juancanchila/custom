@@ -36,7 +36,7 @@ use Drupal\Core\File\FileSystemInterface;
  * Provides a 'transportador action' condition.
  *
  * @RulesAction(
- *   id = "custom_rules_action_establecimiento",
+ *   id = "custom_rules_action_transportador",
  *   label = @Translation("Transportador ID"),
  *   category = @Translation("Node"),
  * context_definitions = {
