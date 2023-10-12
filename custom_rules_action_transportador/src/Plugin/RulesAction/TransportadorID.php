@@ -72,7 +72,7 @@ class TransportadorID extends RulesActionBase
 
          \Drupal::messenger()->addMessage(t($tipo_de_solicitud),'succes');
 
-
+/*
 
          $tipo_solicitante = $node->get('field_tipo_de_solicitante')->getValue();
          $hoy =new DrupalDateTime( 'now');
@@ -322,7 +322,7 @@ class TransportadorID extends RulesActionBase
 
          $node->save();
 
-
+*/
 /*
 
 $visita = Node::create(['type' => 'visita_cs']);
