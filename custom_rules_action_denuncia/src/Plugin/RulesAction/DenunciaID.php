@@ -37,7 +37,7 @@ use Drupal\Core\File\FileSystemInterface;
  *
  * @RulesAction(
  *   id = "custom_rules_action_denuncia",
- *   label = @Translation("Transportador ID"),
+ *   label = @Translation("Denuncia ID"),
  *   category = @Translation("Node"),
  * context_definitions = {
  *     "node" = @ContextDefinition("entity:node",
