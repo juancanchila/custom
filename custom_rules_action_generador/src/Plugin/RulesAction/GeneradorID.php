@@ -78,9 +78,9 @@ class GeneradorID extends RulesActionBase
          $valor = $node->get('field_valor')->getValue();
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
-         $consecutivo_facturas = $node->get('field_sec_pin_transportador')->getValue();
+         $consecutivo_facturas = $node->get('field_sec_pin_generador')->getValue();
 
-          $sec ="07"."0".$consecutivo_facturas[0]["value"].date('Y');
+          $sec ="08"."0".$consecutivo_facturas[0]["value"].date('Y');
           $node->setTitle($sec); // Definiendo titulo consecutivo
 
           if( $tipo_solicitante[0]["value"] == "Persona Jurídica"){
@@ -101,7 +101,7 @@ class GeneradorID extends RulesActionBase
          $valor_evento[0]["value"] = 0;
 
          $cantidad = $node->get('field_cantidad')->getValue(); //AF
-         $concepto = '<p class="concepto">LIQUIDACIÓN DE PIN Transportador, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
+         $concepto = '<p class="concepto">LIQUIDACIÓN DE PIN GENERADOR, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
 
 
            $html= ' <style>
