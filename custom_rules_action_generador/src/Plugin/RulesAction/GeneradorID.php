@@ -100,7 +100,7 @@ class GeneradorID extends RulesActionBase
 
          $valor_evento[0]["value"] = 0;
 
-         $cantidad = $node->get('field_cantidad')->getValue(); //AF
+       
          $concepto = '<p class="concepto">LIQUIDACIÓN DE PIN GENERADOR, SEGÚN SOLICITUD CON  #'.$sec.'</p>';
 
 
