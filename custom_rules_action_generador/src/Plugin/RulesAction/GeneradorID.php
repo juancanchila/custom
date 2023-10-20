@@ -75,7 +75,7 @@ class GeneradorID extends RulesActionBase
          $tmovil = $node->get('field_telefono_movil_contribuyen')->getValue();
          $valor_tarifa = $node->get('field_valor_tarifa')->getValue();
          $valor_evento = $node->get('field_valor_evento')->getValue();
-         $valor = $node->get('field_valor')->getValue();
+         $valor = $valor_tarifa;
          $dir_correspondecia_contrib = $node->get('field_direccion_correspondencia')->getValue();
          $concepto_ambiental_liquidacion = $node->get('field_concepto_ambiental_liq')->getValue();
          $consecutivo_facturas = $node->get('field_sec_pin_generador')->getValue();
