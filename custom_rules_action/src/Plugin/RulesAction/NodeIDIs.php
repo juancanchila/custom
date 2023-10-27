@@ -137,9 +137,10 @@ class NodeIDIs extends RulesActionBase
 
           case "Publicidad Fija":
               //Set pfija values
+            $tipo_de_solicitud = "Publicidad Fija";
             $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
             $node->setTitle($sec); // Definiendo titulo consecutivo
-
+            $cantidad= $node->get('field_cantidad')->getValue();
             $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' VALLAS, CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' Por un periodo de :'.$duracion[0]["value"].' Meses, SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
            /* $type = "Publicidad Fija ";
