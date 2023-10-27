@@ -137,7 +137,7 @@ class NodeIDIs extends RulesActionBase
 
           case "Publicidad Fija":
               //Set pfija values
-            $tipo_de_solicitud = "Publicidad Fija";
+            $tipo_de_solicitud = "VIABILIDAD PUBLICIDAD EXTERIOR VISUAL FIJA";
             $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
             $node->setTitle($sec); // Definiendo titulo consecutivo
             $cantidad= $node->get('field_cantidad')->getValue();
