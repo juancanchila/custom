@@ -38,10 +38,11 @@ class NodeIDIs_pdf extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 //validar para notificar
   $type = "Se ha creado la Liquidación # ";
-    \Drupal::messenger()->addMessage(t($type),'error');
+
     // Get the URL of the current node.
     $current_path = \Drupal::request()->getRequestUri();
 
+    \Drupal::messenger()->addMessage(t($current_path),'error');
     // Create a RedirectResponse with the destination URL.
     $response = new RedirectResponse($current_path);
 
