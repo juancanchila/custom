@@ -5,7 +5,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Url;
-
+use Drupal\Core\Routing\TrustedCallbackInterface;
 
 
 
@@ -40,14 +40,20 @@ class NodeIDIs_pdf extends RulesActionBase
   $type = "Se ha creado la Liquidación # ";
 
     // Get the URL of the current node.
-    $current_path = "/node/".$node->id();
+    $destination_path = "/node/".$node->id();
 
-    \Drupal::messenger()->addMessage(t($current_path),'error');
-    // Create a RedirectResponse with the destination URL.
-    $response = new RedirectResponse($current_path);
+    \Drupal::messenger()->addMessage(t($destination_path),'error');
 
-    // Return the response to indicate the redirect.
-    return $response;
+
+    // Get the URL object using the trusted callback resolver.
+$url = \Drupal::service('router.trusted_callback_resolver')->getUrl($destination_path);
+
+// Create a RedirectResponse with the destination URL.
+$response = new RedirectResponse($url->toString());
+
+// Send the response to perform the redirect.
+$response->send();
+
     }
 
  /**
