@@ -123,6 +123,7 @@ public function money_format_fild($money) {
 
 
  $valor_liquidacion = $this->money_format_fild( $form_state->getValue('valor_del_la_inversion'));
+
  $numero_dias = intval($form_state->getValue('duracion_del_evento_den_dias'));
  $cantidad = intval($form_state->getValue('cantidad_de_vehiculos'));
  $valor_tarifa_evento_25 = $valor * 25 ;
@@ -197,7 +198,7 @@ public function money_format_fild($money) {
     $valor_liquidacion = 12699009 *  $numero_dias * $cantidad ;
     $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
-    $valor_tarifa =12699009
+    $valor_tarifa =12699009;
     $valor_liquidacion =37374939 *  $numero_dias * $cantidad ;
     $valor_liquidacion_r =37374939 *   $numero_dias * $cantidad ;
 
