@@ -55,6 +55,11 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   public function autoSaveContext() {
     // The node should be auto-saved after the execution.
+    parent::submitForm($form, $form_state);
+
+    // Add JavaScript to reload the page.
+    $response = new HtmlResponse('<script>window.location.reload(true);</script>');
+    $response->send();
     return FALSE;
   }
 
