@@ -39,7 +39,7 @@ class NodeIDIs_pdf extends RulesActionBase
 //validar para notificar
   $type = "Se ha creado la Liquidación # ";
     \Drupal::messenger()->addMessage(t($type),'error');
-    drupal_goto("/#");
+
     }
 
  /**
