@@ -1,10 +1,10 @@
 <?php
 
 namespace Drupal\custom_rules_action_pdf\Plugin\RulesAction;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
-
+use Drupal\Core\Url;
 
 
 
@@ -39,7 +39,10 @@ class NodeIDIs_pdf extends RulesActionBase
 //validar para notificar
   $type = "Se ha creado la Liquidación # ";
     \Drupal::messenger()->addMessage(t($type),'error');
+    $current_path = \Drupal::request()->getRequestUri();
 
+    $response = new RedirectResponse(\Drupal::url($current_path));
+    $response->send();
     }
 
  /**
