@@ -44,15 +44,13 @@ class NodeIDIs_pdf extends RulesActionBase
 
     \Drupal::messenger()->addMessage(t($destination_path),'error');
 
+    $url = Url::fromUserInput($destination_path);
 
-    // Get the URL object using the trusted callback resolver.
-$url = \Drupal::service('router.trusted_callback_resolver')->getUrl($destination_path);
+    // Create a RedirectResponse with the destination URL.
+    $response = new RedirectResponse($url->toString());
 
-// Create a RedirectResponse with the destination URL.
-$response = new RedirectResponse($url->toString());
-
-// Send the response to perform the redirect.
-$response->send();
+    // Send the response to perform the redirect.
+    $response->send();
 
     }
 
