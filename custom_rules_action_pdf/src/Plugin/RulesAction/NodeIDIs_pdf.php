@@ -44,13 +44,9 @@ class NodeIDIs_pdf extends RulesActionBase
 
     \Drupal::messenger()->addMessage(t($destination_path),'error');
 
-    $url = Url::fromUserInput($destination_path);
 
-    // Create a RedirectResponse with the destination URL.
-    $response = new RedirectResponse($url->toString());
 
-    // Send the response to perform the redirect.
-    $response->send();
+    drupal_goto( $destination_path);
 
     }
 
