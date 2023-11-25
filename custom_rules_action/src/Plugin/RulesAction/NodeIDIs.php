@@ -150,7 +150,7 @@ class NodeIDIs extends RulesActionBase
             case "Rumba Segura":
                  //Set rsegura values
 
-                 $node->get('field_detalle')->getValue(); //direcciones y placas y especies
+
                  $cantidad = $node->get('field_cantidad')->getValue(); //AF
                  $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
                  $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
