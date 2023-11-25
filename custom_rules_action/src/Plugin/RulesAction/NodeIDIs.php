@@ -54,7 +54,6 @@ use Drupal\Core\File\FileSystemInterface;
 class NodeIDIs extends RulesActionBase
 {
 
-
  /**
    * Executes the action with the given context.
    *
@@ -62,7 +61,7 @@ class NodeIDIs extends RulesActionBase
    *   The node to modify.
    *
    */
-  //number_format( $valor_evento, 2, ',', '.');
+
   protected function doExecute(NodeInterface $node) {
 
 
@@ -164,7 +163,7 @@ class NodeIDIs extends RulesActionBase
               $concepto = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
       <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
       <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
-      <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
+      <p> Total Metros Cuadrados :'.$cantidad.'</p>';
              /* $type = "Rumba Segura ";
               \Drupal::messenger()->addMessage(t($type),'error');*/
               break;
