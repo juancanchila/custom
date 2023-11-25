@@ -39,10 +39,14 @@ class NodeIDIs_pdf extends RulesActionBase
 
 
 
+  // Get the URL of the current node.
+  $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
 
-    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-    $redirect = new RedirectResponse($url->toString());
-    $redirect->send();
+  // Create a RedirectResponse object.
+  $redirect = new RedirectResponse($url->toString());
+
+  // Return the RedirectResponse object.
+  return $redirect;
 
     }
 
