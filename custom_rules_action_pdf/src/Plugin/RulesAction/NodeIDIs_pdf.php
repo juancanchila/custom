@@ -46,7 +46,8 @@ class NodeIDIs_pdf extends RulesActionBase
 
 
 
-    drupal_goto( $destination_path);
+    $response = new RedirectResponse($destination_path, 302);
+    $response->send();
 
     }
 
