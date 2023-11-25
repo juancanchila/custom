@@ -40,7 +40,7 @@ class NodeIDIs_pdf extends RulesActionBase
   $type = "Se ha creado la Liquidación # ";
     \Drupal::messenger()->addMessage(t($type),'error');
     // Get the URL of the current node.
-    $current_path = Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+    $current_path = \Drupal::request()->getRequestUri();
 
     // Create a RedirectResponse with the destination URL.
     $response = new RedirectResponse($current_path);
