@@ -37,8 +37,8 @@ class NodeIDIs_pdf extends RulesActionBase
    */
   protected function doExecute(NodeInterface $node) {
 //validar para notificar
-  /*  $type = "Se ha creado la Liquidación # ";
-    \Drupal::messenger()->addMessage(t($type),'error');*/
+  $type = "Se ha creado la Liquidación # ";
+    \Drupal::messenger()->addMessage(t($type),'error');
 
     }
 
