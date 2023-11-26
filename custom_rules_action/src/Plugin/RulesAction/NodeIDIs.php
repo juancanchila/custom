@@ -412,13 +412,7 @@ $filePath = $destinationDirectory . $filename;
 
     }
 
- /**
-   * {@inheritdoc}
-   */
-  public function autoSaveContext() {
-    // The node should be auto-saved after the execution.
-    return FALSE;
-  }
+
 
   public function money_format_fild($money) {
 
