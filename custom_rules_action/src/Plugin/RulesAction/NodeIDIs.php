@@ -159,10 +159,7 @@ class NodeIDIs extends RulesActionBase
                  $valor_evento[0]["value"] = 0;
               $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
               $node->setTitle($sec); // Definiendo titulo consecutivo
-              $concepto = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>
-      <p>Detalle del Establecimiento: <p> Nombre Establecimiento: '. $field_nombre_establecimiento[0]["value"].'<p>
-      <p> Dirección del Establecimiento'.$field_direccion_del_predio[0]["value"] .'<p>
-      <p> Total Metros Cuadrados :'.$cantidad[0]["value"].'</p>';
+              $concepto = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>'.'</p>';
              /* $type = "Rumba Segura ";
               \Drupal::messenger()->addMessage(t($type),'error');*/
               break;
