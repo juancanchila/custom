@@ -157,8 +157,8 @@ class NodeIDIs extends RulesActionBase
               $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
               $node->setTitle($sec); // Definiendo titulo consecutivo
               $concepto = '<p class="concepto">Liquidación Evaluación Rumba Segura</p>'.'</p>';
-             /* $type = "Rumba Segura ";
-              \Drupal::messenger()->addMessage(t($type),'error');*/
+             $type = "Rumba Segura ";
+              \Drupal::messenger()->addMessage(t($type),'error');
               break;
               case "Aprovechamiento Forestal":
                   //Set aforestal values
