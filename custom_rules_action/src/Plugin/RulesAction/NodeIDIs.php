@@ -149,14 +149,14 @@ class NodeIDIs extends RulesActionBase
             case "Rumba Segura":
                  //Set rsegura values
 
-
+                 $tipo_de_solicitud = "Rumba Segura";
                  $cantidad = $node->get('field_cantidad')->getValue(); //AF
                  $field_nombre_predio  = $node->get('field_nombre_predio')->getValue(); // AF, RS,
                  $field_direccion_del_predio  = $node->get('field_direccion_del_predio')->getValue(); //RS, AF, E
                  $field_nombre_establecimiento = $node->get('field_nombre_establecimiento')->getValue();// RS
                  $field_barrio_liquidacion = $node->get('field_barrio_liquidacion')->getValue();
 
-
+                 $valor_evento[0]["value"] = 0;
               $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
               $node->setTitle($sec); // Definiendo titulo consecutivo
 
