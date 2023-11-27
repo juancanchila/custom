@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\HtmlResponse;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 
@@ -54,11 +54,8 @@ class NodeIDIs_pdf extends RulesActionBase
   public function autoSaveContext() {
 
 
-    // Add JavaScript to reload the page.
-    $response = new AjaxResponse();
-    $response->addCommand(new HtmlCommand(NULL, '<script>window.location.reload(true);</script>'));
 
-    return $response;
+    return false;
   }
 
 
