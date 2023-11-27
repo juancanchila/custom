@@ -41,15 +41,9 @@ class NodeIDIs_pdf extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 
 
-
-  // Get the URL of the current node.
-  $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-
-  // Create a RedirectResponse object.
-  $redirect = new RedirectResponse($url->toString());
-
-  // Return the RedirectResponse object.
-  return $redirect;
+    // Add JavaScript to reload the page.
+    $response = new HtmlResponse('<script>window.location.reload(true);</script>');
+    $response->send();
 
     }
 
@@ -59,9 +53,7 @@ class NodeIDIs_pdf extends RulesActionBase
   public function autoSaveContext() {
 
 
-    // Add JavaScript to reload the page.
-    $response = new HtmlResponse('<script>window.location.reload(true);</script>');
-    $response->send();
+
     return FALSE;
   }
 
