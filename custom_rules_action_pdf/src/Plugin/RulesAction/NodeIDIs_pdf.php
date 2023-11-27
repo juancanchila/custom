@@ -1,12 +1,12 @@
 <?php
 
 namespace Drupal\custom_rules_action_pdf\Plugin\RulesAction;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesActionBase;
 use Drupal\Core\Url;
 use Drupal\Core\Routing\TrustedCallbackInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\HtmlResponse;
 
 
