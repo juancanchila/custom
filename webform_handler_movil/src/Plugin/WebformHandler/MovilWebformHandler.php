@@ -228,7 +228,7 @@ if ($valor_liquidacion < $valor_tarifa_evento_25) {
   $valor_tarifa =($valor_liquidacion * 0.6)/100;
   $valor_liquidacion = ($valor_liquidacion * 0.6)/100;
 }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
-  $valor_tarifa =($$valor_liquidacion* 0.4)/100;
+  $valor_tarifa =($valor_liquidacion* 0.4)/100;
   $valor_liquidacion =($valor_liquidacion * 0.4)/100;
 }
 
