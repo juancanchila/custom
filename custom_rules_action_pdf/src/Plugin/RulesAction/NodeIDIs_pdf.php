@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\HtmlResponse;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
+
+
 
 
 
@@ -41,9 +45,6 @@ class NodeIDIs_pdf extends RulesActionBase
   protected function doExecute(NodeInterface $node) {
 
 
-    // Add JavaScript to reload the page.
-    $response = new HtmlResponse('<script>window.location.reload(true);</script>');
-    $response->send();
 
     }
 
@@ -53,8 +54,11 @@ class NodeIDIs_pdf extends RulesActionBase
   public function autoSaveContext() {
 
 
+    // Add JavaScript to reload the page.
+    $response = new AjaxResponse();
+    $response->addCommand(new HtmlCommand(NULL, '<script>window.location.reload(true);</script>'));
 
-    return FALSE;
+    return $response;
   }
 
 
