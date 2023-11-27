@@ -215,14 +215,14 @@ public function money_format_fild($money) {
   $valor_liquidacion = 12699009 *  $numero_dias;
   $valor_liquidacion_r = 10917550 *  $numero_dias;
 }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
-  $valor_tarifa =($valor_evento * 0.5)/100;
-  $valor_liquidacion =($valor_evento * 0.5)/100;
+  $valor_tarifa =($valor_liquidacion * 0.5)/100;
+  $valor_liquidacion =($valor_liquidacion * 0.5)/100;
 }elseif ($valor_liquidacion  == $valor_tarifa_evento_2115 ) {
-  $valor_tarifa =($valor_evento * 0.6)/100;
-  $valor_liquidacion = ($valor_evento * 0.6)/100;
+  $valor_tarifa =($valor_liquidacion * 0.6)/100;
+  $valor_liquidacion = ($valor_liquidacion * 0.6)/100;
 }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
-  $valor_tarifa =($valor_evento * 0.4)/100;
-  $valor_liquidacion =($valor_evento * 0.4)/100;
+  $valor_tarifa =($valor_liquidacion * 0.4)/100;
+  $valor_liquidacion =($valor_liquidacion * 0.4)/100;
 }
 
 
