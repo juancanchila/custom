@@ -170,21 +170,14 @@ public function money_format_fild($money) {
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
     $valor_tarifa =($valor_evento * 0.5)/100;
 
-  }
-
-  if ($valor_liquidacion  = $valor_tarifa_evento_2115 ) {
+  }elseif ($valor_liquidacion  = $valor_tarifa_evento_2115 ) {
     $valor_tarifa =($valor_evento * 0.6)/100;
 
-  }
-
-
- if ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
+  }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
     $valor_tarifa =($valor_evento * 0.4)/100;
 
   }
 
-
-$valor = $valor_liquidacion;
 
 
    $data = $webform_submission->getData();

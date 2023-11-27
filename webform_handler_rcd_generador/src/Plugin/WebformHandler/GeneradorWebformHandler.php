@@ -197,20 +197,18 @@ public function money_format_fild($money) {
     $valor_tarifa =12699009;
     $valor_liquidacion = 12699009 *  $numero_dias * $cantidad ;
     $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
-  }elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
-    $valor_tarifa =12699009;
-    $valor_liquidacion =37374939 *  $numero_dias * $cantidad ;
-    $valor_liquidacion_r =37374939 *   $numero_dias * $cantidad ;
+  }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
+    $valor_tarifa =($valor_evento * 0.5)/100;
 
-  }else {
-    /*$valor_tarifa =($valor_evento * 0.4)/100;
-    $valor_tarifa =208879615;
-   /* $valor_liquidacion =37374939 *  $numero_dias;
-    $valor_liquidacion_r =37374939 *  $numero_dias;*/
+  }elseif ($valor_liquidacion  = $valor_tarifa_evento_2115 ) {
+    $valor_tarifa =($valor_evento * 0.6)/100;
+
+  }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
+    $valor_tarifa =($valor_evento * 0.4)/100;
+
   }
 
 
-$valor = $valor_liquidacion;
 
 
    $data = $webform_submission->getData();
