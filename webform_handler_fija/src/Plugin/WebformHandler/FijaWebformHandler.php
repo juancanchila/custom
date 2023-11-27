@@ -225,15 +225,14 @@ if ($f1 > $f_limit) {
     $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
     $valor_tarifa =($valor_evento * 0.5)/100;
-
-  }elseif ($valor_liquidacion  = $valor_tarifa_evento_2115 ) {
+    $valor_liquidacion =($valor_evento * 0.5)/100;
+  }elseif ($valor_liquidacion  == $valor_tarifa_evento_2115 ) {
     $valor_tarifa =($valor_evento * 0.6)/100;
-
+    $valor_liquidacion = ($valor_evento * 0.6)/100;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
     $valor_tarifa =($valor_evento * 0.4)/100;
-
+    $valor_liquidacion =($valor_evento * 0.4)/100;
   }
-
 
 
    $data = $webform_submission->getData();
