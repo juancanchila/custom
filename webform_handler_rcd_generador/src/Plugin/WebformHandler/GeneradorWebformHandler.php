@@ -201,7 +201,7 @@ public function money_format_fild($money) {
     $valor_tarifa =$valor_evento * 0.05
     $valor_liquidacion =$valor_evento * 0.5;
   }elseif ($valor_liquidacion  == $valor_tarifa_evento_2115 ) {
-    $valor_tarifa =$valor_evento * 0.6;
+    $valor_tarifa =$valor_evento * 0.06;
     $valor_liquidacion = $valor_evento * 0.06;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
     $valor_tarifa =$valor_evento * 0.04;
