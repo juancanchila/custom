@@ -199,7 +199,7 @@ public function money_format_fild($money) {
     $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
     $valor_tarifa =$valor_evento * 0.05
-    $valor_liquidacion =$valor_evento * 0.5;
+    $valor_liquidacion =$valor_evento * 0.05;
   }elseif ($valor_liquidacion  == $valor_tarifa_evento_2115 ) {
     $valor_tarifa =$valor_evento * 0.06;
     $valor_liquidacion = $valor_evento * 0.06;
