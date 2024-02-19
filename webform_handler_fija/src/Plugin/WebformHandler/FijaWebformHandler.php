@@ -224,14 +224,14 @@ if ($f1 > $f_limit) {
     $valor_liquidacion = 12699009 *  $numero_dias * $cantidad ;
     $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_2115  && $valor_liquidacion <= $valor_tarifa_evento_8458) {
-    $valor_tarifa =( $valor_liquidacion * 0.5)/100;
-    $valor_liquidacion =( $valor_liquidacion * 0.5)/100;
+    $valor_tarifa = $valor_liquidacion * 0.05;
+    $valor_liquidacion =$valor_liquidacion * 0.05;
   }elseif ($valor_liquidacion  == $valor_tarifa_evento_2115 ) {
-    $valor_tarifa =( $valor_liquidacion  * 0.6)/100;
-    $valor_liquidacion = ( $valor_liquidacion * 0.6)/100;
+    $valor_tarifa =$valor_liquidacion  * 0.06;
+    $valor_liquidacion =  $valor_liquidacion * 0.06;
   }elseif ($valor_liquidacion  > $valor_tarifa_evento_8458 ) {
-    $valor_tarifa =( $valor_liquidacion  * 0.4)/100;
-    $valor_liquidacion =( $valor_liquidacion * 0.4)/100;
+    $valor_tarifa =$valor_liquidacion  * 0.04;
+    $valor_liquidacion = $valor_liquidacion * 0.04;
   }
 
 
