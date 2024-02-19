@@ -417,8 +417,8 @@ $valor_evento = number_format($valor_evento, 2, ',', '.');
 
 
     if ($valor_liquidacion  <= $valor_tarifa_evento_25) {
-      $valor_tarifa = 149513;
-      $valor_liquidacion = 149513 *  $numero_dias ;
+      $valor_tarifa = 163732;
+      $valor_liquidacion = 163732 *  $numero_dias ;
       $valor_liquidacion_r = 118600*  $numero_dias ;
     } elseif ($valor_liquidacion  > $valor_tarifa_evento_25  && $valor_liquidacion <= $valor_tarifa_evento_35) {
         $valor_tarifa = 209559;
