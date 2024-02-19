@@ -178,8 +178,8 @@ public function money_format_fild($money) {
    $valor_liquidacion =  2629573  *  $numero_dias * $cantidad ;
    $valor_liquidacion_r =  1904150  *  $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  >= $valor_tarifa_evento_400  && $valor_liquidacion < $valor_tarifa_evento_500) {
-      $valor_tarifa = 3001671;
-    $valor_liquidacion =  3001671  *   $numero_dias * $cantidad ;
+      $valor_tarifa = 3287130;
+    $valor_liquidacion =  3287130  *   $numero_dias * $cantidad ;
     $valor_liquidacion_r = 2380300  *   $numero_dias * $cantidad ;
   }elseif ($valor_liquidacion  >= $valor_tarifa_evento_500  && $valor_liquidacion < $valor_tarifa_evento_700) {
       $valor_tarifa =4202580;
