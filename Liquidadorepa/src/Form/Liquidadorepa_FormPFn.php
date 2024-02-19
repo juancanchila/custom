@@ -826,8 +826,8 @@ $params['attachments'][] = [
         $valor_liquidacion = 229488 *  $numero_dias * $cantidad_v ;
         $valor_liquidacion_r = 166200 *  $numero_dias * $cantidad_v ;
       }elseif ($valor_liquidacion  >= $valor_tarifa_evento_35  && $valor_liquidacion < $valor_tarifa_evento_50) {
-          $valor_tarifa =299627;
-        $valor_liquidacion =299627  *  $numero_dias * $cantidad_v ;
+          $valor_tarifa =328121;
+        $valor_liquidacion =328121  *  $numero_dias * $cantidad_v ;
         $valor_liquidacion_r = 237600 *   $numero_dias * $cantidad_v ;
 
       }elseif ($valor_liquidacion  >= $valor_tarifa_evento_50  && $valor_liquidacion < $valor_tarifa_evento_70 ) {
