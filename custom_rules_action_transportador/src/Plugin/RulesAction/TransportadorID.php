@@ -218,7 +218,7 @@ class TransportadorID extends RulesActionBase
            </td>
            </tr>
             <tr>
-              <td><p>VALOR TARIFA SEGÚN RESOLUCIÓN N° 107 de 17 de febrero de 2021 para este monto de proyecto: </p></td>
+              <td><p>VALOR TARIFA SEGÚN RESOLUCIÓN N° EPA-RES-00458-2023 DE martes, 31 de octubre de 2023para este monto de proyecto: </p></td>
               <td colspan="3">
               <p>$ '.$valor_tarifa[0]["value"].'</p>
               </td>
