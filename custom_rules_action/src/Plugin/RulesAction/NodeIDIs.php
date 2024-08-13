@@ -136,7 +136,7 @@ class NodeIDIs extends RulesActionBase
 
           case "Publicidad Fija":
 
-           if( $cantidad[0]["value"] == 1){
+           if( $cantidad[0]["value"] == "1"){
            $texto_dir= " Publicidad";
            }else{
   $texto_dir= " Publicidades";
