@@ -135,12 +135,11 @@ class NodeIDIs extends RulesActionBase
           break;
 
           case "Publicidad Fija":
-
-           if( $cantidad[0]["value"] == "1"){
-           $texto_dir= " Publicidad";
-           }else{
-  $texto_dir= " Publicidades";
-           }
+            if (intval($cantidad[0]["value"]) == 1) {
+              $texto_dir = "Publicidad";
+          } else {
+              $texto_dir = "Publicidades";
+          }
 
 
               //Set pfija values
