@@ -135,11 +135,6 @@ class NodeIDIs extends RulesActionBase
           break;
 
           case "Publicidad Fija":
-            if (intval($cantidad[0]["value"]) == 1) {
-              $texto_dir = "Publicidad";
-          } else {
-              $texto_dir = "Publicidades";
-          }
 
 
               //Set pfija values
@@ -147,6 +142,12 @@ class NodeIDIs extends RulesActionBase
             $sec ="01"."0".$consecutivo_facturas[0]["value"].date('Y');
             $node->setTitle($sec); // Definiendo titulo consecutivo
             $cantidad= $node->get('field_cantidad')->getValue();
+            if (intval($cantidad[0]["value"]) == 1) {
+              $texto_dir = "Publicidad";
+          } else {
+              $texto_dir = "Publicidades";
+          }
+
             $concepto ='<p class="concepto">LIQUIDACION POR CONCEPTO DE  VIABILIDAD AMBIENTAL  PARA LA PUBLICIDAD EXTERIOR VISUAL FIJA PARA '.$cantidad[0]["value"].' '. $texto_dir.' , CON UN COSTO DE REALIZACIÓN DE INVERSIÓN DE IMPLEMENTACION DE PROYECTO DE  : '.$valor_evento[0]["value"].' Por un periodo de :'.$duracion[0]["value"].' Meses, SEGÚN SOLICITUD #'.$sec.'</p>' ;
 
            /* $type = "Publicidad Fija ";
