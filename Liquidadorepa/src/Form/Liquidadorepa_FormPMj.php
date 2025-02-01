@@ -779,11 +779,11 @@ $form_state->setRedirectUrl($url);
      $valor_liquidacion = 98627064  *  $numero_dias * $cantidad ;
      $valor_liquidacion_r = 98627060 *  $numero_dias * $cantidad ;
     }elseif ($valor_liquidacion >= $valor_tarifa_evento_1500  && $valor_liquidacion < $valor_tarifa_evento_2115) {
-      $valor_tarifa =13906685;
-      $valor_liquidacion = 13906685 *  $numero_dias * $cantidad ;
+      $valor_tarifa =14669885;
+      $valor_liquidacion = 14669885 *  $numero_dias * $cantidad ;
       $valor_liquidacion_r = 10917550 *   $numero_dias * $cantidad ;
     }elseif ($valor_liquidacion  >= $valor_tarifa_evento_2115  && $valor_liquidacion < $valor_tarifa_evento_8458) {
-      $valor_tarifa =13906685;
+      $valor_tarifa =14669885;
       $valor_liquidacion =37374939 *  $numero_dias * $cantidad ;
       $valor_liquidacion_r =37374939 *   $numero_dias * $cantidad ;
 
