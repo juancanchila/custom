@@ -377,8 +377,8 @@ class Liquidadorepa_FormRSJ extends FormBase
       $valor_liquidacion = 242129 *  $numero_dias ;
       $valor_liquidacion_r = 166200 *  $numero_dias ;
     }elseif ($valor_liquidacion  >= $valor_tarifa_evento_35  && $valor_liquidacion < $valor_tarifa_evento_50) {
-        $valor_tarifa =328121;
-      $valor_liquidacion =328121  *  $numero_dias;
+        $valor_tarifa =346098;
+      $valor_liquidacion =346098  *  $numero_dias;
       $valor_liquidacion_r = 237600 *  $numero_dias ;
 
     }elseif ($valor_liquidacion  >= $valor_tarifa_evento_50  && $valor_liquidacion < $valor_tarifa_evento_70 ) {
