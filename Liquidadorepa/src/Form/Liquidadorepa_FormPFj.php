@@ -883,8 +883,8 @@ if ($valor_liquidacion < $valor_tarifa_evento_25) {
        $valor_liquidacion = 4854844*  $numero_dias * $cantidad_v  ;
        $valor_liquidacion_r = 3332600 *  $numero_dias *$cantidad_v  ;
       }elseif ($valor_liquidacion  >= $valor_tarifa_evento_700  && $valor_liquidacion < $valor_tarifa_evento_900) {
-          $valor_tarifa = 5917360;
-        $valor_liquidacion = 5917360  *   $numero_dias * $cantidad_v  ;
+          $valor_tarifa = 6242123;
+        $valor_liquidacion = 6242123  *   $numero_dias * $cantidad_v  ;
         $valor_liquidacion_r = 4284900 *   $numero_dias * $cantidad_v  ;
       }elseif ($valor_liquidacion  >= $valor_tarifa_evento_900  && $valor_liquidacion < $valor_tarifa_evento_1500) {
           $valor_tarifa =98627064;
