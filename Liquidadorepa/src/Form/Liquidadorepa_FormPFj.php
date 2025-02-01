@@ -840,8 +840,8 @@ $params['attachments'][] = [
       $this->setSessionValue('session_liquidacion.error',  $valor_liquidacion);
 
 if ($valor_liquidacion < $valor_tarifa_evento_25) {
-        $valor_tarifa = 163732;//ok
-        $valor_liquidacion = 163732 *  $numero_dias * $cantidad_v  ;
+        $valor_tarifa = 172702;//ok
+        $valor_liquidacion = 172702 *  $numero_dias * $cantidad_v  ;
         $valor_liquidacion_r = 118600 * $numero_dias * $cantidad_v  ;
 
 

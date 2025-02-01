@@ -162,8 +162,8 @@ public function money_format_fild($money) {
 
 
  if ($valor_liquidacion < $valor_tarifa_evento_25) {
-  $valor_tarifa = 163732;//ok
-  $valor_liquidacion = 163732 *  $numero_dias ;
+  $valor_tarifa = 172702;//ok
+  $valor_liquidacion = 172702 *  $numero_dias ;
   $valor_liquidacion_r = 118600 *  $numero_dias ;
 } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
     $valor_tarifa = 229488;//ok

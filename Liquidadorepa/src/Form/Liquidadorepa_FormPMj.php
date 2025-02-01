@@ -730,8 +730,8 @@ $form_state->setRedirectUrl($url);
 
 
     if ($valor_liquidacion < $valor_tarifa_evento_25) {
-      $valor_tarifa = 163732;//ok
-      $valor_liquidacion = 163732 *  $numero_dias * $cantidad ;
+      $valor_tarifa = 172702;//ok
+      $valor_liquidacion = 172702 *  $numero_dias * $cantidad ;
       $valor_liquidacion_r = 118600 *   $numero_dias * $cantidad ;
     } elseif ($valor_liquidacion  >= $valor_tarifa_evento_25  && $valor_liquidacion < $valor_tarifa_evento_35) {
         $valor_tarifa = 229488;//ok
