@@ -1,9 +1,7 @@
 name: 'Webform Handler: Validate Dates'
 type: module
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9.4 || ^10
 package: 'Webform'
 dependencies:
-  - webform:webform (>=8.x-5.x)
-description: |
-  Configurable handler for comparing two fields on a webform.
-
+  - drupal:webform
+description: 'Configurable handler for comparing two dates on a webform.'

@@ -1,29 +1,29 @@
 {
-    "name": "webform_handler_validate_dates",
+    "name": "drupal/webform_handler_validate_dates",
     "type": "drupal-module",
     "description": "Configurable handler for comparing two dates on a webform.",
-    "keywords": [    ],
-    "license": "GPL-2.0+",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/webform_handler_validate_dates",
     "minimum-stability": "dev",
     "authors": [
-      {
-        "name": "JG",
-        "homepage": "http://epacartagena.gov.co",
-        "role": "Maintainer"
-      }
+        {
+            "name": "JG",
+            "homepage": "https://www.drupal.org/u/jg",
+            "role": "Maintainer"
+        }
     ],
     "support": {
-        "issues": "http://epacartagena.gov.co",
-        "source": "http://epacartagena.gov.co"
+        "issues": "https://www.drupal.org/project/issues/webform_handler_validate_dates",
+        "source": "https://git.drupalcode.org/project/webform_handler_validate_dates"
     },
-    "repositories":[
-      {
-        "type": "composer",
-        "url": "https://packages.drupal.org/8"
-      }
-    ],
     "require": {
-      "drupal/webform": "^5.5 || ^6.0"
+        "drupal/core": "^9.4 || ^10",
+        "drupal/webform": "^6.0"
+    },
+    "extra": {
+        "drupal": {
+            "version": "2.0.0"
+        }
     }
 }
