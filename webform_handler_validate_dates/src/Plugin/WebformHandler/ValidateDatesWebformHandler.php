@@ -127,7 +127,8 @@ public function money_format_fild($money) {
 
  //calculos
  $vocabulary_name = 'smlv';
- $query = \Drupal::entityQuery('taxonomy_term');
+$query = \Drupal::entityQuery('taxonomy_term')
+  ->accessCheck(FALSE);
  $query->condition('vid', $vocabulary_name);
  $tids = $query->execute();
  $terms = Term::loadMultiple($tids);
